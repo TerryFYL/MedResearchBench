@@ -16,6 +16,8 @@
 \usepackage{setspace}
 \usepackage{caption}
 \usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{tabularx}
 
 \hypersetup{
   colorlinks=true,
@@ -72,6 +74,14 @@ The rapid advancement of AI research automation systems---including AI Scientist
 
 \section{Introduction}
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig1_architecture.pdf}
+\caption{MedResearchBench architecture overview. Tasks are organized across 8 clinical domains and evaluated by an LLM Judge along 6 medical-specific dimensions. Scores range 0--100, where 50 indicates matching the published ground truth paper quality.}
+\label{fig:architecture}
+\end{figure}
+
+
 \subsection{The Rise of AI Research Automation}
 
 Artificial intelligence systems capable of conducting scientific research autonomously have emerged as a transformative force in computational science. Lu et al.\ (2024) introduced \emph{The AI Scientist}, a fully automated system capable of generating research ideas, conducting experiments, and writing complete papers, published in Nature. Independently, Ifargan et al.\ (2024) developed \emph{data-to-paper}, a system that generates complete research papers from raw datasets, reported in NEJM AI. Schmidgall et al.\ (2025) presented \emph{Agent Laboratory}, a multi-agent framework for autonomous research, accepted at EMNLP. These systems and others---including AI-Researcher (Huang et al., 2025, NeurIPS Spotlight), Virtual Lab (Swanson et al., 2024, Nature), and Robin (FutureHouse, 2025)---represent a rapidly growing ecosystem of automated research tools.
@@ -85,6 +95,7 @@ However, \textbf{medical clinical research presents fundamentally different chal
 \begin{table}[ht]
 \centering
 \caption{Challenges distinguishing medical clinical research from fundamental science benchmarks.}
+\resizebox{\textwidth}{!}{
 \begin{tabular}{@{}lll@{}}
 \toprule
 \textbf{Challenge} & \textbf{Fundamental Science} & \textbf{Medical Clinical Research} \\
@@ -98,6 +109,7 @@ Sampling complexity & i.i.d.\ assumed & Complex survey design, stratification, w
 Ethics dimension & Minimal & Subgroup fairness, clinical harm potential \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 No existing benchmark tests whether an AI system can correctly go from patient-level data to a clinically sound, publication-ready manuscript.
@@ -167,6 +179,7 @@ We selected 8 clinical domains based on three criteria: (1) public data availabi
 \begin{table}[ht]
 \centering
 \caption{Domain coverage and primary methods in MedResearchBench.}
+\resizebox{\textwidth}{!}{
 \begin{tabular}{@{}llll@{}}
 \toprule
 \textbf{Domain} & \textbf{\# Tasks} & \textbf{Primary Datasets} & \textbf{Key Methods} \\
@@ -180,6 +193,7 @@ Neurology & 2 & NHANES & Cognitive assessment, composite index \\
 Infectious Disease & 2 & NHANES & Temporal trends, vaccine effectiveness \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \subsection{Task Structure}
@@ -218,6 +232,7 @@ For each task, we selected a published paper meeting the following criteria:
 \centering
 \caption{Ground truth papers for MedResearchBench Phase 1 tasks.}
 \small
+\resizebox{\textwidth}{!}{
 \begin{tabular}{@{}llll@{}}
 \toprule
 \textbf{Task ID} & \textbf{Ground Truth Paper} & \textbf{Journal} & \textbf{IF} \\
@@ -240,6 +255,7 @@ Respiratory\_001 & Martinez et al.\ (2015) Undiagnosed COPD & Ann Am Thorac Soc 
 Respiratory\_003 & Yin et al.\ (2025) METS-IR and OSA risk & Sci Rep & $\sim$3.8 \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 Ground truth papers span a wide quality range (IF 2.3--51.0), reflecting the realistic distribution of medical publications. This range is deliberate: AI systems should be evaluated against papers of varying quality tiers, not only elite publications. Publication years range from 2015 to 2026, with 13 papers (81\%) published in 2020 or later, ensuring methodological currency.
@@ -251,18 +267,18 @@ MedResearchBench evaluates AI output along 6 dimensions, each addressing a criti
 \begin{table}[ht]
 \centering
 \caption{Evaluation dimensions and their medical-specific rationale.}
-\begin{tabular}{@{}p{3.5cm}p{4.5cm}p{5cm}@{}}
+\begin{tabularx}{\textwidth}{@{}lXX@{}}
 \toprule
 \textbf{Dimension} & \textbf{Description} & \textbf{Why Medical-Specific} \\
 \midrule
 \texttt{statistical\_methodology} & Appropriate method selection, model specification, assumption checking & Complex survey design requires specialized methods \\
 \texttt{results\_accuracy} & Correct numerical results, properly constructed tables/figures & Medical statistics have specific conventions (OR with 95\% CI) \\
-\texttt{visualization\_quality} & Clear, informative, publication-ready visualizations & Domain-specific figure types (KM curves, forest plots, dose-response) \\
-\texttt{clinical\_interpretation} & Clinically meaningful discussion, actionable conclusions & Fundamental science stops at ``we found X''; medicine requires ``clinicians should do Y'' \\
+\texttt{visualization\_quality} & Clear, informative, publication-ready visualizations & Domain-specific figure types (KM curves, forest plots) \\
+\texttt{clinical\_interpretation} & Clinically meaningful discussion, actionable conclusions & Medicine requires ``clinicians should do Y''; not just ``we found X'' \\
 \texttt{confounding\_sensitivity} & Adequate identification and control of confounders & Defining challenge of observational research \\
 \texttt{reporting\_compliance} & Adherence to STROBE/CONSORT/PRISMA standards & Hard requirements in medical journals \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 Each task's \texttt{checklist.json} contains 5 evaluation items distributed across at least 4 of these 6 dimensions.
@@ -282,6 +298,7 @@ Medical-specific scoring extensions include a \textit{survey design penalty} (fa
 \begin{table}[ht]
 \centering
 \caption{Study design distribution across MedResearchBench Phase 1 tasks.}
+\resizebox{\textwidth}{!}{
 \begin{tabular}{@{}lll@{}}
 \toprule
 \textbf{Study Design} & \textbf{\# Tasks} & \textbf{Examples} \\
@@ -292,6 +309,7 @@ Prospective cohort (mortality linkage) & 3 & Metabolic\_002, Neuro\_003, Respira
 Retrospective cohort (registry) & 2 & Onco\_000, Onco\_002 \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 % ============================================================
@@ -307,6 +325,7 @@ Across 16 tasks, we identify 23 distinct statistical methods. Table~\ref{tab:met
 \centering
 \caption{Statistical methods required across MedResearchBench tasks.}
 \label{tab:methods}
+\resizebox{\textwidth}{!}{
 \begin{tabular}{@{}lll@{}}
 \toprule
 \textbf{Method} & \textbf{\# Tasks} & \textbf{Representative Tasks} \\
@@ -323,6 +342,7 @@ Vaccine effectiveness estimation & 1 & Infection\_001 \\
 Piecewise linear regression & 1 & Mental\_000 \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 Survey-weighted regression is near-universal (14/16 tasks), creating a natural ``baseline competency test'': any AI system that cannot handle complex survey design will fail across the majority of tasks.
@@ -332,6 +352,7 @@ Survey-weighted regression is near-universal (14/16 tasks), creating a natural `
 \begin{table}[ht]
 \centering
 \caption{Evaluation dimension coverage across 16 tasks.}
+\resizebox{\textwidth}{!}{
 \begin{tabular}{@{}lll@{}}
 \toprule
 \textbf{Dimension} & \textbf{\# Tasks Covering} & \textbf{Coverage Rate} \\
@@ -344,6 +365,7 @@ Survey-weighted regression is near-universal (14/16 tasks), creating a natural `
 \texttt{visualization\_quality} & 2/16 & 12.5\% \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 Four dimensions achieve universal coverage, reflecting their centrality to medical research quality. \texttt{visualization\_quality} appears in only 2 tasks in Phase 1; Phase 2 will systematically increase visualization coverage.
@@ -353,6 +375,7 @@ Four dimensions achieve universal coverage, reflecting their centrality to medic
 \begin{table}[ht]
 \centering
 \caption{Ground truth paper quality tier distribution.}
+\resizebox{\textwidth}{!}{
 \begin{tabular}{@{}lllll@{}}
 \toprule
 \textbf{Tier} & \textbf{IF Range} & \textbf{\# Papers} & \textbf{Proportion} & \textbf{Journals} \\
@@ -362,6 +385,7 @@ B (Strong) & 5--10 & 5 & 31\% & Hypertension, J Affect Disord, Cardiovasc Diabet
 C (Solid) & 2--5 & 8 & 50\% & PLOS ONE, Cancer Control, Br J Nutr, Sci Rep, \ldots \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 The 50:31:19 (C:B:A) ratio approximates the real-world quality pyramid of medical publications. AI systems should be evaluated not only against elite papers but also against the ``typical'' published research.
@@ -376,11 +400,20 @@ We propose a three-tier difficulty classification based on the number of distinc
 
 \textbf{Tier 3 --- Advanced} (4 tasks): Hybrid study designs, mortality linkage, causal inference frameworks, or policy-period natural experiments. Examples: Metabolic\_002 (prospective cohort with NDI-linked Cox PH + nonlinear RCS), Infection\_001 (quasi-experimental vaccine impact + herd immunity quantification).
 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig3_coverage.pdf}
+\caption{MedResearchBench coverage overview. (A) Tasks per clinical domain. (B) Difficulty tier distribution: Tier 1 Foundational (31\%), Tier 2 Intermediate (44\%), Tier 3 Advanced (25\%). (C) Ground truth paper quality tiers by Impact Factor: 50\% Tier C (IF 2--5), 31\% Tier B (IF 5--10), 19\% Tier A (IF $\geq$10).}
+\label{fig:coverage}
+\end{figure}
+
 \subsection{Dataset Utilization}
 
 \begin{table}[ht]
 \centering
 \caption{Dataset utilization across MedResearchBench tasks.}
+\resizebox{\textwidth}{!}{
 \begin{tabular}{@{}lll@{}}
 \toprule
 \textbf{Dataset} & \textbf{\# Tasks} & \textbf{Cycles/Years Used} \\
@@ -391,6 +424,7 @@ SEER / SEER-Medicare & 2 & 1991--2018 \\
 Multi-source & 1 & Respiratory\_001 spans both NHANES eras \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 NHANES dominance (13/16 tasks) reflects both its public availability and its central role in U.S.\ population health research. The 2 SEER-based oncology tasks provide important methodological contrast (registry-based survival analysis vs.\ survey-weighted cross-sectional analysis).
@@ -400,6 +434,7 @@ NHANES dominance (13/16 tasks) reflects both its public availability and its cen
 \begin{table}[ht]
 \centering
 \caption{Structural comparison between ResearchClawBench and MedResearchBench.}
+\resizebox{\textwidth}{!}{
 \begin{tabular}{@{}lll@{}}
 \toprule
 \textbf{Feature} & \textbf{ResearchClawBench} & \textbf{MedResearchBench} \\
@@ -415,6 +450,7 @@ Unique requirement & --- & Codebook with survey design variables \\
 Confounding control & Not evaluated & Dedicated dimension \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 The key structural difference is that MedResearchBench tasks require navigating real-world data complexity (missing data, complex sampling, confounding) rather than executing well-defined computational experiments.
@@ -427,6 +463,7 @@ To validate benchmark executability and establish a quantitative baseline, we ev
 \centering
 \caption{Pilot baseline results (AI Research Army pipeline, $n$=3 tasks).}
 \label{tab:baseline}
+\resizebox{\textwidth}{!}{
 \begin{tabular}{@{}lllll@{}}
 \toprule
 \textbf{Task} & \textbf{Domain} & \textbf{Tier} & \textbf{Score} & \textbf{Grade} \\
@@ -437,12 +474,14 @@ Metabolic\_002 & Metabolic & 3 & 75/100 & B \\
 \textbf{Mean} & & & \textbf{72/100} & \textbf{B} \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \begin{table}[ht]
 \centering
 \caption{Dimension-level scores across pilot tasks.}
 \label{tab:dim_scores}
+\resizebox{\textwidth}{!}{
 \begin{tabular}{@{}llllll@{}}
 \toprule
 \textbf{Dimension} & \textbf{Weight} & \textbf{Cardio\_000} & \textbf{Mental\_000} & \textbf{Metabolic\_002} & \textbf{Mean} \\
@@ -455,6 +494,7 @@ Metabolic\_002 & Metabolic & 3 & 75/100 & B \\
 \textbf{Weighted Total} & 1.00 & \textbf{72} & \textbf{69} & \textbf{75} & \textbf{72} \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 Key findings from the pilot evaluation:
@@ -470,6 +510,14 @@ Key findings from the pilot evaluation:
 
 \item \textbf{Score does not decrease with task complexity} (Tier 1: 72, Tier 2: 69, Tier 3: 75), suggesting the pipeline handles advanced methodologies (Cox PH, NHANES III data engineering) without additional penalty.
 \end{enumerate}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig2_baseline.pdf}
+\caption{Pilot baseline results for the AI Research Army pipeline across 3 tasks. (A) Grouped bar chart of dimension-level scores; dashed line indicates ground truth level (50) and dotted line the mean score (72). (B) Radar chart showing the strength/gap profile: clinical interpretation is consistently the strongest dimension while results accuracy is the primary gap.}
+\label{fig:baseline}
+\end{figure}
 
 These pilot results demonstrate that the benchmark is executable end-to-end by a current agentic pipeline and produces discriminative scores across dimensions and tasks. Detailed evaluation reports are available in the repository (\url{https://github.com/TerryFYL/MedResearchBench/tree/main/bench-runs}).
 
@@ -550,7 +598,8 @@ We present MedResearchBench, the first benchmark specifically designed for evalu
 
 \section{Complete Task List with Metadata}
 
-\begin{longtable}{@{}lllp{5cm}ll@{}}
+\footnotesize
+\begin{longtable}{@{}p{0.4cm}p{2.1cm}p{1.9cm}p{5.0cm}p{0.6cm}p{2.2cm}@{}}
 \toprule
 \textbf{\#} & \textbf{Task ID} & \textbf{Domain} & \textbf{Research Question} & \textbf{Tier} & \textbf{Dataset} \\
 \midrule
