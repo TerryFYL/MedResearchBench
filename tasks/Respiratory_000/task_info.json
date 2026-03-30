@@ -1,0 +1,53 @@
+{
+  "task": "Investigate the associations between blood volatile organic compound (VOC) levels and airflow obstruction among U.S. adults using NHANES 2007-2012 data. The analysis should: (1) screen blood VOC concentrations (measured by headspace solid-phase microextraction/gas chromatography/isotope dilution mass spectrometry) and identify compounds with detection frequency >= 10% among 41 measured blood VOCs; (2) classify participants by airflow obstruction status using pre-bronchodilator spirometry (FEV1/FVC < 0.70) and further distinguish non-reversible obstruction (post-bronchodilator FEV1/FVC < 0.70) from reversible obstruction (post-bronchodilator FEV1/FVC >= 0.70) consistent with GOLD criteria; (3) estimate adjusted odds ratios for the association between each qualifying blood VOC (log-transformed) and non-reversible and reversible airflow obstruction using survey-weighted multivariable logistic regression adjusting for age, poverty income ratio, BMI, pack-years of smoking (log-transformed), sex, race/ethnicity, current/past smoking, environmental tobacco smoke exposure, and physical activity; (4) test for effect modification by smoking status using interaction terms; (5) conduct sensitivity analyses excluding current smokers. The study population includes adults aged 20 years and older with valid pre- and post-bronchodilator spirometry and blood VOC measurements across three pooled NHANES cycles (2007-2008, 2009-2010, 2011-2012). All analyses must account for the complex survey design of NHANES (sampling weights, PSU, strata) and use appropriate 6-year combined weights.",
+  "data": [
+    {
+      "name": "NHANES 2007-2012 Demographics (3 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables from DEMO_E, DEMO_F, and DEMO_G including age, sex, race/ethnicity, education, poverty income ratio. Combined across 3 cycles."
+    },
+    {
+      "name": "NHANES 2007-2012 Spirometry — Pre and Post-Bronchodilator (3 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Pre-bronchodilator and post-bronchodilator spirometry from SPX_E, SPX_F, SPX_G including FEV1, FVC, FEV1/FVC, quality grades. Post-bronchodilator testing performed on participants with baseline obstruction."
+    },
+    {
+      "name": "NHANES 2007-2012 Blood Volatile Organic Compounds (3 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Blood concentrations of 41 VOCs measured by headspace SPME-GC-IDMS. Includes xylenes, styrene, toluene, benzene, chloroform, bromodichloromethane, dibromochloromethane, and other compounds. Subsample with special weights."
+    },
+    {
+      "name": "NHANES 2007-2012 Smoking and Cotinine (3 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Smoking questionnaire (SMQ_E/F/G) for current/past smoking status and pack-years; serum cotinine (COT_E/F/G) for environmental tobacco smoke exposure assessment."
+    },
+    {
+      "name": "NHANES 2007-2012 Body Measures and Physical Activity (3 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Body measures (BMX_E/F/G) for BMI calculation; physical activity questionnaire (PAQ_E/F/G) for activity level covariates."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for all NHANES 2007-2012 components used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Respiratory",
+    "study_design": "cross-sectional (pooled 3 cycles)",
+    "primary_methods": [
+      "survey-weighted multivariable logistic regression",
+      "non-reversible vs reversible airflow obstruction classification",
+      "sensitivity analysis (smoker exclusion)",
+      "effect modification by smoking status"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 2007-2012 (3 combined cycles)"
+  }
+}

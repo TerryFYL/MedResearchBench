@@ -1,0 +1,54 @@
+{
+  "task": "Evaluate the efficacy of homeostasis model assessment of insulin resistance (HOMA-IR) as a predictor of metabolic syndrome (MetS) among U.S. adults using NHANES 2011-2018 data. The analysis should: (1) calculate HOMA-IR from fasting plasma glucose and fasting serum insulin using the standard formula [HOMA-IR = (fasting glucose × fasting insulin) / 405]; (2) define metabolic syndrome using NCEP ATP III/AHA-NHLBI harmonized criteria (≥3 of: elevated waist circumference, elevated triglycerides, reduced HDL-C, elevated blood pressure, elevated fasting glucose); (3) estimate MetS prevalence in the nationally representative adult population using survey-weighted analysis; (4) determine the optimal HOMA-IR cutoff for discriminating MetS from non-MetS using receiver operating characteristic (ROC) curve analysis with Youden index optimization; (5) evaluate diagnostic performance metrics including sensitivity, specificity, area under the curve (AUC), and positive/negative predictive values; (6) examine whether optimal HOMA-IR thresholds vary across subgroups defined by BMI category (normal weight, overweight, obese), sex, age group, and race/ethnicity. The study population includes nonpregnant adults aged 18 years and older with fasting subsample laboratory data. All analyses must account for the complex survey design of NHANES (sample weights, PSU, strata).",
+  "data": [
+    {
+      "name": "NHANES 2011-2018 Demographics",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables including age, sex, race/ethnicity, education, and income from four NHANES cycles (2011-2012, 2013-2014, 2015-2016, 2017-2018). See codebook.md for variable definitions."
+    },
+    {
+      "name": "NHANES 2011-2018 Fasting Glucose and Insulin",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Fasting plasma glucose (mg/dL) and fasting serum insulin (uU/mL) from the fasting subsample laboratory component. Required for HOMA-IR calculation."
+    },
+    {
+      "name": "NHANES 2011-2018 Lipid Panel",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Total cholesterol, HDL cholesterol, LDL cholesterol, and triglycerides from fasting subsample laboratory data. Required for MetS criteria."
+    },
+    {
+      "name": "NHANES 2011-2018 Blood Pressure and Body Measures",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Systolic and diastolic blood pressure readings, waist circumference, BMI, and body weight from examination components. Required for MetS criteria."
+    },
+    {
+      "name": "NHANES 2011-2018 Medical Conditions and Medications",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Self-reported diabetes diagnosis, antihypertensive medication use, lipid-lowering medication use, and other medical conditions. Required for MetS criteria adjudication."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for all NHANES 2011-2018 components used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Metabolic",
+    "study_design": "cross-sectional",
+    "primary_methods": [
+      "ROC curve analysis",
+      "Youden index optimal cutpoint determination",
+      "survey-weighted prevalence estimation",
+      "survey-weighted logistic regression",
+      "subgroup analysis by BMI category"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 2011-2018"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "task": "Examine racial and ethnic disparities in the hypertension control cascade (prevalence, awareness, treatment, and control) among U.S. adults using pooled NHANES 2013-2018 data. The analysis should: (1) estimate age-standardized prevalence of hypertension by race/ethnicity (White, Black, Hispanic, Asian, Other) using survey-weighted methods; (2) calculate the proportion aware of their hypertension, currently treated, and with controlled blood pressure (<140/90 mmHg) within each racial/ethnic group; (3) use multivariable logistic regression to compute adjusted odds ratios for hypertension awareness, treatment, and control comparing each racial/ethnic minority group to White adults as the reference, adjusting for age, sex, insurance status, education, income, BMI, diabetes, and cardiovascular disease history; (4) present the hypertension control cascade (prevalence -> awareness -> treatment -> control) stratified by race/ethnicity. Hypertension is defined as systolic BP >= 140 mmHg, diastolic BP >= 90 mmHg, or current use of antihypertensive medication. All analyses must incorporate NHANES complex survey design variables.",
+  "data": [
+    {
+      "name": "NHANES 2013-2018 Demographics (3 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables including age, sex, self-reported race/ethnicity, education, income-to-poverty ratio, and health insurance status from NHANES cycles 2013-2014, 2015-2016, and 2017-2018."
+    },
+    {
+      "name": "NHANES 2013-2018 Blood Pressure Examination",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Up to 3 consecutive BP readings per participant from the MEC examination component across 3 NHANES cycles."
+    },
+    {
+      "name": "NHANES 2013-2018 Questionnaire Data",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Self-reported hypertension diagnosis, antihypertensive medication use, diabetes diagnosis, and CVD history."
+    },
+    {
+      "name": "NHANES 2013-2018 Prescription Medication",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Current prescription medications with therapeutic classification codes for identifying antihypertensive agents."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for pooled NHANES 2013-2018 analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Cardio",
+    "study_design": "cross-sectional (pooled multi-cycle)",
+    "primary_methods": [
+      "survey-weighted logistic regression",
+      "age-standardization (direct method)",
+      "hypertension control cascade analysis",
+      "subgroup analysis by race/ethnicity"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 2013-2014, 2015-2016, 2017-2018"
+  }
+}

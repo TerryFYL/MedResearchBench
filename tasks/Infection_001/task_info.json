@@ -1,0 +1,54 @@
+{
+  "task": "Evaluate the population-level impact and individual-level effectiveness of human papillomavirus (HPV) vaccination on the prevalence of vaccine-targeted HPV genotypes among sexually experienced U.S. females and males aged 14-24 years using NHANES data from 2003 to 2018. The analysis should: (1) estimate survey-weighted prevalence of quadrivalent HPV vaccine (4vHPV)-targeted types (HPV 6, 11, 16, 18) and non-vaccine types among sexually experienced females in four eras: prevaccine (2003-2006), and three vaccine eras (2007-2010, 2011-2014, 2015-2018); (2) calculate vaccine impact as the percent reduction in 4vHPV-type prevalence from the prevaccine era to each vaccine era, overall and stratified by vaccination status (vaccinated vs. unvaccinated); (3) estimate vaccine effectiveness as 1 minus the prevalence ratio (vaccinated/unvaccinated) within each vaccine era; (4) assess indirect protection (herd immunity) by quantifying HPV prevalence reductions among unvaccinated females; (5) extend the analysis to sexually experienced males aged 14-24 using NHANES 2013-2018 data (male genital HPV testing began in 2013-2014); (6) monitor for potential type replacement by tracking non-4vHPV-type prevalence trends. HPV DNA detection is based on participant-collected cervicovaginal swabs (females) and penile swabs (males) tested by PCR-based genotyping. Self-reported HPV vaccination history (>= 1 dose) is obtained from the immunization questionnaire. All analyses must account for the complex survey design of NHANES (sample weights, PSU, strata).",
+  "data": [
+    {
+      "name": "NHANES 2003-2018 Demographics (8 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables including age, sex, race/ethnicity, education, and family income. Used for population characterization and vaccination coverage denominators."
+    },
+    {
+      "name": "NHANES 2003-2018 HPV DNA Genotyping (Females)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "HPV DNA results from self-collected cervicovaginal swabs tested by Roche Linear Array HPV Genotyping Test. Covers 37 HPV types including vaccine types (6, 11, 16, 18) and high-risk non-vaccine types."
+    },
+    {
+      "name": "NHANES 2013-2018 HPV DNA Genotyping (Males)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "HPV DNA results from self-collected penile swabs. Male genital HPV testing was incorporated into NHANES starting in 2013-2014."
+    },
+    {
+      "name": "NHANES 2003-2018 Sexual Behavior Questionnaire",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Self-reported sexual experience, age at first intercourse, and number of lifetime sexual partners. Used to define the 'sexually experienced' study population."
+    },
+    {
+      "name": "NHANES 2007-2018 Immunization Questionnaire",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Self-reported HPV vaccination history including receipt of >= 1 dose. HPV vaccination questions added to NHANES starting in 2007-2008 cycle."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for all NHANES components used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Infection",
+    "study_design": "serial cross-sectional (vaccine impact/effectiveness)",
+    "primary_methods": [
+      "survey-weighted prevalence estimation",
+      "vaccine impact estimation (percent prevalence reduction)",
+      "vaccine effectiveness estimation (1 - prevalence ratio)",
+      "herd immunity assessment",
+      "type replacement monitoring"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 2003-2018 (8 cycles)"
+  }
+}

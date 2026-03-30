@@ -1,0 +1,36 @@
+{
+  "task": "Examine temporal trends in sociodemographic disparities in colorectal cancer staging and survival among Medicare beneficiaries aged 65 years and older using SEER-Medicare linked data (1991-2010). The analysis should: (1) construct multinomial logistic regression models to assess the association between sociodemographic factors (race/ethnicity, area-level median household income, rurality) and CRC stage at diagnosis (localized, regional, distant vs. unstaged), adjusting for age, sex, and tumor site; (2) build Cox proportional hazards models to evaluate whether sociodemographic factors predict CRC-specific mortality, adjusting for stage, treatment, comorbidities, and demographics; (3) stratify all analyses across four time periods reflecting Medicare screening coverage changes: Period 1 (1991-1997, pre-screening coverage), Period 2 (1998-June 2001, FOBT+sigmoidoscopy), Period 3 (July 2001-2005, colonoscopy added), Period 4 (2006-2010, highest screening uptake); (4) generate temporal trend comparisons to determine whether sociodemographic disparities in staging and survival have narrowed or persisted over time; (5) compute adjusted odds ratios for late-stage (distant) diagnosis and adjusted hazard ratios for CRC mortality by race/ethnicity and income area. The study population includes Medicare beneficiaries aged 65+ diagnosed with primary colorectal cancer in SEER registries. Area-level income is classified using census tract or county-level median household income from linked Census data.",
+  "data": [
+    {
+      "name": "SEER-Medicare Linked Data (1991-2010)",
+      "path": "./data/placeholder.txt",
+      "type": "ASCII text / CSV",
+      "description": "SEER cancer registry data linked to Medicare claims files, including patient demographics, tumor characteristics (site, histology, stage, grade), Medicare enrollment, and survival/vital status."
+    },
+    {
+      "name": "Census Area-Level Socioeconomic Data",
+      "path": "./data/placeholder.txt",
+      "type": "ASCII text / CSV",
+      "description": "County or census tract-level median household income and rural-urban classification linked to SEER-Medicare records via FIPS codes."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and recoding instructions for SEER-Medicare variables and area-level socioeconomic indicators used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Onco",
+    "study_design": "retrospective cohort (population-based cancer registry + claims linkage)",
+    "primary_methods": [
+      "multinomial logistic regression",
+      "Cox proportional hazards regression",
+      "temporal trend analysis across policy periods",
+      "area-level socioeconomic stratification",
+      "race/ethnicity disparity analysis"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "SEER-Medicare (1991-2010)"
+  }
+}

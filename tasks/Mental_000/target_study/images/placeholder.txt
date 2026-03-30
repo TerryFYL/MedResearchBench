@@ -1,0 +1,11 @@
+# Figure Descriptions — Dong et al. 2022, J Affect Disord
+
+## Figure 1: U-Shaped Dose-Response Curve
+- **Content**: Plot showing the piecewise linear regression model relating sleep duration (x-axis, hours) to log-odds or predicted probability of depression (y-axis). The U-shaped curve shows declining depression risk from <6h to 8h, then rising risk from 8h to >=10h. The inflection point at 8 hours is clearly marked. 95% confidence bands are shown around the regression line.
+- **Key Pattern**: Minimum depression risk at approximately 8 hours of sleep; steeper slope on the left arm (short sleep) compared to the right arm (long sleep).
+- **Source**: DOI 10.1016/j.jad.2021.09.075, Figure available in published article
+
+## Figure 2: Forest Plot of Categorical Odds Ratios
+- **Content**: Forest plot showing adjusted odds ratios and 95% CIs for depression across sleep duration categories (<6h, 6h, 7h, 9h, >=10h) with 8h as the reference category. Both extreme categories (<6h: OR=2.73 and >=10h: OR=2.35) show the largest effect sizes, visually demonstrating the U-shaped pattern in a traditional epidemiological format.
+- **Key Pattern**: Symmetric elevation of ORs at both extremes, with 7h and 9h showing more modest elevations.
+- **Source**: DOI 10.1016/j.jad.2021.09.075

@@ -1,0 +1,36 @@
+{
+  "task": "Analyze temporal trends in colorectal cancer (CRC) cause-specific survival by stage at diagnosis and race/ethnicity using SEER 1992-2018 data. The analysis should: (1) estimate 1-year and 5-year CRC cause-specific survival probabilities for each stage (localized, regional, distant) by race/ethnicity (non-Hispanic White, non-Hispanic Black, non-Hispanic American Indian/Alaska Native, Hispanic, non-Hispanic Asian/Pacific Islander) using Kaplan-Meier methods; (2) model temporal trends in survival within each stage-race/ethnicity stratum using linear or joinpoint regression to quantify annual percent change (APC); (3) compare survival trend trajectories across racial/ethnic groups within each stage category to identify convergence or divergence patterns; (4) perform Cox proportional hazards regression to estimate hazard ratios by race/ethnicity within each stage, adjusting for age at diagnosis, sex, and year of diagnosis; (5) generate stage-specific survival trend plots stratified by race/ethnicity. The study population includes all individuals diagnosed with primary colorectal adenocarcinoma in SEER registries between 1992 and 2018 with known stage and survival information. Stage is classified using the SEER historic staging scheme (localized, regional, distant). The primary outcome is CRC cause-specific survival. All analyses should account for the population-based nature of the data.",
+  "data": [
+    {
+      "name": "SEER Research Data (1992-2018)",
+      "path": "./data/placeholder.txt",
+      "type": "ASCII text / CSV",
+      "description": "SEER 12 registries incidence data including patient demographics, tumor characteristics, stage at diagnosis, treatment, and survival/vital status. Covers Alaska, Connecticut, Atlanta, rural Georgia, San Francisco-Oakland, San Jose-Monterey, Hawaii, Iowa, Los Angeles, New Mexico, Seattle-Puget Sound, and Utah."
+    },
+    {
+      "name": "SEER Cause of Death Recode",
+      "path": "./data/placeholder.txt",
+      "type": "ASCII text / CSV",
+      "description": "Cause-specific death classification for computing CRC cause-specific survival. Derived from underlying cause of death codes on the death certificate."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and recoding instructions for SEER variables used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Onco",
+    "study_design": "retrospective cohort (population-based cancer registry)",
+    "primary_methods": [
+      "Kaplan-Meier survival estimation",
+      "cause-specific survival analysis",
+      "temporal trend analysis (annual percent change)",
+      "Cox proportional hazards regression",
+      "stratified analysis by stage and race/ethnicity"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "SEER 12 Registries (1992-2018)"
+  }
+}

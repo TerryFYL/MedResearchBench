@@ -1,0 +1,55 @@
+# Data Source: NHANES 2007-2012 (3 Combined Cycles)
+
+This task uses publicly available data from three consecutive NHANES cycles: 2007-2008, 2009-2010, and 2011-2012.
+
+## Required Data Files
+
+### Cycle 1: NHANES 2007-2008
+Download from: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2007
+
+1. **Demographics (DEMO_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/DEMO_E.xpt
+2. **Spirometry (SPX_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/SPX_E.xpt
+3. **Medical Conditions (MCQ_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/MCQ_E.xpt
+4. **Smoking Questionnaire (SMQ_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/SMQ_E.xpt
+5. **Healthcare Utilization (HUQ_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/HUQ_E.xpt
+6. **Respiratory Health (RDQ_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/RDQ_E.xpt
+7. **Diabetes (DIQ_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/DIQ_E.xpt
+
+### Cycle 2: NHANES 2009-2010
+Same modules with _F suffix:
+- DEMO_F, SPX_F, MCQ_F, SMQ_F, HUQ_F, RDQ_F, DIQ_F
+
+### Cycle 3: NHANES 2011-2012
+Same modules with _G suffix:
+- DEMO_G, SPX_G, MCQ_G, SMQ_G, HUQ_G, RDQ_G, DIQ_G
+
+## Data Format
+- Files are in SAS Transport format (.XPT)
+- Can be read with R (foreign::read.xport or haven::read_xpt) or Python (pandas.read_sas)
+- Merge files within cycle on SEQN (respondent sequence number)
+- Append across cycles with cycle identifier
+
+## Analytic Sample
+- Adults aged 20-79 years
+- Valid pre-bronchodilator spirometry (quality grade A, B, or C)
+- Complete data on self-reported physician diagnoses
+- Approximately 13,800 participants across 3 cycles (after exclusions)
+- Of these, approximately 1,600 have spirometric obstruction
+- Approximately 72% of those with obstruction are undiagnosed
+
+## Multi-Cycle Weighting
+- Divide 2-year MEC examination weights (WTMEC2YR) by 3 for combined 6-year analysis
+- PSU (SDMVPSU) and strata (SDMVSTRA) variables remain unchanged
+- This produces nationally representative estimates for the 2007-2012 period
+
+## Key Analytic Notes
+- Spirometric obstruction defined as FEV1/FVC < LLN (Hankinson 1999 reference equations)
+- Alternative GOLD fixed ratio criterion (FEV1/FVC < 0.70) can also be applied
+- NHANES uses pre-bronchodilator spirometry as baseline; post-bronchodilator only for those flagged
+- Self-reported COPD diagnosis: MCQ160G (emphysema), MCQ160K (chronic bronchitis), MCQ160P (COPD, 2011-2012 only)
+- For mortality linkage analysis, NHANES III Linked Mortality File available from NCHS
+
+## Access
+- No registration or approval required for public-use data
+- NHANES III Linked Mortality File requires separate download from NCHS
+- Data freely downloadable from CDC/NCHS website

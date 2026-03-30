@@ -1,0 +1,41 @@
+{
+  "task": "Investigate trends in hepatitis B vaccination coverage and serologic evidence of vaccine-induced immunity among US-born children and adolescents from 1999 to 2016 using NHANES data. The analysis should: (1) estimate survey-weighted prevalence of self-reported hepatitis B vaccination (complete 3-dose series) across nine NHANES cycles (1999-2000 through 2015-2016), stratified by age group (2-5, 6-10, 11-13, 14-18 years); (2) estimate survey-weighted prevalence of serologic evidence of vaccine-induced immunity (anti-HBs positive in the absence of anti-HBc) across the same cycles and age strata; (3) assess temporal trends using logistic regression with survey cycle as a continuous predictor (P-for-trend); (4) conduct birth cohort analysis comparing immunity levels across cohorts born before vs. after widespread universal infant vaccination (1994 birth cohort as pivotal); (5) examine the divergence between increasing vaccination coverage and declining serologic immunity (waning antibody hypothesis). The study population includes US-born persons aged 2 to 18 years with complete hepatitis B serologic test results and reported vaccination history. Serologic markers include hepatitis B surface antigen (HBsAg), antibody to hepatitis B surface antigen (anti-HBs >= 10 mIU/mL), and antibody to hepatitis B core antigen (anti-HBc). All analyses must account for the complex survey design of NHANES (sample weights, PSU, strata).",
+  "data": [
+    {
+      "name": "NHANES 1999-2016 Demographics (9 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables including age, sex, race/ethnicity, country of birth, and family income-to-poverty ratio across nine NHANES cycles. N~21,873 participants aged 2-18 after exclusions. See codebook.md for variable definitions."
+    },
+    {
+      "name": "NHANES 1999-2016 Hepatitis B Serology",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Hepatitis B serologic markers: HBsAg (surface antigen), anti-HBs (antibody to surface antigen, quantitative mIU/mL), and anti-HBc (antibody to core antigen). Immunity defined as anti-HBs >= 10 mIU/mL with negative anti-HBc."
+    },
+    {
+      "name": "NHANES 1999-2016 Immunization Questionnaire",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Self-reported or parent-reported hepatitis B vaccination history including number of doses received and completion of the 3-dose series."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for all NHANES components used in this analysis across nine cycles."
+    }
+  ],
+  "metadata": {
+    "domain": "Infection",
+    "study_design": "serial cross-sectional (trend analysis)",
+    "primary_methods": [
+      "survey-weighted prevalence estimation",
+      "temporal trend analysis (P-for-trend logistic regression)",
+      "birth cohort analysis",
+      "age-stratified trend comparison"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 1999-2016 (9 cycles)"
+  }
+}

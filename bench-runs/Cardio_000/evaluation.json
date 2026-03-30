@@ -1,0 +1,153 @@
+{
+  "task_id": "Cardio_000",
+  "task_title": "Dietary Sodium and Hypertension: NHANES 2017-2018",
+  "evaluation_date": "2026-03-30",
+  "evaluator": "AI Research Army Pipeline (automated scoring vs. checklist.json)",
+  "manuscript_path": "bench-runs/Cardio_000/manuscript.md",
+
+  "dimensions": {
+    "statistical_methodology": {
+      "weight": 0.25,
+      "score": 60,
+      "weighted_score": 15.0,
+      "assessment": {
+        "achieved": [
+          "Survey-weighted multivariable logistic regression with WTDRD1/SDMVPSU/SDMVSTRA",
+          "Complex survey design correctly handled via R survey package",
+          "RCS dose-response analysis with 4 knots at 5th/35th/65th/95th percentiles (verified: 1203/2684/3830/7041 mg/day)",
+          "Separate models for sodium, potassium, and Na/K ratio exposures",
+          "Lonely PSU variance handled with 'adjust' option"
+        ],
+        "missing": [
+          "4th progressive adjustment model: target has Model 3 (SES factors only) and Model 4 (full lifestyle), we merged into one 'fully adjusted' model",
+          "Z-score standardization of dietary intake variables before regression (target: standardized as z-scores)",
+          "Marital status not included as covariate (target includes it in Model 3)",
+          "Dietary fiber not included as covariate (target includes it in Model 4)",
+          "Cholesterol not included as covariate (target includes it in Model 4)"
+        ],
+        "rationale": "Core survey design methodology is correctly implemented. RCS knot placement exactly matches target. Main gaps are (1) model granularity (3 vs 4 progressive models) and (2) z-score exposure standardization which would change coefficient interpretation."
+      }
+    },
+
+    "results_accuracy": {
+      "weight": 0.25,
+      "score": 72,
+      "weighted_score": 18.0,
+      "assessment": {
+        "achieved": [
+          "Sodium fully adjusted OR=1.04 (target: ~1.00) — null association confirmed, direction correct",
+          "P > 0.05 for all primary exposures: sodium p=0.387, potassium p=0.132, Na/K p=0.099",
+          "Potassium showed non-significant inverse trend (OR=0.92) consistent with target",
+          "RCS dose-response: flat/wide CI curve consistent with target description",
+          "Wide confidence intervals crossing null throughout sodium dose-response range"
+        ],
+        "gaps": [
+          "Target OR 'approximately 1.00' vs our 1.04: modest deviation likely due to missing covariates (marital status, fiber, cholesterol) and z-score standardization",
+          "Na/K ratio p=0.099 is borderline vs target expectation of consistent null (P>0.05 for all primary associations)",
+          "Target states 'consistent null findings across sodium, potassium, and Na/K ratio' — our Na/K borderline positive (p~0.10) partially meets this criterion"
+        ],
+        "key_numbers": {
+          "sodium_fully_adjusted_OR": 1.038,
+          "sodium_p_value": 0.387,
+          "potassium_OR": 0.920,
+          "potassium_p": 0.132,
+          "nak_ratio_OR": 1.141,
+          "nak_ratio_p": 0.099,
+          "hypertension_prevalence": "39.8%",
+          "analytical_n": 4137,
+          "represented_population_millions": 214
+        }
+      }
+    },
+
+    "confounding_sensitivity": {
+      "weight": 0.20,
+      "score": 68,
+      "weighted_score": 13.6,
+      "assessment": {
+        "achieved": [
+          "Subgroup analyses by sex (male/female), age group (20-39/40-59/60+), BMI (normal/overweight/obese) — all 3 stratification variables present",
+          "Na/K ratio as alternative exposure metric",
+          "Attenuation pattern documented: crude OR 0.97 → fully adjusted OR 1.04",
+          "Significant age-stratified finding (60+ years OR 1.19, p=0.032) provides meaningful heterogeneity signal"
+        ],
+        "missing": [
+          "4 nested progressive models (we have 3 — cannot examine SES-specific vs. lifestyle-specific confounding",
+          "Formal p-interaction values not explicitly reported in manuscript text (mentioned subgroup findings but no interaction test p-values tabulated)",
+          "Target specifies all interaction terms are non-significant (P for interaction > 0.05) — we did not run formal multiplicative interaction models"
+        ]
+      }
+    },
+
+    "clinical_interpretation": {
+      "weight": 0.15,
+      "score": 88,
+      "weighted_score": 13.2,
+      "assessment": {
+        "achieved": [
+          "Correctly concludes sodium and potassium lack independent predictive utility within typical U.S. intake ranges",
+          "Explicitly discusses measurement limitation of 24-hour dietary recall vs. urinary sodium biomarker (Section 4.6)",
+          "Distinguishes population-level sodium reduction strategy from individual risk prediction (Section 4.7)",
+          "Explicitly states null finding does not negate RCT evidence for sodium-BP relationship (Section 4.7)",
+          "Discusses reverse causation/survivor bias as key methodological explanation for inverse raw association",
+          "Age-stratified salt sensitivity interpretation consistent with biological mechanisms"
+        ],
+        "minor_gaps": [
+          "Could be more explicit about salt sensitivity prevalence (~25-50%) as mechanistic explanation"
+        ]
+      }
+    },
+
+    "reporting_compliance": {
+      "weight": 0.15,
+      "score": 80,
+      "weighted_score": 12.0,
+      "assessment": {
+        "achieved": [
+          "STROBE guideline adherence stated and implemented",
+          "Participant flow documented with clear exclusion steps (full sample → age ≥20 → DR1DRSTZ=1 → covariate completeness)",
+          "All estimates reported with 95% confidence intervals throughout Tables 2 and 3",
+          "Survey design and weighting scheme fully specified (WTDRD1, SDMVPSU, SDMVSTRA, survey package version)",
+          "Limitations section acknowledges: cross-sectional design, single dietary recall, residual confounding, BP measurement, generalizability"
+        ],
+        "discrepancies": [
+          "Final n=4,137 vs. checklist reference n=5,569: target study may apply less stringent covariate completeness criteria (n=5,569 corresponds to our age ≥20 step before dietary and covariate exclusions)",
+          "Exclusion flowchart referenced as 'Figure 1' but no actual flowchart figure generated (described in Methods text)"
+        ]
+      }
+    }
+  },
+
+  "scoring_summary": {
+    "dimension_scores": {
+      "statistical_methodology": { "weight": 0.25, "raw_score": 60, "weighted": 15.0 },
+      "results_accuracy":         { "weight": 0.25, "raw_score": 72, "weighted": 18.0 },
+      "confounding_sensitivity":  { "weight": 0.20, "raw_score": 68, "weighted": 13.6 },
+      "clinical_interpretation":  { "weight": 0.15, "raw_score": 88, "weighted": 13.2 },
+      "reporting_compliance":     { "weight": 0.15, "raw_score": 80, "weighted": 12.0 }
+    },
+    "total_weighted_score": 71.8,
+    "total_rounded": 72,
+    "grade": "B (Pass)",
+    "tier": "Tier 1 — Foundational"
+  },
+
+  "key_strengths": [
+    "Correct survey-weighted methodology using NHANES dietary weights (WTDRD1)",
+    "Accurate RCS implementation with correct 4-knot percentile placement",
+    "Null findings direction matches target (no significant sodium-HTN association)",
+    "Comprehensive subgroup analysis covering all required stratification dimensions",
+    "Strong clinical interpretation with reverse causation and measurement error discussion",
+    "Publication-quality figures with confidence intervals generated"
+  ],
+
+  "key_gaps_for_improvement": [
+    "Missing 4th progressive model (SES-only vs. full lifestyle adjustment)",
+    "Z-score standardization of dietary exposure variables not implemented",
+    "Missing marital status, dietary fiber, cholesterol as covariates",
+    "Formal interaction test p-values not reported in output tables",
+    "Analytical n=4,137 vs. target n=5,569 suggests overly stringent exclusion criteria"
+  ],
+
+  "score_interpretation": "Score of 72/100 indicates the pipeline successfully captured the core methodology and directional findings. Main deductions are for incomplete covariate specification (z-scores, 4th model, additional covariates) rather than fundamental methodological errors. The null primary result and its clinical interpretation align well with the target study."
+}

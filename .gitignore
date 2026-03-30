@@ -1,0 +1,29 @@
+# Raw data files (NHANES XPT and CSV)
+bench-runs/*/data/
+bench-runs/*/data/*
+
+# AI-generated manuscripts (intermediate outputs)
+bench-runs/*/manuscript.md
+
+# Autoloop logs and internal files
+autoloop*.log
+*.log
+logs/
+
+# Analysis scripts (autoloop artifacts)
+bench-runs/*/analysis_metabolic002.R
+bench-runs/*/subgroup_analysis.R
+bench-runs/*/analysis_results/*.R
+
+# Internal planning files
+requirements.md
+constraints.md
+progress.md
+bench-runs/progress.md
+
+# macOS
+.DS_Store
+
+# R artifacts
+*.Rhistory
+*.RData

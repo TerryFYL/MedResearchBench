@@ -1,0 +1,60 @@
+{
+  "task": "Investigate the nonlinear association between serum thyroid-stimulating hormone (TSH) levels within the euthyroid range and long-term all-cause and cardiovascular mortality among U.S. adults with diabetes using NHANES III (1988-1994) data linked to the National Death Index (NDI) through December 31, 2019. The analysis should: (1) identify euthyroid individuals with diabetes from the NHANES III cohort based on TSH within 0.39-4.60 mIU/L and normal total thyroxine (TT4); (2) model the continuous TSH-mortality association using restricted cubic splines (RCS) with 3 knots placed at the 25th, 50th, and 75th percentiles to detect nonlinearity; (3) estimate Cox proportional hazards models with progressive covariate adjustment (Model 1: age and sex; Model 2: + race/ethnicity, education, BMI, smoking, alcohol; Model 3: + comorbidities including hypertension, CVD history, dyslipidemia, and HbA1c); (4) categorize TSH into tertiles (low-normal, medium-normal, high-normal) and estimate hazard ratios with 95% CIs for all-cause and cardiovascular mortality; (5) perform subgroup analyses stratified by age (<60 vs ≥60 years) and sex; (6) conduct sensitivity analyses adjusting for urinary iodine, thyroid peroxidase antibodies (TPO-Ab), total T4, Healthy Eating Index (HEI) dietary quality score, frailty index, and C-reactive protein (CRP). The study leverages the exceptionally long follow-up period (median ~17 years) of the NHANES III-NDI linked mortality data. All analyses must account for the complex multistage probability survey design of NHANES III using appropriate sampling weights.",
+  "data": [
+    {
+      "name": "NHANES III Demographics and Examination",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables including age, sex, race/ethnicity, education, income, and examination data (BMI, blood pressure) from NHANES III (1988-1994). See codebook.md for variable definitions."
+    },
+    {
+      "name": "NHANES III Thyroid Function Panel",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Serum TSH (mIU/L), total thyroxine (TT4, μg/dL), and thyroid peroxidase antibodies (TPO-Ab) from laboratory component. Used for euthyroid classification and exposure definition."
+    },
+    {
+      "name": "NHANES III Diabetes and Metabolic Markers",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Fasting plasma glucose, oral glucose tolerance test results, HbA1c, self-reported diabetes diagnosis, and diabetes medication use. Required for diabetes case identification."
+    },
+    {
+      "name": "NHANES III Urinary Iodine and Nutritional Data",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Urinary iodine concentration and dietary intake data for Healthy Eating Index (HEI) calculation. Used in sensitivity analyses."
+    },
+    {
+      "name": "NHANES III Medical Conditions and Comorbidities",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Self-reported CVD history, hypertension, dyslipidemia, medication use, smoking status, alcohol consumption, and physical activity. Required for covariate adjustment."
+    },
+    {
+      "name": "NHANES III-NDI Linked Mortality Data",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Public-use linked mortality file providing vital status, follow-up time in person-months, and cause of death (ICD-10 codes) through December 31, 2019. Required for survival analysis endpoints."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for all NHANES III components used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Metabolic",
+    "study_design": "prospective cohort (survey-linked mortality follow-up)",
+    "primary_methods": [
+      "restricted cubic splines (RCS) for nonlinear dose-response",
+      "Cox proportional hazards regression",
+      "progressive multivariable model adjustment",
+      "subgroup analysis by age and sex",
+      "sensitivity analysis with multiple biomarkers"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES III (1988-1994) with NDI mortality linkage through 2019"
+  }
+}

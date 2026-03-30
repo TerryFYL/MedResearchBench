@@ -1,0 +1,3 @@
+Figure descriptions for Lu et al. (2023) British Journal of Nutrition — Blood Heavy Metals and Cognitive Function in U.S. Older Adults
+
+No figures are included in this benchmark task. The study's key results are captured in the checklist.json evaluation criteria.

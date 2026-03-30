@@ -1,0 +1,52 @@
+{
+  "task": "Investigate the associations between blood heavy metal and trace element concentrations and cognitive function among older U.S. adults using NHANES 2011-2014 data. The analysis should: (1) measure blood concentrations of lead (Pb), cadmium (Cd), mercury (Hg), selenium (Se), and manganese (Mn), along with serum iron (Fe), in adults aged 60 years and older; (2) assess cognitive performance using three standardized neuropsychological tests administered in NHANES: the Consortium to Establish a Registry for Alzheimer's Disease (CERAD) Word List Learning and Recall Test (immediate and delayed memory), the Animal Fluency Test (AFT, verbal fluency/executive function), and the Digit Symbol Substitution Test (DSST, processing speed/sustained attention); (3) define low cognitive performance using the 25th percentile cutoff of each cognitive test score distribution; (4) estimate adjusted odds ratios for the association between each trace element (per unit increase in blood/serum concentration) and low cognitive performance using survey-weighted multivariable logistic regression, adjusting for age, sex, race/ethnicity, education, poverty income ratio, BMI, smoking status, alcohol use, diabetes, hypertension, and physical activity; (5) conduct subgroup analyses stratified by diabetes and hypertension history to examine effect modification; (6) assess potential dose-response relationships and non-linear associations. The study population includes non-institutionalized U.S. adults aged 60 years and older with complete blood metal measurements and cognitive test data from two pooled NHANES cycles (2011-2012 and 2013-2014). All analyses must account for the complex survey design of NHANES using appropriate examination weights (WTMEC2YR divided by 2 for 4-year combination), masked variance PSU (SDMVPSU), and strata (SDMVSTRA).",
+  "data": [
+    {
+      "name": "NHANES 2011-2014 Demographics (2 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables from DEMO_G and DEMO_H including age, sex, race/ethnicity, education, poverty income ratio. Combined across 2 cycles."
+    },
+    {
+      "name": "NHANES 2011-2014 Blood Metals — Lead, Cadmium, Mercury, Selenium, Manganese (2 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Blood concentrations of lead, cadmium, total mercury, selenium, and manganese from PBCD_G and PBCD_H, measured by ICP-MS at CDC Division of Laboratory Sciences."
+    },
+    {
+      "name": "NHANES 2011-2014 Serum Iron and Transferrin (2 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Serum iron and related iron status biomarkers from BIOPRO_G and BIOPRO_H."
+    },
+    {
+      "name": "NHANES 2011-2014 Cognitive Functioning (2 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Cognitive function test scores from CFQ_G and CFQ_H including CERAD Word List Learning (immediate recall), CERAD Word List Recall (delayed recall), Animal Fluency Test, and Digit Symbol Substitution Test. Administered to participants aged 60+ years."
+    },
+    {
+      "name": "NHANES 2011-2014 Covariates — Medical History, Smoking, BMI (2 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Medical conditions questionnaire (MCQ_G/H) for diabetes and hypertension history; smoking questionnaire (SMQ_G/H); body measures (BMX_G/H) for BMI; alcohol use (ALQ_G/H); physical activity (PAQ_G/H)."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for all NHANES 2011-2014 components used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Neuro",
+    "study_design": "cross-sectional (pooled 2 cycles)",
+    "primary_methods": [
+      "survey-weighted multivariable logistic regression",
+      "subgroup analysis by diabetes and hypertension status",
+      "multiple cognitive domain assessment (memory, fluency, processing speed)"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 2011-2014 (2 combined cycles)"
+  }
+}

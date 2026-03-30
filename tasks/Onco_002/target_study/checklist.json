@@ -1,0 +1,72 @@
+[
+  {
+    "type": "text",
+    "dimension": "statistical_methodology",
+    "content": "The analysis uses multinomial logistic regression to model the association between sociodemographic factors and CRC stage at diagnosis (localized, regional, distant, unstaged as outcome categories), adjusting for age, sex, and tumor site. Cox proportional hazards regression models CRC-specific mortality adjusting for stage, treatment, comorbidities (Charlson index), demographics, area-level income, and rurality. All analyses are stratified across four time periods reflecting Medicare screening coverage changes: Period 1 (1991-1997, pre-screening), Period 2 (1998-June 2001, FOBT+sigmoidoscopy), Period 3 (July 2001-2005, colonoscopy added), Period 4 (2006-2010, high uptake). The study population includes 327,504 Medicare beneficiaries aged 65+ with CRC from SEER registries, with 102,421 CRC deaths.",
+    "path": null,
+    "keywords": [
+      "Multinomial logistic regression for stage at diagnosis",
+      "Cox proportional hazards for CRC-specific mortality",
+      "Four time periods reflecting Medicare screening policy changes",
+      "Adjusted for comorbidity (Charlson index), treatment, demographics",
+      "N = 327,504 CRC cases; 102,421 CRC deaths"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "results_accuracy",
+    "content": "Black patients were 24-39% more likely to present with distant-stage CRC compared to White patients across all four time periods, demonstrating persistent racial disparities despite expanding screening availability. Residence in high-income areas was associated with a 7-12% reduction in odds of distant-stage diagnosis. For CRC-specific mortality, Black patients had 16-21% increased hazard compared to White patients. Asian patients experienced a narrowing survival advantage over time: 32% lower mortality in Period 1 (1991-1997) declining to 13% lower in Period 4 (2006-2010). Sociodemographic disparities in staging and survival persisted across all four periods despite progressive Medicare screening coverage expansion.",
+    "path": null,
+    "keywords": [
+      "Black patients 24-39% more likely distant-stage vs White",
+      "High-income areas: 7-12% reduction in distant-stage odds",
+      "Black patients 16-21% increased CRC mortality vs White",
+      "Asian survival advantage narrowed from 32% to 13% over study period",
+      "Disparities persisted despite Medicare screening coverage expansion"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "confounding_sensitivity",
+    "content": "The temporal stratification across four policy periods serves as a natural experiment to assess whether screening coverage changes mitigate sociodemographic disparities. Key confounders adjusted include: age at diagnosis, sex, tumor anatomic site (proximal colon, distal colon, rectum), Charlson comorbidity index (0, 1, 2, 3+), surgical treatment, chemotherapy, radiation therapy, area-level median household income (quartiles), and rural-urban classification. Notably, rural residence was not consistently associated with later-stage diagnosis after adjusting for area-level income, suggesting income mediates much of the rural-urban disparity. The attenuation of the Asian survival advantage over time raises questions about changing immigrant demographics and potential unmeasured confounders.",
+    "path": null,
+    "keywords": [
+      "Four policy periods as natural experiment for screening impact",
+      "Adjustment for Charlson comorbidity, treatment, tumor site, demographics",
+      "Rural-urban disparity attenuated after income adjustment",
+      "Income quartile stratification captures area-level SES",
+      "Asian advantage attenuation suggests temporal confounding or demographic shifts"
+    ],
+    "weight": 0.20
+  },
+  {
+    "type": "text",
+    "dimension": "clinical_interpretation",
+    "content": "The persistence of racial and socioeconomic disparities in CRC staging despite expanding Medicare screening coverage indicates that screening availability alone is insufficient to achieve equity. The distinction between staging disparities (indicating screening/detection failures) and survival disparities (indicating treatment access/quality failures) is critical for intervention design. The finding that high-income areas have lower rates of distant-stage diagnosis suggests that socioeconomic resources facilitate earlier detection, potentially through higher screening compliance, better primary care access, or health literacy. The persistent Black-White disparity in distant-stage presentation across all four periods, despite colonoscopy becoming available, suggests structural barriers beyond screening policy.",
+    "path": null,
+    "keywords": [
+      "Screening availability alone insufficient for equity",
+      "Staging disparities indicate screening/detection failures",
+      "Survival disparities indicate treatment access/quality failures",
+      "SES resources facilitate earlier detection via screening compliance",
+      "Structural barriers beyond screening policy drive persistent racial disparities"
+    ],
+    "weight": 0.15
+  },
+  {
+    "type": "text",
+    "dimension": "reporting_compliance",
+    "content": "The study adheres to STROBE guidelines for observational cohort studies: the SEER-Medicare data source and linkage methodology are described, participant selection criteria are specified (Medicare age 65+, CRC diagnosis, continuous Part A+B enrollment, HMO exclusion), the study size and follow-up are documented, all statistical methods including the rationale for the four time periods are detailed, odds ratios and hazard ratios are presented with 95% confidence intervals, and limitations are acknowledged including the use of area-level rather than individual-level income, potential misclassification of race/ethnicity, incomplete chemotherapy capture in early periods, and the inability to account for individual screening history.",
+    "path": null,
+    "keywords": [
+      "STROBE adherence for retrospective cohort study",
+      "SEER-Medicare linkage methodology described",
+      "Participant selection and exclusion criteria specified",
+      "ORs and HRs reported with 95% CIs",
+      "Limitations: ecological income, race misclassification, incomplete chemo data"
+    ],
+    "weight": 0.15
+  }
+]

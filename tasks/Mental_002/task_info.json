@@ -1,0 +1,41 @@
+{
+  "task": "Examine temporal trends in depression prevalence among U.S. adults across six NHANES cycles from 2005-2006 through 2015-2016, with stratification by depression severity and demographic subgroups. The analysis should: (1) estimate survey-weighted prevalence of depression (PHQ-9 >= 10) for each 2-year NHANES cycle and test for linear trend across time using logistic regression with survey year as an ordinal predictor; (2) stratify depression by severity levels (mild: 5-9, moderate: 10-14, moderately severe: 15-19, severe: 20-27) and test for severity-specific temporal trends; (3) conduct age-stratified trend analyses (20-39, 40-64, 65+) to identify differential temporal patterns across age groups; (4) examine trends by sex, race/ethnicity, income level, and education to identify demographic subgroups driving overall trend changes; (5) assess risk factors associated with depression across cycles including chronic disease burden (hypertension, diabetes), lifestyle factors (smoking, physical inactivity), and socioeconomic indicators. The study population includes adults aged 20 years and older from six consecutive NHANES cycles (2005-2006 through 2015-2016) with complete PHQ-9 data (total N approximately 29,303). Depression is measured using the PHQ-9 (Patient Health Questionnaire-9). All analyses must account for NHANES complex survey design with cycle-specific 2-year MEC examination weights.",
+  "data": [
+    {
+      "name": "NHANES 2005-2016 Demographics (6 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables across 6 NHANES cycles: 2005-2006 (DEMO_D), 2007-2008 (DEMO_E), 2009-2010 (DEMO_F), 2011-2012 (DEMO_G), 2013-2014 (DEMO_H), 2015-2016 (DEMO_I). Includes age, sex, race/ethnicity, education, income-to-poverty ratio, marital status."
+    },
+    {
+      "name": "NHANES 2005-2016 Depression Screener (PHQ-9)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Patient Health Questionnaire-9 items (DPQ010-DPQ090) across 6 cycles: DPQ_D through DPQ_I. Total score 0-27 with standard severity cutoffs."
+    },
+    {
+      "name": "NHANES 2005-2016 Chronic Disease & Lifestyle Covariates",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Blood pressure questionnaire (BPQ), diabetes questionnaire (DIQ), smoking (SMQ), alcohol use (ALQ), physical activity (PAQ), body measures (BMX) across 6 NHANES cycles."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for all NHANES 2005-2016 components used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Mental",
+    "study_design": "repeated cross-sectional (secular trend analysis)",
+    "primary_methods": [
+      "survey-weighted prevalence estimation",
+      "logistic regression for temporal trend (p-for-trend)",
+      "severity-stratified trend analysis",
+      "demographic subgroup trend analysis"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 2005-2016"
+  }
+}

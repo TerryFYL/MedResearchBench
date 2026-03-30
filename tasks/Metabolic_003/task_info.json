@@ -1,0 +1,60 @@
+{
+  "task": "Estimate the prevalence and identify risk factors of non-alcoholic fatty liver disease (NAFLD) in U.S. adults using NHANES 2011-2018 data across four survey cycles. The analysis should: (1) define NAFLD using the US Fatty Liver Index (USFLI ≥ 30) in the absence of other causes of chronic liver disease (excessive alcohol intake, chronic hepatitis B, chronic hepatitis C); (2) estimate national NAFLD prevalence using survey-weighted analysis, overall and stratified by demographic subgroups (age, sex, race/ethnicity, BMI category, diabetes status); (3) assess the prevalence of advanced fibrosis among NAFLD-positive individuals using the NAFLD fibrosis score (NFS) and fibrosis-4 index (FIB-4) with established clinical cutoffs; (4) identify independent risk factors for NAFLD using survey-weighted multivariable logistic regression with adjustment for demographic, metabolic, and lifestyle covariates; (5) examine temporal trends in NAFLD prevalence across the four NHANES cycles (2011-2012, 2013-2014, 2015-2016, 2017-2018); (6) evaluate the burden of NAFLD with concurrent advanced fibrosis by subgroup. The study population includes non-pregnant adults aged ≥20 years with complete data for USFLI calculation and liver disease exclusion criteria. All analyses must account for the complex survey design of NHANES.",
+  "data": [
+    {
+      "name": "NHANES 2011-2018 Demographics",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables including age, sex, race/ethnicity, education, and income from four NHANES cycles (2011-2012, 2013-2014, 2015-2016, 2017-2018)."
+    },
+    {
+      "name": "NHANES 2011-2018 Liver Function Tests",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Standard biochemistry panel including ALT, AST, GGT, alkaline phosphatase, total bilirubin, albumin, and platelet count. Required for USFLI calculation, NFS, and FIB-4."
+    },
+    {
+      "name": "NHANES 2011-2018 Metabolic Panel",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Fasting glucose, insulin, HbA1c, total cholesterol, HDL, triglycerides. Required for metabolic risk factor assessment."
+    },
+    {
+      "name": "NHANES 2011-2018 Body Measures",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "BMI, waist circumference, body weight, and height from examination component. Required for USFLI calculation and obesity classification."
+    },
+    {
+      "name": "NHANES 2011-2018 Hepatitis Serology",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Hepatitis B surface antigen (HBsAg) and hepatitis C antibody (anti-HCV) status. Required for excluding viral hepatitis from NAFLD definition."
+    },
+    {
+      "name": "NHANES 2011-2018 Alcohol Use",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Alcohol consumption patterns from questionnaire data. Required for excluding excessive alcohol intake from NAFLD definition."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for all NHANES 2011-2018 components used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Metabolic",
+    "study_design": "repeated cross-sectional",
+    "primary_methods": [
+      "survey-weighted prevalence estimation",
+      "multivariable logistic regression",
+      "trend analysis across NHANES cycles",
+      "USFLI-based NAFLD classification",
+      "NFS and FIB-4 fibrosis staging"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 2011-2018"
+  }
+}

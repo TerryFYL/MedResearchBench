@@ -1,0 +1,32 @@
+# Data Source: NHANES 2017-2018
+
+This task uses publicly available data from the National Health and Nutrition Examination Survey (NHANES) 2017-2018 cycle.
+
+## Required Data Files
+
+Download from: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017
+
+1. **Demographics (DEMO_J.XPT)**: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DEMO_J.XPT
+2. **Dietary Interview - Day 1 Total Nutrients (DR1TOT_J.XPT)**: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DR1TOT_J.XPT
+3. **Blood Pressure (BPX_J.XPT)**: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BPX_J.XPT
+4. **Blood Pressure & Cholesterol Questionnaire (BPQ_J.XPT)**: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BPQ_J.XPT
+5. **Physical Activity (PAQ_J.XPT)**: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/PAQ_J.XPT
+6. **Smoking (SMQ_J.XPT)**: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/SMQ_J.XPT
+7. **Alcohol Use (ALQ_J.XPT)**: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/ALQ_J.XPT
+8. **Body Measures (BMX_J.XPT)**: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BMX_J.XPT
+
+## Data Format
+- Files are in SAS Transport format (.XPT)
+- Can be read with R (foreign::read.xport or haven::read_xpt) or Python (pandas.read_sas)
+- Merge files on SEQN (respondent sequence number)
+
+## Analytic Sample
+- Adults aged >= 20 years
+- Complete dietary recall (DR1DRSTZ = 1)
+- Complete blood pressure measurements
+- Non-pregnant females
+- Final analytic sample: approximately 5,569 participants (after exclusions)
+
+## Access
+- No registration or approval required
+- Data freely downloadable from CDC/NCHS website

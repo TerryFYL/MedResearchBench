@@ -1,0 +1,15 @@
+# Figure Descriptions: Rosenblum et al. (2022) Annals of Internal Medicine
+
+## Figure 1: Trends in 4vHPV-Type Prevalence Among Sexually Experienced Females by Age Group and Era
+Bar/line plot showing 4vHPV-type (HPV 6/11/16/18) prevalence across four eras (prevaccine 2003-2006, vaccine eras 2007-2010, 2011-2014, 2015-2018) stratified by age group (14-19 and 20-24 years). Demonstrates dramatic and progressive decline in vaccine-type prevalence, with steeper declines in the younger age group.
+
+## Figure 2: 4vHPV-Type Prevalence by Vaccination Status and Era Among Females
+Grouped bar chart comparing 4vHPV-type prevalence between vaccinated and unvaccinated females across vaccine eras. Shows that prevalence declined in BOTH groups, with the decline among unvaccinated females providing evidence of herd immunity.
+
+## Figure 3: Vaccine Impact and Effectiveness Estimates
+Summary figure showing percent vaccine impact (overall, vaccinated, unvaccinated) and vaccine effectiveness estimates with 95% confidence intervals for each era. The 74% impact among unvaccinated females in 2015-2018 is the key herd immunity finding.
+
+## Table 1: HPV Vaccination Coverage Among Sexually Experienced Persons by Era
+Tabular summary of self-reported HPV vaccination (>= 1 dose) prevalence among sexually experienced females and males across survey eras, documenting the increasing uptake from 25% (females, 2007-2010) to 59% (females, 2015-2018).
+
+Note: Actual figures are from the published paper. See Annals of Internal Medicine DOI: 10.7326/M21-3798 for original figures.

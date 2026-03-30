@@ -1,0 +1,50 @@
+# Data Source: NHANES III (1988-1994) with NDI Mortality Linkage
+
+This task uses publicly available data from the Third National Health and Nutrition Examination Survey (NHANES III, 1988-1994) with linked mortality data from the National Death Index (NDI) through December 31, 2019.
+
+## Important Note on NHANES III Data
+
+NHANES III is a separate survey from the continuous NHANES (1999-present). The data files have a different format and are accessed from a different location than continuous NHANES cycles.
+
+## Required Data Sources
+
+### 1. NHANES III Core Data Files
+- **Source**: CDC/NCHS NHANES III data page
+- **Format**: SAS Transport files (.xpt) organized by data file series
+- **Key files needed**:
+  - Adult household interview (demographics, medical history, lifestyle)
+  - Adult examination (anthropometry, blood pressure)
+  - Laboratory (thyroid panel: TSH, TT4, TPO-Ab; glucose; HbA1c; lipids; CRP; urinary iodine)
+
+### 2. NHANES III Linked Mortality File (2019)
+- **Source**: CDC/NCHS NHANES III Public-Use Linked Mortality Files
+- **URL**: https://www.cdc.gov/nchs/data-linkage/mortality-public.htm
+- **Description**: Public-use file linking NHANES III participants to NDI death records through December 31, 2019
+- **Variables**: Vital status (MORTSTAT), person-months of follow-up (PERMTH_INT, PERMTH_EXM), underlying cause of death by leading cause category (UCOD_LEADING)
+- **Format**: CSV or SAS format
+
+### 3. Key Laboratory Files
+- Thyroid panel (TSH: TSPH; Total T4: T4PH; TPO-Ab: ATPPH)
+- Fasting glucose (G1P) and 2-hour OGTT glucose (G2P)
+- Glycated hemoglobin (GHP)
+- Total cholesterol (TCP), HDL cholesterol (HDP)
+- C-reactive protein (CRP)
+- Urinary iodine (UIP)
+
+## Data Access
+- NHANES III public-use data files: freely available from CDC/NCHS
+- No registration or approval required for public-use files
+- Some NHANES III data components may require restricted-use data access for geographic identifiers
+- The linked mortality files are publicly available
+
+## Analytic Sample
+- Adults aged ≥20 years at examination
+- Euthyroid: TSH 0.39-4.60 mIU/L and normal TT4 (4.5-12.5 μg/dL)
+- Diabetes: self-reported diagnosis, FPG ≥126, 2h OGTT ≥200, HbA1c ≥6.5%, or diabetes medication use
+- Exclusion: missing thyroid function data, missing mortality linkage data
+- Final analytic sample: approximately 1,830 euthyroid adults with diabetes
+
+## Survey Weight Notes
+- NHANES III data collection occurred in two phases (1988-1991 and 1991-1994)
+- Use 6-year MEC examined sample weights (WTPFEX6) for analyses using examination and laboratory data
+- Use WTPFHX6 for analyses restricted to household interview data

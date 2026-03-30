@@ -1,0 +1,50 @@
+# Data Source: NHANES 2011-2014 (2 Combined Cycles)
+
+This task uses publicly available data from two consecutive NHANES cycles: 2011-2012 and 2013-2014.
+
+## Required Data Files
+
+### Cycle 1: NHANES 2011-2012
+1. **Demographics (DEMO_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DEMO_G.xpt
+2. **Blood Metals — Pb, Cd, Hg, Se, Mn (PBCD_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/PBCD_G.xpt
+3. **Standard Biochemistry Profile (BIOPRO_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/BIOPRO_G.xpt
+4. **Cognitive Functioning (CFQ_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/CFQ_G.xpt
+5. **Diabetes Questionnaire (DIQ_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DIQ_G.xpt
+6. **Blood Pressure Questionnaire (BPQ_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/BPQ_G.xpt
+7. **Smoking Questionnaire (SMQ_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/SMQ_G.xpt
+8. **Alcohol Use (ALQ_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/ALQ_G.xpt
+9. **Body Measures (BMX_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/BMX_G.xpt
+10. **Physical Activity (PAQ_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/PAQ_G.xpt
+
+### Cycle 2: NHANES 2013-2014
+Same modules with _H suffix:
+- DEMO_H, PBCD_H, BIOPRO_H, CFQ_H, DIQ_H, BPQ_H, SMQ_H, ALQ_H, BMX_H, PAQ_H
+
+## Data Format
+- Files are in SAS Transport format (.XPT)
+- Can be read with R (foreign::read.xport or haven::read_xpt) or Python (pandas.read_sas)
+- Merge files within cycle on SEQN (respondent sequence number)
+- Append across cycles with cycle identifier
+
+## Analytic Sample
+- Adults aged >= 60 years (cognitive tests only administered to 60+)
+- Complete blood metal measurements (Pb, Cd, Hg, Se, Mn) and serum iron
+- Valid cognitive function test data (CERAD, AFT, DSST)
+- Final analytic sample: approximately 2,002 participants (after all exclusions across 2 cycles)
+
+## Multi-Cycle Weighting
+- MEC examination weight (WTMEC2YR): divide by 2 for 4-year combined analysis
+- PSU and strata variables remain unchanged across cycles
+
+## Key Analytic Notes
+- Blood metals measured by ICP-MS at CDC Division of Laboratory Sciences
+- Cognitive function tests administered by trained interviewers at MEC
+- DSST: number correct in 120 seconds (max 133)
+- CERAD: 3 learning trials + delayed recall
+- AFT: number of animals named in 60 seconds
+- Low cognitive performance: below 25th percentile of each test
+- Values below LOD: replace with LOD/sqrt(2)
+
+## Access
+- No registration or approval required
+- Data freely downloadable from CDC/NCHS website

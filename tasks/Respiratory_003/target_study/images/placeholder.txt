@@ -1,0 +1,13 @@
+# Figure Descriptions: Yin et al. (2025)
+
+## Figure 1: Study Flow Diagram
+Participant selection flowchart showing NHANES 2005-2008 + 2015-2018 population → exclusion of participants without sleep questionnaire → exclusion of missing fasting laboratory data → exclusion of missing covariates → final analytic sample.
+
+## Figure 2: RCS Dose-Response Curves
+Restricted cubic spline plots showing the nonlinear association between continuous METS-IR (x-axis) and OSA probability/odds ratio (y-axis). The curve demonstrates a positive dose-response relationship with confidence interval bands, indicating higher METS-IR values are associated with progressively higher OSA odds.
+
+## Figure 3: Subgroup Analysis Forest Plot
+Forest plot displaying the association between METS-IR and OSA stratified by sex, age group, race/ethnicity, BMI category, diabetes status, hypertension status, and CVD history. P for interaction values annotated for each subgroup variable. The diabetes status subgroup shows the most notable interaction, with stronger association in non-diabetic populations.
+
+## Figure 4 (if applicable): Comparison of IR Indices
+Bar chart or radar plot comparing the performance of four insulin resistance indices (METS-IR, TyG, TG/HDL-C, HOMA-IR) in their associations with OSA, potentially showing odds ratios or AIC/BIC model comparison metrics.

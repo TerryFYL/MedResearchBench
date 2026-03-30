@@ -1,0 +1,47 @@
+{
+  "task": "Investigate the association between sleep duration and depression among U.S. adults using NHANES 2009-2016 data, with particular focus on identifying a nonlinear (U-shaped) dose-response relationship. The analysis should: (1) estimate weighted prevalence of depression (PHQ-9 >= 10) across categories of self-reported sleep duration (<6h, 6h, 7h, 8h, 9h, >=10h); (2) fit multivariable logistic regression models with progressive covariate adjustment to estimate adjusted odds ratios for the association between sleep duration and depression; (3) employ piecewise linear regression or segmented analysis to identify the inflection point in the sleep-depression relationship and quantify the slopes below and above this threshold; (4) conduct subgroup analyses stratified by sex, age group, and race/ethnicity to evaluate potential effect modification. The study population includes adults aged 20 years and older from four consecutive NHANES cycles (2009-2010, 2011-2012, 2013-2014, 2015-2016) with complete PHQ-9 and sleep duration data. Depression is defined as PHQ-9 total score >= 10. Sleep duration is based on self-reported usual hours of sleep per night on weekdays/workdays (SLD012). All analyses must account for NHANES complex survey design (sample weights, PSU, strata) and combine four cycles using appropriate weight adjustments.",
+  "data": [
+    {
+      "name": "NHANES 2009-2016 Demographics (4 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables including age, sex, race/ethnicity, education, marital status, and family income-to-poverty ratio. Cycles: 2009-2010 (DEMO_F), 2011-2012 (DEMO_G), 2013-2014 (DEMO_H), 2015-2016 (DEMO_I)."
+    },
+    {
+      "name": "NHANES 2009-2016 Depression Screener (PHQ-9)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Patient Health Questionnaire-9 items (DPQ010-DPQ090) for depression screening. Total score range 0-27. Cycles: DPQ_F, DPQ_G, DPQ_H, DPQ_I."
+    },
+    {
+      "name": "NHANES 2009-2016 Sleep Disorders Questionnaire",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Self-reported sleep duration (SLD012: usual hours of sleep on weekdays/workdays) and sleep trouble indicators. Cycles: SLQ_F, SLQ_G, SLQ_H, SLQ_I."
+    },
+    {
+      "name": "NHANES 2009-2016 Body Measures, Physical Activity, Smoking, Alcohol",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Covariates: BMI (BMX), physical activity (PAQ), smoking status (SMQ), alcohol use (ALQ), and medical conditions (MCQ) across 4 NHANES cycles."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for all NHANES 2009-2016 components used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Mental",
+    "study_design": "cross-sectional (pooled multi-cycle)",
+    "primary_methods": [
+      "survey-weighted logistic regression",
+      "piecewise linear regression (U-shaped dose-response)",
+      "subgroup analysis",
+      "threshold/inflection point estimation"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 2009-2016"
+  }
+}

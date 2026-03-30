@@ -1,0 +1,39 @@
+# Data Source: NHANES 2005-2016 (6 cycles)
+
+This task uses publicly available data from the National Health and Nutrition Examination Survey (NHANES) spanning six consecutive cycles: 2005-2006 through 2015-2016.
+
+## Required Data Files
+
+Base URL template: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/{start_year}/DataFiles/{MODULE}_{letter}.xpt
+
+### Core Modules (per cycle)
+
+| Module | 2005-06 (D) | 2007-08 (E) | 2009-10 (F) | 2011-12 (G) | 2013-14 (H) | 2015-16 (I) |
+|--------|-------------|-------------|-------------|-------------|-------------|-------------|
+| Demographics | DEMO_D | DEMO_E | DEMO_F | DEMO_G | DEMO_H | DEMO_I |
+| Depression (PHQ-9) | DPQ_D | DPQ_E | DPQ_F | DPQ_G | DPQ_H | DPQ_I |
+| Body Measures | BMX_D | BMX_E | BMX_F | BMX_G | BMX_H | BMX_I |
+| Smoking | SMQ_D | SMQ_E | SMQ_F | SMQ_G | SMQ_H | SMQ_I |
+| Alcohol Use | ALQ_D | ALQ_E | ALQ_F | ALQ_G | ALQ_H | ALQ_I |
+| Physical Activity | PAQ_D | PAQ_E | PAQ_F | PAQ_G | PAQ_H | PAQ_I |
+| BP Questionnaire | BPQ_D | BPQ_E | BPQ_F | BPQ_G | BPQ_H | BPQ_I |
+| Diabetes | DIQ_D | DIQ_E | DIQ_F | DIQ_G | DIQ_H | DIQ_I |
+
+### Example Download URLs (2005-2006 cycle)
+- Demographics: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DEMO_D.xpt
+- PHQ-9: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DPQ_D.xpt
+
+## Data Format
+- Files are in SAS Transport format (.XPT)
+- Can be read with R (haven::read_xpt) or Python (pandas.read_sas)
+- Merge files on SEQN within each cycle, then append cycles with a cycle indicator variable
+
+## Analytic Sample
+- Adults aged >= 20 years
+- Complete PHQ-9 data (all 9 items non-missing)
+- Total pooled sample: approximately 29,303 participants across 6 cycles
+- For trend analysis, use cycle-specific WTMEC2YR weights (do NOT divide by number of cycles)
+
+## Access
+- No registration or approval required
+- Data freely downloadable from CDC/NCHS website

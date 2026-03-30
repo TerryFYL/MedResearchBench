@@ -1,0 +1,13 @@
+# Figure Descriptions: Mendy et al. (2022) — VOC Metabolites and Lung Function
+
+## Figure 1: Forest Plot of VOC-FEV1/FVC Associations
+Adjusted regression coefficients (betas) with 95% confidence intervals for the association between each urinary VOC metabolite and FEV1/FVC ratio (%). Key findings: acrylamide (beta: -2.65), acrylonitrile (beta: -1.02), and styrene (beta: -3.13) show significant negative associations.
+
+## Figure 2: Forest Plot of VOC-FEV1% Predicted Associations
+Adjusted regression coefficients with 95% CIs for the association between each urinary VOC metabolite and FEV1 percent predicted. Acrolein (beta: -7.77), acrylonitrile (beta: -2.05), propylene oxide (beta: -2.90), and styrene (beta: -4.41) significantly associated with reduced FEV1%.
+
+## Table 1: Participant Characteristics
+Demographic and clinical characteristics of the 1,342 NHANES 2011-2012 participants with spirometry and VOC metabolite data. Includes age, sex, race/ethnicity distribution, BMI, smoking status, and mean spirometry values.
+
+## Table 2: Detection Rates and Distributions of VOC Metabolites
+Proportion detected (>LOD) and geometric mean concentrations for each of the 28 urinary VOC metabolites. Twelve metabolites detected in >75% of participants.

@@ -1,0 +1,72 @@
+[
+  {
+    "type": "text",
+    "dimension": "statistical_methodology",
+    "content": "The analysis uses a quasi-experimental pre-post design leveraging NHANES as a serial cross-sectional surveillance platform. Four temporal eras are defined: prevaccine (2003-2006, before quadrivalent HPV vaccine licensure in June 2006) and three vaccine eras (2007-2010, 2011-2014, 2015-2018). Survey-weighted HPV DNA prevalence is estimated for each era using the appropriate NHANES MEC examination weights (WTMEC2YR adjusted for combining cycles). Vaccine impact is calculated as the percent reduction in 4vHPV-type prevalence from the prevaccine era: Impact = (Prev_pre - Prev_era) / Prev_pre × 100%, computed overall, among vaccinated, and among unvaccinated. Vaccine effectiveness within each era is estimated as VE = 1 - PR (prevalence ratio of vaccinated/unvaccinated). Type replacement is assessed by monitoring non-4vHPV type prevalence trends. All variance estimates use Taylor series linearization accounting for the complex survey design (PSU, strata). Confidence intervals are computed for all prevalence estimates and vaccine effectiveness measures.",
+    "path": null,
+    "keywords": [
+      "Pre-post quasi-experimental design (prevaccine vs. 3 vaccine eras)",
+      "Vaccine impact = percent prevalence reduction from prevaccine era",
+      "Vaccine effectiveness = 1 - prevalence ratio (vaccinated/unvaccinated)",
+      "Survey-weighted HPV DNA prevalence (WTMEC2YR adjusted for cycle combination)",
+      "Type replacement monitoring via non-vaccine type prevalence trends"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "results_accuracy",
+    "content": "Among sexually experienced females aged 14-24, 4vHPV-type (HPV 6/11/16/18) prevalence declined from the prevaccine era through 2015-2018 with an overall vaccine impact of 85%. Stratified by vaccination status: impact was 90% among vaccinated females and 74% among unvaccinated females — the latter providing strong evidence of herd immunity/indirect protection. Vaccine effectiveness ranged from 60% to 84% across vaccine eras for females. Among sexually experienced males aged 14-24 (data available 2013-2018), vaccine effectiveness was 51% in 2013-2016. Female HPV vaccination coverage (>= 1 dose) increased from 25% in 2007-2010 to 59% in 2015-2018; male coverage from 27% in 2011-2014 to 50% in 2015-2018. Critically, no significant changes in non-4vHPV-type prevalence were observed across eras, indicating no evidence of type replacement through 12 years post-vaccine introduction.",
+    "path": null,
+    "keywords": [
+      "85% overall 4vHPV-type impact in 2015-2018 among females 14-24",
+      "90% impact among vaccinated, 74% among unvaccinated (herd immunity)",
+      "Female VE 60-84% across eras; male VE 51% (2013-2016)",
+      "Female vaccination coverage 25% to 59%; male 27% to 50%",
+      "No significant non-4vHPV type prevalence changes (no type replacement)"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "clinical_interpretation",
+    "content": "The 74% reduction in 4vHPV-type prevalence among unvaccinated females is a landmark finding demonstrating strong herd protection — indirect protection of unvaccinated individuals through reduced community transmission from vaccinated persons. This suggests the HPV vaccination program generates benefits far exceeding the direct protection of vaccinated individuals. The absence of type replacement through 12 years of monitoring is reassuring, as theoretical models had predicted potential increases in non-vaccine oncogenic types filling the ecological niche vacated by vaccine types. The modest male VE (51%) likely reflects both the indirect protection males already receive from female vaccination (reducing the incremental direct benefit) and the later start of male vaccination recommendations (October 2011 vs. June 2006 for females). Clinical implications: continued high vaccination coverage is essential to maintain herd protection benefits, and the transition from quadrivalent to nonavalent (9vHPV) vaccine in 2016 is expected to expand protection to additional oncogenic types (31, 33, 45, 52, 58).",
+    "path": null,
+    "keywords": [
+      "74% herd protection in unvaccinated females (indirect benefit)",
+      "No type replacement through 12 years post-introduction",
+      "Male VE modest (51%) due to pre-existing indirect protection from female vaccination",
+      "Transition from 4vHPV to 9vHPV vaccine will expand genotype coverage",
+      "Population-level cancer prevention implications"
+    ],
+    "weight": 0.20
+  },
+  {
+    "type": "text",
+    "dimension": "confounding_sensitivity",
+    "content": "Several methodological considerations strengthen or limit causal inference: (1) restriction to sexually experienced participants ensures HPV exposure opportunity, avoiding dilution of prevalence estimates by unexposed individuals; (2) the prevaccine era (2003-2006) provides a true baseline before vaccine availability, supporting causal interpretation of subsequent declines; (3) vaccination status is self-reported (potential misclassification — under-reporting may bias VE downward, over-reporting may bias it upward); (4) VE estimates are increasingly affected by herd effects in later eras — as community prevalence declines, unvaccinated persons have lower exposure risk, reducing the apparent incremental benefit of vaccination (VE underestimation); (5) sexual behavior changes over time could confound prevalence trends (e.g., changes in number of partners, condom use); (6) the study cannot distinguish between 4vHPV types individually in the impact analysis, aggregating types that may have different transmission dynamics.",
+    "path": null,
+    "keywords": [
+      "Sexually experienced restriction ensures exposure opportunity",
+      "True prevaccine baseline (2003-2006) supports causal interpretation",
+      "Self-reported vaccination (potential misclassification)",
+      "Herd effects increasingly confound VE estimation in later eras",
+      "Sexual behavior changes as potential temporal confounder"
+    ],
+    "weight": 0.15
+  },
+  {
+    "type": "text",
+    "dimension": "reporting_compliance",
+    "content": "The study follows STROBE guidelines for serial cross-sectional studies and RECORD (Reporting of Studies Conducted Using Observational Routinely Collected Health Data) extensions. Sample sizes and response rates are reported for each NHANES cycle and era. All prevalence estimates include 95% confidence intervals. The complex survey design and weighting strategy are specified. Explicit definitions of vaccine impact vs. effectiveness metrics are provided with clear formulas. Key limitations acknowledged include: self-reported vaccination status (no verification against registries), cross-sectional design limiting inference about individual-level protection over time, inability to assess duration of type-specific protection, and the non-institutional civilian US population sampling frame excluding populations at potentially elevated HPV risk (incarcerated, homeless). The CDC authorship team provides institutional authority and continuity with prior NHANES HPV surveillance publications.",
+    "path": null,
+    "keywords": [
+      "STROBE compliance for serial cross-sectional design",
+      "Sample sizes and response rates per cycle",
+      "All estimates with 95% CIs",
+      "Clear vaccine impact vs. effectiveness definitions",
+      "Limitations: self-reported vaccination, cross-sectional design, non-institutional sample"
+    ],
+    "weight": 0.15
+  }
+]

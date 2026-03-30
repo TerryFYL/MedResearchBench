@@ -1,0 +1,54 @@
+{
+  "task": "Estimate the prevalence and identify risk factors of undiagnosed obstructive lung disease among U.S. adults using NHANES 2007-2012 data. The analysis should: (1) define obstructive lung disease using pre-bronchodilator spirometry criteria (FEV1/FVC < lower limit of normal [LLN] based on NHANES III reference equations), and classify participants as 'diagnosed' (self-reported physician diagnosis of COPD, emphysema, or chronic bronchitis) or 'undiagnosed' (spirometric obstruction present but no self-reported diagnosis); (2) estimate the population-weighted prevalence of undiagnosed obstructive lung disease overall and stratified by age group, sex, race/ethnicity, smoking status, and disease severity (GOLD stages); (3) identify factors independently associated with being undiagnosed among those with spirometric obstruction using survey-weighted multivariable logistic regression, adjusting for demographics, smoking history, comorbidity burden, healthcare utilization, self-rated health, respiratory symptoms, and lung function severity; (4) link NHANES III participants with the National Death Index to evaluate long-term mortality risk of undiagnosed versus diagnosed obstructive lung disease compared to those without obstruction, using Cox proportional hazards models. The study population includes adults aged 20-79 years with acceptable spirometry quality grades. All analyses must account for the complex survey design of NHANES (MEC examination weights, PSU, strata). NHANES 2007-2012 data (3 cycles) should be combined using appropriate multi-cycle weighting procedures.",
+  "data": [
+    {
+      "name": "NHANES 2007-2012 Demographics (3 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables from 2007-2008 (DEMO_E), 2009-2010 (DEMO_F), and 2011-2012 (DEMO_G) cycles. Includes age, sex, race/ethnicity, education, income, and country of birth."
+    },
+    {
+      "name": "NHANES 2007-2012 Spirometry (3 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Pre- and post-bronchodilator spirometry from SPX_E, SPX_F, and SPX_G. Includes FEV1, FVC, FEV1/FVC, quality grades, and predicted values based on NHANES III reference equations."
+    },
+    {
+      "name": "NHANES 2007-2012 Medical Conditions Questionnaire (3 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Self-reported physician diagnoses from MCQ_E/F/G including ever told you have COPD, emphysema, or chronic bronchitis. Also includes self-reported asthma, cancer, heart disease, and diabetes for comorbidity assessment."
+    },
+    {
+      "name": "NHANES 2007-2012 Respiratory Health and Smoking (3 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Respiratory symptoms questionnaire and smoking history from SMQ_E/F/G. Includes cough, phlegm, wheezing, shortness of breath, pack-years of smoking, and current smoking status."
+    },
+    {
+      "name": "NHANES 2007-2012 Healthcare Utilization and Self-Rated Health",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Number of healthcare visits, insurance status, and self-rated general health from HUQ_E/F/G. Used to assess healthcare access and health perception in relation to diagnostic status."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for all NHANES 2007-2012 components used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Respiratory",
+    "study_design": "cross-sectional with mortality linkage",
+    "primary_methods": [
+      "survey-weighted prevalence estimation",
+      "survey-weighted multivariable logistic regression",
+      "Cox proportional hazards (mortality analysis)",
+      "GOLD severity staging",
+      "multi-cycle NHANES data combination"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 2007-2012 (3 cycles) + NHANES III (mortality linkage)"
+  }
+}

@@ -1,0 +1,3 @@
+Figure descriptions for Huang et al. (2025) Frontiers in Aging Neuroscience — Dietary Antioxidant Index and Parkinson's Disease
+
+No figures are included in this benchmark task. The study's key results are captured in the checklist.json evaluation criteria.

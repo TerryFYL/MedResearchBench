@@ -1,0 +1,71 @@
+[
+  {
+    "type": "text",
+    "dimension": "statistical_methodology",
+    "content": "The study uses survey-weighted multivariable logistic regression to examine racial/ethnic disparities in hypertension awareness, treatment, and control. Pooled NHANES 2013-2018 data (3 cycles) with appropriate weight adjustment (WTMEC2YR divided by 3). Models adjust for age, sex, health insurance status, education level, income-to-poverty ratio, BMI, diabetes, and cardiovascular disease history. Age-standardization uses the direct method with U.S. Census standard population. Complex survey design (PSU, strata, weights) is correctly incorporated throughout all analyses.",
+    "path": null,
+    "keywords": [
+      "Survey-weighted multivariable logistic regression",
+      "Pooled NHANES 3-cycle weight adjustment (WTMEC2YR / 3)",
+      "Age-standardization using direct method",
+      "Complex survey design (PSU, strata, weights)",
+      "Adjustment for demographics, SES, insurance, comorbidities"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "results_accuracy",
+    "content": "Among approximately 76.9 million U.S. adults with hypertension (pooled 2013-2018), 48.6% had controlled BP. Black adults had the highest hypertension prevalence (45.3%) and significantly lower BP control compared to White adults (39.2% vs. 49.0%; aOR 0.71, 95% CI 0.59-0.85, P<0.001). Hispanic adults also had lower control (40.0%; aOR 0.71, 95% CI 0.58-0.88, P=0.003). Asian Americans had the lowest control rate (37.8%; aOR 0.68, 95% CI 0.55-0.84, P=0.001). Treatment rates were similar between White (~67%) and Black (~67%) adults, but lower for Hispanic (60.5%) and Asian (58.8%) adults, suggesting different mechanisms driving disparities across groups.",
+    "path": null,
+    "keywords": [
+      "Overall control rate 48.6% among 76.9 million hypertensive adults",
+      "Black vs White control: 39.2% vs 49.0% (aOR 0.71, P<0.001)",
+      "Hispanic vs White control: 40.0% vs 49.0% (aOR 0.71, P=0.003)",
+      "Asian vs White control: 37.8% vs 49.0% (aOR 0.68, P=0.001)",
+      "Similar treatment rates for Black/White (~67%) but lower for Hispanic (60.5%) and Asian (58.8%)"
+    ],
+    "weight": 0.30
+  },
+  {
+    "type": "text",
+    "dimension": "clinical_interpretation",
+    "content": "The findings reveal distinct mechanisms underlying hypertension disparities across racial/ethnic groups. For Black Americans, similar awareness and treatment rates but lower control suggest issues with treatment quality or intensification — patients are diagnosed and prescribed medications but achieve worse BP outcomes. For Hispanic and Asian Americans, lower awareness and treatment rates indicate upstream barriers to diagnosis and medication initiation, potentially related to healthcare access, language, or cultural factors. The study implies that interventions to close racial/ethnic gaps in BP control should be tailored: treatment intensification programs for Black Americans, and enhanced screening and access programs for Hispanic and Asian communities.",
+    "path": null,
+    "keywords": [
+      "Different disparity mechanisms by race/ethnicity",
+      "Black Americans: treatment quality/intensification gap despite similar treatment rates",
+      "Hispanic/Asian Americans: upstream barriers in awareness and treatment initiation",
+      "Tailored interventions needed per racial/ethnic group",
+      "Insurance and SES partially but incompletely explain disparities"
+    ],
+    "weight": 0.20
+  },
+  {
+    "type": "text",
+    "dimension": "confounding_sensitivity",
+    "content": "The analysis adjusts for a comprehensive set of potential confounders including age, sex, health insurance status, education level, income-to-poverty ratio, BMI, diabetes, and cardiovascular disease history. The hypertension control cascade framework (prevalence -> awareness -> treatment -> control) serves as a decomposition analysis, identifying at which stage disparities emerge for each racial/ethnic group. Results are presented both crude (unadjusted) and adjusted to demonstrate the impact of confounding. Separate analyses for awareness, treatment, and control allow examination of whether disparities are driven by healthcare access vs. treatment quality.",
+    "path": null,
+    "keywords": [
+      "Comprehensive confounder adjustment (demographics, SES, insurance, comorbidities)",
+      "Hypertension control cascade as disparity decomposition framework",
+      "Crude vs. adjusted estimates to quantify confounding impact",
+      "Stage-specific analysis (awareness, treatment, control) identifying disparity mechanisms"
+    ],
+    "weight": 0.15
+  },
+  {
+    "type": "text",
+    "dimension": "reporting_compliance",
+    "content": "The study follows STROBE guidelines for cross-sectional studies: sample selection criteria and exclusions clearly documented, complex survey design and weighting methodology specified, effect measures reported as adjusted odds ratios with 95% CIs and P-values throughout, weighted population estimates with 95% CIs provided, limitations acknowledged including cross-sectional design, self-reported race/ethnicity, and inability to assess medication adherence or prescribing patterns.",
+    "path": null,
+    "keywords": [
+      "STROBE adherence for cross-sectional study",
+      "Exclusion criteria and sample flow documented",
+      "Weighted population estimates with 95% CIs",
+      "All effect measures with 95% CI and P-values",
+      "Limitations acknowledged (cross-sectional, self-report, no adherence data)"
+    ],
+    "weight": 0.10
+  }
+]

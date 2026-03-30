@@ -1,0 +1,72 @@
+[
+  {
+    "type": "text",
+    "dimension": "statistical_methodology",
+    "content": "The analysis employs survey-weighted multivariable logistic regression with three progressively adjusted models to examine the association between the METS-IR index and OSA risk. Model 1 adjusts for age, sex, and race/ethnicity; Model 2 adds socioeconomic and behavioral factors (education, marital status, poverty-income ratio, alcohol consumption, smoking, physical activity); Model 3 further adjusts for clinical comorbidities (diabetes, hypertension, CVD). The continuous METS-IR-OSA dose-response relationship is modeled using restricted cubic splines (RCS). METS-IR is calculated as ln((2 × FPG) + TG) × BMI / ln(HDL-C) and compared with three alternative insulin resistance indices: TyG index, TG/HDL-C ratio, and HOMA-IR. Four NHANES cycles (2005-2008, 2015-2018) are pooled with appropriately adjusted survey weights accounting for the complex multistage sampling design.",
+    "path": null,
+    "keywords": [
+      "METS-IR formula: ln((2 × FPG) + TG) × BMI / ln(HDL-C)",
+      "Three progressive adjustment models (logistic regression)",
+      "RCS for continuous dose-response visualization",
+      "Comparison of four IR indices: METS-IR, TyG, TG/HDL-C, HOMA-IR",
+      "Pooled NHANES 2005-2008 + 2015-2018 with adjusted survey weights"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "results_accuracy",
+    "content": "METS-IR demonstrates a significant positive association with OSA risk across all three adjustment models. The restricted cubic spline analysis reveals a nonlinear dose-response relationship between METS-IR and OSA probability. A critical finding is the differential association by diabetes status: the METS-IR-OSA association is significantly stronger in the non-diabetic population compared to diabetic individuals, with a significant interaction term (P for interaction < 0.05). Similarly, the associations between TyG, TG/HDL-C, and HOMA-IR with OSA are only statistically significant in the non-diabetic subgroup. Sex-stratified subgroup analyses demonstrate differential METS-IR-OSA associations between men and women, with the relationship modified by sex alongside other demographic and clinical factors.",
+    "path": null,
+    "keywords": [
+      "METS-IR significantly positively associated with OSA across all models",
+      "Nonlinear dose-response between METS-IR and OSA (RCS)",
+      "Stronger METS-IR-OSA association in non-diabetic vs diabetic (P interaction < 0.05)",
+      "TyG/TG-HDL/HOMA-IR associations significant only in non-diabetic subgroup",
+      "Sex-stratified differential associations between men and women"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "clinical_interpretation",
+    "content": "The differential METS-IR-OSA association by diabetes status has important clinical implications: in non-diabetic individuals, insulin resistance (as captured by METS-IR and related indices) is a primary metabolic driver of OSA risk, but in diabetic patients whose metabolic systems are already severely impaired, other factors such as obesity, age, and genetic susceptibility may become the predominant OSA determinants. This suggests that insulin resistance screening via METS-IR could identify non-diabetic individuals at elevated OSA risk who might benefit from targeted metabolic interventions. METS-IR has a practical clinical advantage over HOMA-IR because it does not require fasting insulin measurement — relying only on fasting glucose, triglycerides, HDL-cholesterol, and BMI, all routinely available in standard clinical practice.",
+    "path": null,
+    "keywords": [
+      "Insulin resistance as primary OSA driver in non-diabetic populations",
+      "Diabetic patients shift to obesity/age/genetic susceptibility as OSA drivers",
+      "METS-IR does not require fasting insulin (practical advantage over HOMA-IR)",
+      "METS-IR for targeted OSA risk screening in non-diabetic individuals",
+      "Routine clinical parameters (FPG, TG, HDL-C, BMI) enable METS-IR calculation"
+    ],
+    "weight": 0.20
+  },
+  {
+    "type": "text",
+    "dimension": "confounding_sensitivity",
+    "content": "The study addresses potential confounding through comprehensive subgroup analyses stratified by seven variables: sex, age group, race/ethnicity, BMI category, diabetes status, hypertension status, and cardiovascular disease history. Formal interaction terms are tested for each stratification variable to identify statistically significant effect modification. The progressive model adjustment strategy (demographic → behavioral → clinical) allows assessment of how the METS-IR-OSA association attenuates with increasing covariate control. Key confounders include: BMI (component of METS-IR formula and independent OSA risk factor, raising concerns about mathematical coupling), diabetes status (modifies the metabolic pathway linking IR to OSA), and sex (known 2-3x male predominance of OSA independent of metabolic factors). The non-insulin-dependent nature of METS-IR avoids confounding by insulin measurement variability inherent to HOMA-IR.",
+    "path": null,
+    "keywords": [
+      "Seven-variable subgroup analysis with interaction testing",
+      "BMI mathematical coupling concern (BMI in both METS-IR and OSA risk)",
+      "Diabetes status as critical effect modifier",
+      "Sex-stratified analysis (2-3x male OSA predominance)",
+      "METS-IR avoids fasting insulin measurement variability"
+    ],
+    "weight": 0.15
+  },
+  {
+    "type": "text",
+    "dimension": "reporting_compliance",
+    "content": "The manuscript follows STROBE guidelines for cross-sectional studies: the pooled multi-cycle NHANES design with appropriate weight adjustment is specified; OSA ascertainment via sleep disorder questionnaire items is documented; METS-IR calculation formula and all comparison index formulas are explicitly stated; inclusion/exclusion criteria and sample derivation are described; odds ratios with 95% CIs are reported for all models, indices, and subgroups; RCS dose-response curves are presented graphically; P for interaction values are reported for all stratification variables. Limitations acknowledged include: self-reported OSA diagnosis (no polysomnography), cross-sectional design precluding causal inference, potential residual confounding, and the mathematical coupling between BMI (a METS-IR component) and obesity (a major OSA risk factor).",
+    "path": null,
+    "keywords": [
+      "STROBE adherence for cross-sectional study",
+      "METS-IR formula and comparison index formulas specified",
+      "Self-reported OSA limitation acknowledged (no polysomnography)",
+      "Cross-sectional design precludes causal inference",
+      "BMI mathematical coupling limitation discussed"
+    ],
+    "weight": 0.15
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "type": "text",
+    "dimension": "statistical_methodology",
+    "content": "The analysis employs a dual-survey design using both NHANES III (1988-1994) and NHANES 2007-2012 (3 combined cycles). Obstructive lung disease is defined using pre-bronchodilator spirometry with the lower limit of normal (LLN) criterion based on Hankinson 1999 reference equations — not the GOLD fixed ratio (FEV1/FVC < 0.70) — which avoids overdiagnosis in elderly populations. Diagnostic status is determined by comparing spirometric findings with self-reported physician diagnoses of COPD, emphysema, or chronic bronchitis. Survey-weighted multivariable logistic regression identifies factors independently associated with being undiagnosed among those with spirometric obstruction. Cox proportional hazards models using NHANES III data linked to the National Death Index evaluate long-term mortality. All analyses account for the complex survey design with MEC examination weights (divided by 3 for 6-year combined NHANES 2007-2012 analysis), PSU, and strata.",
+    "path": null,
+    "keywords": [
+      "Dual-survey design: NHANES III (1988-1994) + NHANES 2007-2012",
+      "LLN-based obstruction criterion (Hankinson 1999 reference equations)",
+      "Diagnostic status: spirometric obstruction vs self-reported physician diagnosis",
+      "Survey-weighted multivariable logistic regression",
+      "Cox proportional hazards models linked to National Death Index",
+      "Multi-cycle weighting (WTMEC2YR / 3 for 6-year combination)"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "results_accuracy",
+    "content": "Among participants with spirometric obstruction, 71.2% in NHANES III and 72.0% in NHANES 2007-2012 were undiagnosed — demonstrating that approximately three-quarters of U.S. adults with obstructive lung disease have never received a diagnosis, and this proportion has remained unchanged over two decades. In NHANES 2007-2012 (n=13,835 aged 20-79), the overall prevalence of spirometric obstruction was 11.8%. Of those with obstruction, only 28.3% (age-adjusted) had a physician diagnosis. In the mortality analysis (NHANES III, median follow-up 14.5 years), undiagnosed participants had a 23% higher all-cause mortality risk (HR: 1.23; 95% CI: 1.08-1.40) compared to those without obstruction, while diagnosed participants had 74% higher risk (HR: 1.74; 95% CI: 1.45-2.09).",
+    "path": null,
+    "keywords": [
+      "72.0% of spirometric obstruction cases undiagnosed in NHANES 2007-2012",
+      "71.2% undiagnosed in NHANES III — unchanged over two decades",
+      "Overall prevalence of spirometric obstruction 11.8%",
+      "Only 28.3% (age-adjusted) correctly diagnosed",
+      "Undiagnosed all-cause mortality HR: 1.23 (95% CI: 1.08-1.40)",
+      "Diagnosed all-cause mortality HR: 1.74 (95% CI: 1.45-2.09)"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "confounding_sensitivity",
+    "content": "The study systematically evaluates potential confounders by including comprehensive covariates in the logistic regression model for undiagnosed status: age, sex, race/ethnicity, education, income, smoking status (never/former/current), pack-years, self-rated health, healthcare utilization (number of visits), insurance status, comorbidity burden (Charlson-based count), respiratory symptoms (cough, phlegm, wheeze, dyspnea), and spirometric severity (FEV1% predicted, GOLD stage). The dual-survey design across two time periods (NHANES III 1988-1994 and NHANES 2007-2012) serves as an implicit sensitivity check — the consistency of the ~72% undiagnosed rate across different eras demonstrates robustness. The mortality model adjusts for baseline differences between diagnosed, undiagnosed, and non-obstructed groups to isolate the independent prognostic effect of obstruction status.",
+    "path": null,
+    "keywords": [
+      "Comprehensive covariate adjustment in logistic regression",
+      "Dual-survey temporal validation (1988-1994 vs 2007-2012)",
+      "Consistent ~72% undiagnosed rate across two eras",
+      "Mortality model adjusting for diagnosed/undiagnosed baseline differences",
+      "Covariates: smoking pack-years, comorbidity burden, healthcare utilization",
+      "GOLD severity staging and FEV1% predicted as obstruction severity measures"
+    ],
+    "weight": 0.20
+  },
+  {
+    "type": "text",
+    "dimension": "clinical_interpretation",
+    "content": "The key clinical paradox identified is that undiagnosed individuals appear healthier in cross-sectional assessment — they report better self-rated health (OR: 2.24 for good/excellent), have fewer comorbidities, and have milder obstruction — yet still face significantly increased mortality risk (23% excess). This 'healthy undiagnosed' phenotype suggests that the absence of symptoms and perceived good health actively discourages medical evaluation and spirometry testing. Racial/ethnic minority status is a strong independent predictor of being undiagnosed (NH Black OR: 1.78, Mexican American OR: 2.43), pointing to healthcare access disparities and differential diagnostic patterns. The unchanged 72% underdiagnosis rate over two decades implies that existing case-finding and screening strategies have been ineffective. The mortality gradient (undiagnosed HR: 1.23 < diagnosed HR: 1.74) likely reflects the severity distribution, but even mild undiagnosed disease carries prognostic significance, supporting arguments for more aggressive spirometry use in primary care.",
+    "path": null,
+    "keywords": [
+      "Healthy undiagnosed paradox: better self-rated health but increased mortality",
+      "Undiagnosed excess mortality 23% despite appearing healthier",
+      "Racial/ethnic minority status as underdiagnosis risk factor (NH Black OR: 1.78, Mexican American OR: 2.43)",
+      "Two-decade stagnation of 72% underdiagnosis rate",
+      "Argues for more spirometry use in primary care",
+      "Mortality gradient: undiagnosed < diagnosed, but both elevated vs non-obstructed"
+    ],
+    "weight": 0.15
+  },
+  {
+    "type": "text",
+    "dimension": "reporting_compliance",
+    "content": "The study follows STROBE guidelines for observational studies with clear reporting of: participant flow from both NHANES III and NHANES 2007-2012 survey samples to final analytic cohorts; spirometric criteria (LLN-based) and diagnostic classification methodology; multivariate model specification with all covariates listed; effect estimates reported as odds ratios and hazard ratios with 95% confidence intervals throughout; complex survey design and weighting procedures for both single-survey and multi-cycle analyses. Limitations are explicitly stated, including reliance on self-reported diagnoses (which may underestimate true diagnosis rates), use of pre-bronchodilator spirometry (which overestimates obstruction compared to post-bronchodilator GOLD standard), cross-sectional design for risk factor analysis, and potential for healthy survivor bias in the mortality cohort.",
+    "path": null,
+    "keywords": [
+      "STROBE adherence for cross-sectional and cohort components",
+      "Participant flow documented for both NHANES III and 2007-2012",
+      "All estimates reported with 95% confidence intervals",
+      "Survey design and multi-cycle weighting specified",
+      "Limitations: self-reported diagnoses, pre-bronchodilator spirometry",
+      "Limitations: healthy survivor bias, cross-sectional risk factor analysis"
+    ],
+    "weight": 0.15
+  }
+]

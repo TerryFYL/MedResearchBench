@@ -1,0 +1,72 @@
+[
+  {
+    "type": "text",
+    "dimension": "statistical_methodology",
+    "content": "The analysis employs Kaplan-Meier estimation of 1-year and 5-year CRC cause-specific survival probabilities, stratified by SEER historic stage (localized, regional, distant) and race/ethnicity (non-Hispanic White, non-Hispanic Black, non-Hispanic American Indian/Alaska Native, Hispanic, non-Hispanic Asian/Pacific Islander). Cause-specific survival is computed using SEER cause-of-death recode, counting only deaths attributable to colorectal cancer as events and censoring deaths from other causes. Temporal trend analysis quantifies annual percent change in survival probabilities for each stage-by-race/ethnicity stratum across the 1992-2018 study period. The study population of 399,220 individuals is drawn from the SEER 12 registries covering approximately 14% of the U.S. population.",
+    "path": null,
+    "keywords": [
+      "Kaplan-Meier cause-specific survival estimation",
+      "SEER historic staging (localized, regional, distant)",
+      "Five racial/ethnic groups (NHW, NHB, AIAN, Hispanic, API)",
+      "Temporal trend analysis with annual percent change",
+      "N = 399,220 CRC cases from SEER 12 registries (1992-2018)"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "results_accuracy",
+    "content": "Overall CRC cause-specific survival improved from 1992 to 2018 across all stages and racial/ethnic groups. For distant-stage CRC, 1-year survival increased most consistently among non-Hispanic AIAN and non-Hispanic Black persons, but their trend lines remained below those of Hispanic and other groups. Significant differences in stage-specific 1-year survival trends were observed by race/ethnicity. Five-year survival showed more pronounced racial/ethnic disparities than 1-year survival. Localized-stage CRC showed the least racial/ethnic variation. Despite overall convergence trends, AIAN and NHB persons continued to experience worse absolute prognosis across all stages through 2018.",
+    "path": null,
+    "keywords": [
+      "Overall CRC survival improved across all stages and races (1992-2018)",
+      "Distant-stage: AIAN and NHB showed most consistent improvement but lowest absolute survival",
+      "Significant differences in stage-specific 1-year survival by race/ethnicity",
+      "5-year survival disparities more pronounced than 1-year disparities",
+      "Localized-stage CRC had least racial/ethnic variation in trends"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "visualization_quality",
+    "content": "Stage-specific survival trend plots must display temporal trajectories for each of the five racial/ethnic groups within each stage category (localized, regional, distant). Key visualization requirements include: (1) separate panels or clearly labeled series for each stage; (2) trend lines showing 1-year and/or 5-year survival probability on the y-axis and year of diagnosis on the x-axis; (3) clear differentiation of racial/ethnic groups using distinct line styles or colors; (4) confidence intervals or confidence bands to indicate uncertainty; (5) year range spanning 1992 to 2018. The distant-stage panel should clearly show the convergence pattern (improving but lower AIAN/NHB trajectories).",
+    "path": null,
+    "keywords": [
+      "Stage-stratified survival trend plots by race/ethnicity",
+      "Year of diagnosis on x-axis, survival probability on y-axis",
+      "Separate panels for localized, regional, distant stages",
+      "Distinct visual encoding for five racial/ethnic groups",
+      "Convergence pattern visible in distant-stage panel"
+    ],
+    "weight": 0.20
+  },
+  {
+    "type": "text",
+    "dimension": "clinical_interpretation",
+    "content": "The persistent racial/ethnic survival disparities despite overall improvements reflect multifactorial determinants including differences in access to care, screening utilization, treatment quality, comorbidities, and socioeconomic factors. The finding that disparities are most pronounced for distant-stage disease and in 5-year survival suggests that differences in treatment effectiveness and access to multimodality therapy (e.g., chemotherapy for metastatic CRC) contribute to the gap. The narrowing but persistent disparity for AIAN and NHB populations highlights the need for targeted interventions addressing structural barriers to cancer care in these communities. The relatively smaller disparities in localized-stage survival suggest that when diagnosed early, outcomes are more equitable across racial/ethnic groups.",
+    "path": null,
+    "keywords": [
+      "Multifactorial determinants of racial/ethnic survival disparities",
+      "Greatest disparities in distant-stage and 5-year survival",
+      "Narrowing but persistent gap for AIAN and NHB populations",
+      "Localized-stage outcomes more equitable across groups",
+      "Implications for targeted screening and treatment access interventions"
+    ],
+    "weight": 0.15
+  },
+  {
+    "type": "text",
+    "dimension": "reporting_compliance",
+    "content": "The study follows STROBE guidelines for observational cohort studies: participant selection criteria are specified (CRC adenocarcinoma in SEER 12 registries, 1992-2018), study size is documented (N = 399,220), exclusion criteria are stated (unknown stage, non-adenocarcinoma histology), the data source and its coverage are described, survival methods and definitions are clearly specified (cause-specific survival using SEER recode), and limitations are acknowledged including the ecological nature of registry-based analyses and the inability to adjust for individual-level socioeconomic factors or treatment details in the SEER-only analysis.",
+    "path": null,
+    "keywords": [
+      "STROBE adherence for retrospective cohort study",
+      "Participant selection and exclusion criteria documented",
+      "Study size N = 399,220 specified",
+      "Survival methods and definitions clearly stated",
+      "Limitations acknowledged (registry-based, no individual SES, limited treatment data)"
+    ],
+    "weight": 0.15
+  }
+]

@@ -1,0 +1,16 @@
+# Figure Descriptions: Martinez et al. (2015) — Undiagnosed Obstructive Lung Disease
+
+## Figure 1: Prevalence of Diagnosed vs Undiagnosed Obstructive Lung Disease
+Bar chart comparing spirometric obstruction prevalence (total, diagnosed, and undiagnosed) between NHANES III (1988-1994) and NHANES 2007-2012. Demonstrates the stable ~72% undiagnosed rate across two decades.
+
+## Figure 2: Kaplan-Meier Survival Curves by Obstruction and Diagnostic Status
+Survival curves from NHANES III with National Death Index linkage (median 14.5 year follow-up) showing three groups: no obstruction (reference), undiagnosed obstruction, and diagnosed obstruction. Both obstructed groups have reduced survival, with diagnosed having the poorest outcomes.
+
+## Table 1: Characteristics of Participants by Diagnostic Status
+Cross-tabulation of demographics, smoking history, comorbidities, self-rated health, healthcare utilization, respiratory symptoms, and spirometric severity across three groups: no obstruction, undiagnosed, and diagnosed. Demonstrates the "healthy undiagnosed" phenotype.
+
+## Table 2: Factors Associated with Being Undiagnosed (Logistic Regression)
+Adjusted odds ratios for factors independently associated with undiagnosed status among those with spirometric obstruction. Key findings: minority race/ethnicity, good self-rated health, lower comorbidity, and milder obstruction predict undiagnosed status.
+
+## Table 3: Mortality Analysis (Cox Proportional Hazards)
+Hazard ratios for all-cause mortality comparing undiagnosed (HR: 1.23) and diagnosed (HR: 1.74) obstructive disease vs no obstruction, adjusted for demographics and covariates.

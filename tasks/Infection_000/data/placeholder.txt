@@ -1,0 +1,41 @@
+# Data Source: NHANES 1999-2016 (9 cycles)
+
+This task uses publicly available data from the National Health and Nutrition Examination Survey (NHANES) spanning nine 2-year cycles from 1999-2000 through 2015-2016.
+
+## Required Data Files
+
+### Per-cycle downloads needed:
+
+For each of the 9 cycles (1999-2000 through 2015-2016), download:
+
+1. **Demographics (DEMO)**: Demographic, socioeconomic, and sample design variables
+2. **Hepatitis B Serology**: Laboratory data for HBsAg, anti-HBs, and anti-HBc
+3. **Immunization Questionnaire (IMQ)**: Self/parent-reported vaccination history
+
+### NHANES Data Access Pages:
+- 1999-2000: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=1999
+- 2001-2002: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2001
+- 2003-2004: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2003
+- 2005-2006: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2005
+- 2007-2008: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2007
+- 2009-2010: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2009
+- 2011-2012: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2011
+- 2013-2014: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2013
+- 2015-2016: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2015
+
+Note: Hepatitis B serology module names vary by cycle (e.g., HEPB_D, HEPBD_E, HEPB_G, etc.). Consult the laboratory data documentation page for each cycle to identify the correct module and variable names.
+
+## Data Format
+- Files are in SAS Transport format (.XPT)
+- Can be read with R (foreign::read.xport or haven::read_xpt) or Python (pandas.read_sas)
+- Merge files on SEQN (respondent sequence number) within each cycle
+
+## Analytic Sample
+- US-born persons aged 2 to 18 years (DMDBORN = 1, RIDAGEYR 2-18)
+- Complete hepatitis B serologic test results (non-missing HBsAg, anti-HBs, anti-HBc)
+- Reported vaccination history (non-missing immunization questionnaire)
+- Final analytic sample: approximately 21,873 participants across 9 cycles
+
+## Access
+- No registration or approval required
+- Data freely downloadable from CDC/NCHS website

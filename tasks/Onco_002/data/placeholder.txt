@@ -1,0 +1,33 @@
+# Data Source: SEER-Medicare Linked Database
+
+This task uses data from the NCI SEER-Medicare linked database (1991-2010).
+
+## How to Access
+
+1. **Review eligibility**: https://healthcaredelivery.cancer.gov/seermedicare/
+2. **Submit a formal application** to the NCI Division of Cancer Control and Population Sciences (DCCPS)
+3. **Application requires**: study protocol, IRB approval, data use agreement, and list of requested files
+4. **Processing time**: 3-6 months for application review and data delivery
+
+## Required Data Files
+- **SEER Patient Entitlement and Diagnosis Summary File (PEDSF)**: Demographics, tumor characteristics, diagnosis date, staging, vital status
+- **Medicare Provider Analysis and Review (MEDPAR)**: Inpatient hospital claims
+- **Carrier Claims (NCH)**: Physician/outpatient claims
+- **Outpatient Claims**: Hospital outpatient visits
+- **Census Tract/County Attributes**: Linked area-level socioeconomic data (median household income, rural-urban codes)
+
+## Study Population
+- Medicare beneficiaries aged 65+ diagnosed with CRC in SEER registries (1991-2010)
+- Approximately 327,504 CRC cases and 102,421 CRC deaths in the study period
+- Excludes: patients enrolled in HMOs (incomplete claims), those not enrolled in both Part A and Part B
+
+## Key Linkage Information
+- SEER-Medicare linkage maintained by NCI; updated approximately every 2 years
+- About 93% of SEER cancer cases age 65+ are matched to Medicare enrollment records
+- County-level income data from US Census Bureau, linked via FIPS codes
+
+## Access Requirements
+- Requires formal application and approval (not freely available)
+- Data cannot be downloaded directly; encrypted media shipped after approval
+- Annual data use fee applies
+- All analyses must be conducted in a secure data environment

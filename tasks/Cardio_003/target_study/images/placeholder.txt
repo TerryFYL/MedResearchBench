@@ -1,0 +1,20 @@
+# Figure Descriptions — Cardio_003
+
+## Figure 1: Hypertension Control Cascade by Race/Ethnicity
+- Stacked/grouped bar chart showing the cascade: Prevalence -> Awareness -> Treatment -> Control
+- Separate bars for each racial/ethnic group (White, Black, Hispanic, Asian, Other)
+- Y-axis: Percentage (0-100%)
+- Clear visual showing the "drop-off" at each cascade stage by race/ethnicity
+- Black adults: highest prevalence bar, steepest drop from treatment to control
+- Asian adults: lowest control bar despite moderate prevalence
+
+## Figure 2: Forest Plot of Adjusted Odds Ratios for BP Control
+- Reference group: NH White
+- Comparators: NH Black, Hispanic, NH Asian, Other
+- Point estimates with 95% CI horizontal lines
+- Vertical reference line at OR = 1.0
+- All minority groups showing OR < 1.0 (lower odds of BP control)
+
+## Note
+Actual figures not available as PDFs are not downloaded in Phase 1.
+Descriptions are based on the published paper's results and typical presentation format for hypertension disparity studies.

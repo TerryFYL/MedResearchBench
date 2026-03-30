@@ -1,0 +1,18 @@
+# Figure Descriptions — Metabolic_000
+
+## Figure 1: ROC Curve for HOMA-IR Predicting Metabolic Syndrome
+- X-axis: 1 - Specificity (False Positive Rate)
+- Y-axis: Sensitivity (True Positive Rate)
+- ROC curve showing HOMA-IR discriminative performance for MetS
+- AUC = 0.82 annotated on the curve
+- Optimal cutpoint (2.83) marked with sensitivity = 73.8%, specificity = 73.8%
+- Diagonal reference line (AUC = 0.50)
+
+## Figure 2: MetS Prevalence by NHANES Cycle
+- Bar chart or line plot showing MetS prevalence across 2011-2012, 2013-2014, 2015-2016, 2017-2018 cycles
+- Error bars representing 95% confidence intervals
+- Survey-weighted estimates
+
+## Note
+Actual figures not available as PDFs are not downloaded in Phase 1.
+Descriptions are based on the published paper's results section and methods.

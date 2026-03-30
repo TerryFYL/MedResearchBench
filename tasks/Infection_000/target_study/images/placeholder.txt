@@ -1,0 +1,12 @@
+# Figure Descriptions: Le et al. (2020) JAMA Network Open
+
+## Figure 1: Trends in Hepatitis B Vaccination Coverage by Age Group (1999-2016)
+Line plot showing the proportion of US-born children/adolescents with self-reported complete hepatitis B vaccination across nine NHANES cycles, stratified by age group (2-5, 6-10, 11-13, 14-18 years). All age groups show upward trends from ~60-65% in 1999 to ~85-90% in 2016.
+
+## Figure 2: Trends in Serologic Evidence of Vaccine-Induced Immunity by Age Group (1999-2016)
+Line plot showing the proportion with anti-HBs >= 10 mIU/mL (and anti-HBc negative) across the same cycles and age strata. Dramatic divergence by age: youngest (2-5) relatively stable, older groups show steep declines — most dramatic in ages 14-18 (from ~68.5% to ~15.6%).
+
+## Figure 3: Vaccination Coverage vs. Serologic Immunity Comparison
+Dual-panel or overlaid figure highlighting the paradoxical divergence between increasing vaccination coverage and declining serologic immunity, particularly in older adolescents. This is the key visual demonstrating the waning antibody phenomenon.
+
+Note: Actual figures are from the published paper. See JAMA Network Open DOI: 10.1001/jamanetworkopen.2020.22388 for original figures.

@@ -1,0 +1,47 @@
+{
+  "task": "Investigate the association between dietary sodium and potassium intake and hypertension among U.S. adults using NHANES 2017-2018 data. The analysis should: (1) estimate adjusted odds ratios for the association between sodium intake, potassium intake, and sodium-to-potassium ratio with hypertension using survey-weighted multivariable logistic regression with progressive covariate adjustment; (2) explore potential nonlinear dose-response relationships using restricted cubic spline (RCS) models with 4 knots placed at the 5th, 35th, 65th, and 95th percentiles; (3) conduct subgroup analyses stratified by sex, age group, and BMI category to evaluate potential effect modification; (4) perform sensitivity analyses including alternative model specifications to assess robustness. The study population includes adults aged 20 years and older with complete dietary recall and blood pressure data. Hypertension is defined based on self-reported physician diagnosis, use of antihypertensive medication, or measured blood pressure >= 140/90 mmHg. Dietary intake is assessed using the Day 1 24-hour dietary recall interview. All analyses must account for the complex survey design of NHANES (sample weights, PSU, strata).",
+  "data": [
+    {
+      "name": "NHANES 2017-2018 Demographics",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables including age, sex, race/ethnicity, education level, marital status, and family income-to-poverty ratio. N~9,254 participants (pre-exclusion). See codebook.md for variable definitions."
+    },
+    {
+      "name": "NHANES 2017-2018 Dietary Interview (Day 1)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Total nutrient intakes from 24-hour dietary recall including sodium (mg), potassium (mg), total energy (kcal), dietary fiber (g), and cholesterol (mg)."
+    },
+    {
+      "name": "NHANES 2017-2018 Blood Pressure",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Up to 3 consecutive systolic and diastolic blood pressure readings from the examination component."
+    },
+    {
+      "name": "NHANES 2017-2018 Questionnaire (Medical Conditions & Prescriptions)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Self-reported hypertension diagnosis, antihypertensive medication use, smoking status, alcohol use, and physical activity data."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for all NHANES 2017-2018 components used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Cardio",
+    "study_design": "cross-sectional",
+    "primary_methods": [
+      "survey-weighted logistic regression",
+      "restricted cubic spline (dose-response)",
+      "subgroup analysis",
+      "sensitivity analysis"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 2017-2018"
+  }
+}

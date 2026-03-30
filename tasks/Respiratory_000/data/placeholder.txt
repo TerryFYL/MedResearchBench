@@ -1,0 +1,52 @@
+# Data Source: NHANES 2007-2012 (3 Combined Cycles)
+
+This task uses publicly available data from three consecutive NHANES cycles: 2007-2008, 2009-2010, and 2011-2012.
+
+## Required Data Files
+
+### Cycle 1: NHANES 2007-2008
+1. **Demographics (DEMO_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/DEMO_E.xpt
+2. **Spirometry (SPX_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/SPX_E.xpt
+3. **Blood VOCs (VOCWB_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/VOCWB_E.xpt
+4. **Smoking Questionnaire (SMQ_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/SMQ_E.xpt
+5. **Cotinine (COT_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/COT_E.xpt
+6. **Body Measures (BMX_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/BMX_E.xpt
+7. **Physical Activity (PAQ_E.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/PAQ_E.xpt
+
+### Cycle 2: NHANES 2009-2010
+Same modules with _F suffix:
+- DEMO_F, SPX_F, VOCWB_F, SMQ_F, COT_F, BMX_F, PAQ_F
+
+### Cycle 3: NHANES 2011-2012
+Same modules with _G suffix:
+- DEMO_G, SPX_G, VOCWB_G, SMQ_G, COT_G, BMX_G, PAQ_G
+
+## Data Format
+- Files are in SAS Transport format (.XPT)
+- Can be read with R (foreign::read.xport or haven::read_xpt) or Python (pandas.read_sas)
+- Merge files within cycle on SEQN (respondent sequence number)
+- Append across cycles with cycle identifier
+
+## Analytic Sample
+- Adults aged >= 20 years
+- Valid pre- and post-bronchodilator spirometry (quality grade A, B, or C)
+- Blood VOC measurements available (subsample)
+- Final analytic sample: approximately 5,988 participants (after all exclusions across 3 cycles)
+
+## Multi-Cycle Weighting
+- Blood VOC subsample weight (WTSVO2YR): divide by 3 for 6-year combined analysis
+- MEC examination weight (WTMEC2YR): divide by 3 for non-subsample variables
+- PSU and strata variables remain unchanged across cycles
+
+## Key Analytic Notes
+- Blood VOCs measured by headspace SPME-GC-IDMS at CDC laboratories
+- 41 VOCs measured; include those with >= 10% detection frequency
+- Log-transform blood VOC concentrations for regression (right-skewed)
+- Replace values below LOD with LOD/sqrt(2)
+- Post-bronchodilator spirometry was only performed on participants flagged with baseline obstruction
+- Non-reversible obstruction: pre-BD FEV1/FVC < 0.70 AND post-BD FEV1/FVC < 0.70
+- Reversible obstruction: pre-BD FEV1/FVC < 0.70 AND post-BD FEV1/FVC >= 0.70
+
+## Access
+- No registration or approval required
+- Data freely downloadable from CDC/NCHS website

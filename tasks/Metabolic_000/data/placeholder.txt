@@ -1,0 +1,46 @@
+# Data Source: NHANES 2011-2018 (4 Cycles)
+
+This task uses publicly available data from the National Health and Nutrition Examination Survey (NHANES) spanning four consecutive cycles: 2011-2012, 2013-2014, 2015-2016, and 2017-2018.
+
+## Required Data Files
+
+### Cycle 2011-2012 (suffix _G)
+1. **Demographics (DEMO_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DEMO_G.xpt
+2. **Fasting Glucose (GLU_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/GLU_G.xpt
+3. **Insulin (INS_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/INS_G.xpt
+4. **Triglycerides (TRIGLY_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/TRIGLY_G.xpt
+5. **HDL Cholesterol (HDL_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/HDL_G.xpt
+6. **Blood Pressure (BPX_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/BPX_G.xpt
+7. **Body Measures (BMX_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/BMX_G.xpt
+8. **Diabetes (DIQ_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DIQ_G.xpt
+9. **BP Questionnaire (BPQ_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/BPQ_G.xpt
+
+### Cycle 2013-2014 (suffix _H)
+Replace _G with _H and 2011 with 2013 in URLs above.
+
+### Cycle 2015-2016 (suffix _I)
+Replace _G with _I and 2011 with 2015 in URLs above.
+
+### Cycle 2017-2018 (suffix _J)
+Replace _G with _J and 2011 with 2017 in URLs above.
+
+## Data Format
+- Files are in SAS Transport format (.XPT)
+- Can be read with R (haven::read_xpt) or Python (pandas.read_sas)
+- Merge files on SEQN (respondent sequence number) within each cycle
+- Pool cycles by appending rows and adjusting survey weights
+
+## Analytic Sample
+- Nonpregnant adults aged ≥18 years
+- Participants in the fasting subsample (fasted 8-24 hours)
+- Complete fasting glucose and insulin data
+- Complete MetS component data (waist circumference, BP, triglycerides, HDL, fasting glucose)
+- Final analytic sample: approximately 8,897 participants across 4 cycles
+
+## Multi-Cycle Weight Adjustment
+- When pooling 4 cycles of NHANES, divide WTSAF2YR by 4
+- Adjusted weight = WTSAF2YR / 4
+
+## Access
+- No registration or approval required
+- Data freely downloadable from CDC/NCHS website

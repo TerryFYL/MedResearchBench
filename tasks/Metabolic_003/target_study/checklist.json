@@ -1,0 +1,72 @@
+[
+  {
+    "type": "text",
+    "dimension": "statistical_methodology",
+    "content": "The analysis uses the US Fatty Liver Index (USFLI) with a cutoff of ≥30 to define NAFLD in the absence of other chronic liver disease causes. USFLI is a validated composite index incorporating age, race/ethnicity, GGT, fasting insulin, and fasting glucose. NAFLD exclusion criteria include: (1) excessive alcohol intake (>2 drinks/day for men, >1 drink/day for women); (2) positive hepatitis B surface antigen (HBsAg); (3) positive hepatitis C antibody (anti-HCV). Advanced fibrosis is assessed using two validated noninvasive scores: NFS (cutoff ≥0.676 for high probability) and FIB-4 (cutoff ≥2.67 for high probability). Survey-weighted analysis accounts for the complex multi-stage probability sampling design of NHANES across four pooled cycles (2011-2018) with appropriately adjusted examination weights.",
+    "path": null,
+    "keywords": [
+      "US Fatty Liver Index (USFLI ≥30) for NAFLD classification",
+      "Exclusion of excessive alcohol, HBV, HCV",
+      "NFS (≥0.676) and FIB-4 (≥2.67) for advanced fibrosis",
+      "Survey-weighted analysis for nationally representative estimates",
+      "Four pooled NHANES cycles (2011-2018)"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "results_accuracy",
+    "content": "The weighted national prevalence of NAFLD in U.S. adults is 26.7% (95% CI: 25.3%-28.1%) based on 7,429 adults aged ≥20 years from NHANES 2011-2018, representing a projected population of 84.3 million. Among NAFLD-positive individuals, the prevalence of high-probability advanced fibrosis is 18.1% by NFS (≥0.676) and 3.7% by FIB-4 (≥2.67). Subgroup prevalences show significant variation: NAFLD prevalence is highest among Mexican Americans, males, those aged ≥65 years, individuals with class 2-3 obesity (BMI ≥35 kg/m²), and those with type 2 diabetes. Among those meeting USFLI criteria for NAFLD, 67.9% are male, 25.8% are aged ≥65, and 74.1% are obese (BMI ≥30).",
+    "path": null,
+    "keywords": [
+      "Overall NAFLD prevalence 26.7% (95% CI: 25.3-28.1%)",
+      "Advanced fibrosis: 18.1% by NFS, 3.7% by FIB-4",
+      "Higher prevalence in Mexican Americans, males, elderly",
+      "Strong association with class 2-3 obesity and type 2 diabetes",
+      "74.1% of NAFLD cases are obese (BMI ≥30)"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "clinical_interpretation",
+    "content": "The 26.7% NAFLD prevalence estimate represents a substantial disease burden affecting approximately one in four U.S. adults. The marked discordance between NFS-based (18.1%) and FIB-4-based (3.7%) fibrosis estimates highlights a critical methodological consideration: noninvasive fibrosis scores have different operating characteristics, and the choice of scoring system substantially affects estimated disease burden. The concentration of NAFLD in populations with obesity, diabetes, and metabolic syndrome reinforces NAFLD as a hepatic manifestation of metabolic dysfunction. The disproportionate burden among Mexican Americans (compared with non-Hispanic whites) suggests ethnic-specific metabolic susceptibility, potentially related to genetic factors (e.g., PNPLA3 polymorphisms) and socioeconomic determinants of metabolic health.",
+    "path": null,
+    "keywords": [
+      "One in four U.S. adults affected by NAFLD",
+      "NFS vs FIB-4 discordance highlights scoring system choice impact",
+      "NAFLD as hepatic manifestation of metabolic dysfunction",
+      "Ethnic disparity: Mexican Americans disproportionately affected",
+      "Implications for screening and public health resource allocation"
+    ],
+    "weight": 0.20
+  },
+  {
+    "type": "text",
+    "dimension": "confounding_sensitivity",
+    "content": "The NAFLD definition requires exclusion of competing etiologies: excessive alcohol intake, chronic hepatitis B (HBsAg positive), and chronic hepatitis C (anti-HCV positive). Alcohol consumption thresholds (>2 drinks/day for men, >1 for women) follow AASLD guidelines. Sensitivity considerations include: (1) USFLI validation — the index was developed and validated in U.S. populations but may have variable performance across race/ethnicity subgroups; (2) alcohol misclassification — self-reported alcohol consumption is subject to underreporting bias; (3) USFLI vs. direct imaging — the 26.7% prevalence by USFLI is substantially lower than ~56.7% by direct transient elastography (CAP ≥248) in NHANES 2017-2018, reflecting different diagnostic sensitivities; (4) fibrosis score limitations — NFS includes age in its formula, which may inflate fibrosis prevalence estimates in older adults.",
+    "path": null,
+    "keywords": [
+      "USFLI vs transient elastography prevalence discordance (26.7% vs 56.7%)",
+      "Alcohol consumption self-report bias",
+      "USFLI validation may vary across racial/ethnic subgroups",
+      "NFS age component may inflate estimates in elderly",
+      "Exclusion criteria sensitivity for hepatitis B and C"
+    ],
+    "weight": 0.15
+  },
+  {
+    "type": "text",
+    "dimension": "reporting_compliance",
+    "content": "The manuscript adheres to STROBE guidelines for cross-sectional studies: the nationally representative survey design is described with appropriate weighting methodology; inclusion and exclusion criteria for the analytic sample are documented (non-pregnant adults ≥20 years with complete USFLI data and liver disease exclusion variables); prevalence estimates are reported as weighted percentages with 95% confidence intervals; subgroup analyses are pre-specified by clinically relevant strata (age, sex, race/ethnicity, BMI, diabetes); dual fibrosis assessment (NFS and FIB-4) provides methodological sensitivity analysis; limitations include the cross-sectional design, reliance on indirect NAFLD markers rather than imaging or biopsy, and potential underreporting of alcohol use.",
+    "path": null,
+    "keywords": [
+      "STROBE-compliant cross-sectional study reporting",
+      "Weighted prevalence with 95% confidence intervals",
+      "Pre-specified subgroup analyses by clinical strata",
+      "Dual fibrosis scoring as methodological sensitivity analysis",
+      "Acknowledged limitations: indirect markers, alcohol underreporting"
+    ],
+    "weight": 0.15
+  }
+]

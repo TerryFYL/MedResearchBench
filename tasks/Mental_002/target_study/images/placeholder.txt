@@ -1,0 +1,16 @@
+# Figure Descriptions — Yu et al. 2020, J Affect Disord
+
+## Figure 1: Depression Prevalence Trends by Severity Level
+- **Content**: Line plot or grouped bar chart showing weighted prevalence estimates (y-axis, %) across six NHANES cycles (x-axis: 2005-06, 2007-08, 2009-10, 2011-12, 2013-14, 2015-16) stratified by depression severity (mild, moderate, moderately severe, severe). Each severity level shown as a separate line/series with 95% error bars. P-for-trend values annotated on each line.
+- **Key Pattern**: Overall depression appears stable, but severe depression (PHQ-9 >= 20) shows a clear upward trajectory (P-trend = 0.026). This visual separation of stable overall and rising severe trends is the central finding.
+- **Source**: DOI 10.1016/j.jad.2019.11.036, Figure available in published article
+
+## Figure 2: Age-Stratified Depression Trends
+- **Content**: Panel or multi-line figure showing depression prevalence trends for three age groups (20-39, 40-64, 65+) across the six NHANES cycles. Each panel shows cycle-specific prevalence with confidence intervals and p-for-trend.
+- **Key Pattern**: Severe depression increasing most sharply among adults 65+ (P < 0.001); moderate depression increasing among 20-39 year-olds (P = 0.028); relatively stable trends in the 40-64 middle-aged group.
+- **Source**: DOI 10.1016/j.jad.2019.11.036
+
+## Figure 3: Risk Factor Analysis
+- **Content**: Forest plot showing adjusted odds ratios for depression risk factors across cycles: income levels, smoking status, hypertension, diabetes, BMI categories, physical activity. Grouped by risk factor domain with overall pooled estimates and cycle-specific subgroup results.
+- **Key Pattern**: Low income (<1.0 PIR) consistently the strongest risk factor; current smoking, hypertension, and diabetes as robust correlates across all cycles.
+- **Source**: DOI 10.1016/j.jad.2019.11.036

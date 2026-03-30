@@ -1,0 +1,60 @@
+{
+  "task": "Examine the association between the Metabolic Score for Insulin Resistance (METS-IR) index and obstructive sleep apnea (OSA) risk among U.S. adults using NHANES data from 2005-2008 and 2015-2018 cycles. The analysis should: (1) calculate the METS-IR index using the formula: METS-IR = ln((2 × fasting plasma glucose) + triglycerides) × BMI / ln(HDL-cholesterol), incorporating fasting glucose (mg/dL), triglycerides (mg/dL), BMI (kg/m²), and HDL-cholesterol (mg/dL); (2) define OSA status using sleep disorder questionnaire items including self-reported doctor-diagnosed sleep apnea and symptoms of sleep-disordered breathing; (3) compare METS-IR with established insulin resistance indices including the Triglyceride-Glucose (TyG) index, TG/HDL-C ratio, and HOMA-IR for their associations with OSA; (4) model the continuous METS-IR-OSA association using restricted cubic splines (RCS) to characterize the dose-response relationship; (5) perform survey-weighted multivariable logistic regression with three progressive adjustment models controlling for demographic, behavioral, and clinical covariates; (6) conduct subgroup analyses stratified by sex, age group, race/ethnicity, BMI category, diabetes status, hypertension status, and cardiovascular disease history to identify effect modification; (7) test for interaction between METS-IR and each stratification variable. All analyses must account for the complex multistage probability survey design of NHANES using appropriate sampling weights for combined multi-cycle analysis.",
+  "data": [
+    {
+      "name": "NHANES 2005-2008 and 2015-2018 Demographics",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables including age, sex, race/ethnicity, education, marital status, and poverty-income ratio from four NHANES cycles. See codebook.md for variable definitions."
+    },
+    {
+      "name": "NHANES Sleep Disorder Questionnaire",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Self-reported sleep apnea diagnosis, snoring frequency, breathing cessation during sleep, and daytime sleepiness. Used for OSA case ascertainment."
+    },
+    {
+      "name": "NHANES Fasting Glucose, Triglycerides, and HDL",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Fasting plasma glucose (mg/dL), triglycerides (mg/dL), and HDL-cholesterol (mg/dL) from fasting subsample laboratory data. Required for METS-IR calculation."
+    },
+    {
+      "name": "NHANES Fasting Insulin",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Fasting serum insulin (μU/mL) from fasting subsample. Required for HOMA-IR calculation as a comparison index."
+    },
+    {
+      "name": "NHANES Body Measures and Blood Pressure",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "BMI (kg/m²), waist circumference (cm), weight (kg), height (cm), systolic and diastolic blood pressure readings. Required for METS-IR calculation and covariate adjustment."
+    },
+    {
+      "name": "NHANES Medical Conditions and Lifestyle",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Self-reported diabetes, hypertension, cardiovascular disease, smoking status, alcohol consumption, and physical activity. Required for covariate adjustment and subgroup stratification."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, and survey design notes for all NHANES components used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Respiratory",
+    "study_design": "cross-sectional (pooled multi-cycle)",
+    "primary_methods": [
+      "survey-weighted multivariable logistic regression",
+      "restricted cubic splines (RCS) for dose-response",
+      "comparison of insulin resistance indices (METS-IR, TyG, TG/HDL-C, HOMA-IR)",
+      "subgroup analysis with interaction testing by sex",
+      "progressive multivariable model adjustment"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 2005-2008 and 2015-2018"
+  }
+}

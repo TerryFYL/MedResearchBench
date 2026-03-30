@@ -1,0 +1,24 @@
+# Figure Descriptions — Metabolic_003
+
+## Figure 1: NAFLD Prevalence by Demographic Subgroups
+- Bar chart or forest plot showing NAFLD prevalence (with 95% CIs) across subgroups:
+  - Age groups (20-44, 45-64, ≥65)
+  - Sex (Male, Female)
+  - Race/ethnicity (Mexican American, Other Hispanic, NH White, NH Black, NH Asian)
+  - BMI categories (Normal, Overweight, Obese I, Obese II-III)
+  - Diabetes status (Yes, No)
+- Overall prevalence reference line at 26.7%
+
+## Figure 2: Advanced Fibrosis Prevalence Among NAFLD-Positive Individuals
+- Dual bar chart comparing NFS-based (18.1%) and FIB-4-based (3.7%) fibrosis estimates
+- Stratified by key subgroups (age, sex, BMI, diabetes)
+- Illustrates the discordance between noninvasive fibrosis scoring systems
+
+## Figure 3: NAFLD Prevalence Trend Across NHANES Cycles
+- Line chart showing NAFLD prevalence across 2011-12, 2013-14, 2015-16, 2017-18
+- Error bars for 95% confidence intervals
+- P-for-trend annotation
+
+## Note
+Actual figures not available as PDFs are not downloaded in Phase 1.
+Descriptions are based on the published paper's results section and methods.

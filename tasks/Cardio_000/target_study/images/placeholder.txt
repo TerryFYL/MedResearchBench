@@ -1,0 +1,21 @@
+# Figure Descriptions — Cardio_000
+
+## Figure 1: Restricted Cubic Spline (RCS) Dose-Response Curves
+- Panel A: Sodium intake (mg/day) vs. adjusted OR for hypertension
+  - X-axis: Dietary sodium intake (mg/day)
+  - Y-axis: Adjusted odds ratio (95% CI) for hypertension
+  - RCS with 4 knots showing relatively flat relationship with wide CIs
+  - Reference line at OR = 1.0
+  - P for nonlinearity displayed
+- Panel B: Potassium intake (mg/day) vs. adjusted OR for hypertension
+  - Similar format to Panel A
+
+## Figure 2: Subgroup Analysis Forest Plot
+- Subgroups: Sex (Male/Female), Age (20-39, 40-59, 60+), BMI (<25, 25-30, 30+)
+- Point estimates with 95% CI for sodium-hypertension association within each subgroup
+- P for interaction values shown
+- All confidence intervals crossing the null
+
+## Note
+Actual figures not available as PDFs are not downloaded in Phase 1.
+Descriptions are based on the published paper's results section and methods.

@@ -1,0 +1,16 @@
+# Figure Descriptions: Pankratz et al. (2022) Cancer Control
+
+## Figure 1: 1-Year CRC Cause-Specific Survival Trends by Stage and Race/Ethnicity
+- Type: Multi-panel line plot
+- Content: Temporal trends in 1-year survival probability (y-axis) by year of diagnosis (x-axis, 1992-2018), with separate panels for localized, regional, and distant stages. Five lines per panel representing NHW, NHB, AIAN, Hispanic, and API groups.
+- Key pattern: Distant-stage panel shows improving trends for all groups with AIAN and NHB on lower but converging trajectories.
+
+## Figure 2: 5-Year CRC Cause-Specific Survival Trends by Stage and Race/Ethnicity
+- Type: Multi-panel line plot
+- Content: Same structure as Figure 1 but for 5-year survival. More pronounced racial/ethnic disparities visible compared to 1-year survival.
+- Key pattern: Greater separation between racial/ethnic groups in 5-year vs. 1-year survival, especially for regional and distant stages.
+
+## Note
+- Actual figure images not available (no PDF downloaded per project protocol)
+- Figures can be found in the published paper: DOI 10.1177/10732748221136440
+- PMC open access: https://pmc.ncbi.nlm.nih.gov/articles/PMC9597478/

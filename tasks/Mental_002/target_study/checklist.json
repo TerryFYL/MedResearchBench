@@ -1,0 +1,72 @@
+[
+  {
+    "type": "text",
+    "dimension": "statistical_methodology",
+    "content": "The analysis employs survey-weighted prevalence estimation for each of six NHANES cycles (2005-2016), with temporal trends tested using weighted univariate logistic regression where survey cycle is modeled as an ordinal predictor to obtain p-for-trend values. Depression is classified by PHQ-9 severity levels: mild (5-9), moderate (10-14), moderately severe (15-19), and severe (20-27), with severity-specific trend analyses. Subgroup-specific trends are computed by age group (20-39, 40-64, 65+), sex, race/ethnicity, income level, and education. Risk factor analysis uses multivariable logistic regression with depression as the outcome. Each cycle uses its own 2-year MEC examination weight (WTMEC2YR) with the complex survey design (PSU, strata) properly accounted for.",
+    "path": null,
+    "keywords": [
+      "Survey-weighted prevalence estimation per NHANES cycle",
+      "P-for-trend via logistic regression with ordinal cycle predictor",
+      "PHQ-9 severity-stratified trend analysis (mild/moderate/mod-severe/severe)",
+      "Age-stratified, sex-stratified, and demographic subgroup trends",
+      "Cycle-specific 2-year MEC weights (WTMEC2YR)"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "results_accuracy",
+    "content": "The key finding is that while overall depression prevalence (PHQ-9 >= 10) appeared relatively stable at approximately 8-9% across 2005-2016, severity-specific trends reveal a significant increase in severe depression (PHQ-9 >= 20, P-trend = 0.026). Age-stratified analyses show that severe depression increased most markedly among adults aged 65+ (P-trend < 0.001), and moderate depression (PHQ-9 10-14) increased significantly among young adults aged 20-39 (P-trend = 0.028). Female prevalence was approximately 1.5 times higher than male across all cycles. Non-Hispanic Black adults and those with lower education had consistently higher depression burden. The apparent stability of overall prevalence masked divergent severity-specific trends — a critical epidemiological nuance.",
+    "path": null,
+    "keywords": [
+      "Overall depression prevalence stable at 8-9% across 2005-2016",
+      "Severe depression (PHQ-9 >= 20) increased significantly (P-trend = 0.026)",
+      "Adults 65+: severe depression P-trend < 0.001",
+      "Adults 20-39: moderate depression P-trend = 0.028",
+      "Apparent overall stability masks severity-specific divergent trends"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "visualization_quality",
+    "content": "The study should present temporal trend plots showing weighted prevalence estimates with 95% confidence intervals across the six NHANES cycles, stratified by depression severity level. Effective visualization requires: (1) line plots or bar charts showing cycle-specific prevalence for each severity category (mild, moderate, moderately severe, severe); (2) age-stratified trend figures distinguishing the differential patterns between young adults (20-39), middle-aged (40-64), and older adults (65+); (3) clear annotation of p-for-trend values on each trend line. The divergent trends (stable overall but increasing severe depression) should be visually apparent, not buried in tables alone.",
+    "path": null,
+    "keywords": [
+      "Temporal trend plots with 95% CIs across 6 NHANES cycles",
+      "Severity-stratified prevalence trend lines",
+      "Age-stratified trend figures (20-39, 40-64, 65+)",
+      "P-for-trend annotations on trend plots",
+      "Visual clarity of divergent trends across severity levels"
+    ],
+    "weight": 0.15
+  },
+  {
+    "type": "text",
+    "dimension": "clinical_interpretation",
+    "content": "The authors interpret the increasing burden of severe depression — particularly among older adults — as a public health concern warranting enhanced screening and intervention strategies. The increasing severe depression among adults 65+ may reflect inadequate mental health services for the elderly, growing social isolation, multimorbidity, and polypharmacy effects. The increasing moderate depression among young adults (20-39) aligns with broader trends in millennial mental health and may relate to economic pressures (student debt, housing costs, Great Recession aftermath). The clinical implication is that aggregate depression prevalence statistics can mask clinically important shifts in severity distribution, and that screening programs should be calibrated to detect severe depression, not just any depression.",
+    "path": null,
+    "keywords": [
+      "Increasing severe depression in elderly: screening gap and social isolation",
+      "Increasing moderate depression in young adults: economic/social stressors",
+      "Aggregate prevalence masks severity distribution shifts",
+      "Need for severity-calibrated screening programs",
+      "Great Recession context for mental health trend interpretation"
+    ],
+    "weight": 0.20
+  },
+  {
+    "type": "text",
+    "dimension": "reporting_compliance",
+    "content": "The manuscript follows STROBE guidelines for repeated cross-sectional studies: six NHANES cycles are clearly identified with cycle-specific sample sizes and participation rates. The PHQ-9 instrument and standard severity cutoffs are operationally defined. Survey design elements (weights, PSU, strata) are specified for each cycle. Prevalence estimates include 95% confidence intervals. Limitations acknowledged include: (1) repeated cross-sectional design measures different individuals each cycle, precluding individual-level trajectory tracking; (2) PHQ-9 measures 2-week symptom prevalence, not clinical diagnosis; (3) NHANES institutionalized populations (nursing homes, prisons) are excluded, potentially underestimating depression in the elderly and disadvantaged groups.",
+    "path": null,
+    "keywords": [
+      "STROBE adherence for repeated cross-sectional design",
+      "Cycle-specific sample sizes and survey design documented",
+      "PHQ-9 standard cutoffs operationally defined",
+      "Limitation: different individuals per cycle (no individual tracking)",
+      "Limitation: exclusion of institutionalized populations"
+    ],
+    "weight": 0.15
+  }
+]

@@ -1,0 +1,44 @@
+# Data Source: NHANES 2003-2018 (8 cycles)
+
+This task uses publicly available data from the National Health and Nutrition Examination Survey (NHANES) spanning eight 2-year cycles from 2003-2004 through 2017-2018.
+
+## Required Data Files
+
+### Per-cycle downloads needed:
+
+For each of the 8 cycles (2003-2004 through 2017-2018), download:
+
+1. **Demographics (DEMO)**: Demographic, socioeconomic, and sample design variables
+2. **HPV DNA — Vaginal Swab**: Female cervicovaginal HPV genotyping results
+3. **HPV DNA — Penile Swab** (2013-2014 onward only): Male penile HPV genotyping results
+4. **Sexual Behavior (SXQ)**: Self-reported sexual experience and partner history
+5. **Immunization Questionnaire (IMQ)** (2007-2008 onward): Self-reported HPV vaccination history
+
+### NHANES Data Access Pages:
+- 2003-2004: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2003
+- 2005-2006: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2005
+- 2007-2008: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2007
+- 2009-2010: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2009
+- 2011-2012: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2011
+- 2013-2014: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2013
+- 2015-2016: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2015
+- 2017-2018: https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017
+
+Note: HPV-related module names vary by cycle (e.g., HPVSWR_C for 2003-2004, HPVSWR_D for 2005-2006, etc.). Consult the laboratory data documentation page for each cycle to identify the correct module names.
+
+## Data Format
+- Files are in SAS Transport format (.XPT)
+- Can be read with R (foreign::read.xport or haven::read_xpt) or Python (pandas.read_sas)
+- Merge files on SEQN (respondent sequence number) within each cycle
+
+## Analytic Sample
+- Sexually experienced participants aged 14-24 years
+- Females: cervicovaginal swab HPV DNA results available (2003-2018)
+- Males: penile swab HPV DNA results available (2013-2018 only)
+- Self-reported sexual experience via SXQ module
+- HPV vaccination status from IMQ (available 2007-2018)
+- Prevaccine era (2003-2006): no vaccination data; used as baseline prevalence
+
+## Access
+- No registration or approval required
+- Data freely downloadable from CDC/NCHS website

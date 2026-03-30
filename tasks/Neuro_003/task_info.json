@@ -1,0 +1,53 @@
+{
+  "task": "Investigate the association between the Composite Dietary Antioxidant Index (CDAI) and the prevalence of Parkinson's disease (PD) and all-cause mortality in PD patients among U.S. adults using NHANES 2007-2018 data with mortality follow-up. The analysis should: (1) calculate the Composite Dietary Antioxidant Index (CDAI) by summing standardized dietary intakes of six antioxidants — vitamins A, C, and E, carotenoids, selenium, and zinc — from 24-hour dietary recalls and supplement use data; (2) identify PD cases based on prescription of PD-specific medications (carbidopa, levodopa, entacapone, amantadine, pramipexole, bromocriptine); (3) estimate adjusted odds ratios for the association between CDAI tertiles and PD prevalence using survey-weighted multivariable logistic regression, adjusting for age, gender, hypertension, diabetes, fasting glucose, ALT, creatinine, triglycerides, and total cholesterol; (4) among PD patients, estimate adjusted hazard ratios for the association between CDAI and all-cause mortality using survey-weighted Cox proportional hazards regression linked to the National Death Index; (5) characterize the dose-response relationship between CDAI and PD prevalence using restricted cubic spline (RCS) regression to identify nonlinear patterns and threshold effects; (6) conduct subgroup analyses stratified by age (<60 vs >=60), gender, smoking status, hypertension, diabetes, and alcohol consumption to identify vulnerable populations. The study population includes U.S. adults aged 18 years and older from six pooled NHANES cycles (2007-2018) with complete dietary recall data, medication records, and mortality follow-up. All analyses must account for the complex survey design of NHANES using appropriate sampling weights, PSU, and strata.",
+  "data": [
+    {
+      "name": "NHANES 2007-2018 Demographics (6 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Demographic variables from DEMO_E through DEMO_J including age, sex, race/ethnicity, education, poverty income ratio. Combined across 6 cycles."
+    },
+    {
+      "name": "NHANES 2007-2018 Dietary Intake — 24-Hour Recall (6 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Total nutrient intakes from two 24-hour dietary recalls (DR1TOT and DR2TOT files) including vitamins A, C, E, carotenoids, selenium, zinc. Plus dietary supplement data (DSQTOT files)."
+    },
+    {
+      "name": "NHANES 2007-2018 Prescription Medications (6 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Prescription medication data (RXQ_RX files) for identifying PD cases based on PD-specific medications: carbidopa, levodopa, entacapone, amantadine, pramipexole, bromocriptine."
+    },
+    {
+      "name": "NHANES 2007-2018 Medical History and Covariates (6 cycles)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Blood pressure questionnaire (BPQ), diabetes questionnaire (DIQ), standard biochemistry profile (BIOPRO for fasting glucose, ALT, creatinine, triglycerides, total cholesterol), body measures (BMX), smoking questionnaire (SMQ), alcohol use (ALQ)."
+    },
+    {
+      "name": "NHANES Linked Mortality Files (through December 31, 2019)",
+      "path": "./data/placeholder.txt",
+      "type": "CSV",
+      "description": "Public-use linked mortality files from NCHS providing vital status and follow-up time through December 31, 2019, linked to National Death Index."
+    },
+    {
+      "name": "Variable Codebook",
+      "path": "./data/codebook.md",
+      "type": "markdown",
+      "description": "Complete variable definitions, value labels, CDAI calculation methodology, and survey design notes for all NHANES 2007-2018 components used in this analysis."
+    }
+  ],
+  "metadata": {
+    "domain": "Neuro",
+    "study_design": "cross-sectional (PD prevalence) + prospective cohort (mortality follow-up)",
+    "primary_methods": [
+      "survey-weighted multivariable logistic regression",
+      "survey-weighted Cox proportional hazards regression",
+      "restricted cubic spline regression (dose-response)",
+      "subgroup analysis by age, smoking, hypertension"
+    ],
+    "reporting_standard": "STROBE",
+    "dataset_source": "NHANES 2007-2018 (6 combined cycles) with NDI-linked mortality"
+  }
+}

@@ -1,0 +1,42 @@
+# Data Source: NHANES 2009-2016 (4 cycles)
+
+This task uses publicly available data from the National Health and Nutrition Examination Survey (NHANES) spanning four consecutive cycles: 2009-2010, 2011-2012, 2013-2014, and 2015-2016.
+
+## Required Data Files
+
+Base URL template: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/{start_year}/DataFiles/{MODULE}_{letter}.xpt
+
+### Core Modules (per cycle)
+
+| Module | 2009-2010 (F) | 2011-2012 (G) | 2013-2014 (H) | 2015-2016 (I) |
+|--------|---------------|---------------|---------------|---------------|
+| Demographics | DEMO_F | DEMO_G | DEMO_H | DEMO_I |
+| Depression (PHQ-9) | DPQ_F | DPQ_G | DPQ_H | DPQ_I |
+| Sleep Questionnaire | SLQ_F | SLQ_G | SLQ_H | SLQ_I |
+| Body Measures | BMX_F | BMX_G | BMX_H | BMX_I |
+| Physical Activity | PAQ_F | PAQ_G | PAQ_H | PAQ_I |
+| Smoking | SMQ_F | SMQ_G | SMQ_H | SMQ_I |
+| Alcohol Use | ALQ_F | ALQ_G | ALQ_H | ALQ_I |
+| Medical Conditions | MCQ_F | MCQ_G | MCQ_H | MCQ_I |
+
+### Example Download URLs (2009-2010 cycle)
+- Demographics: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2009/DataFiles/DEMO_F.xpt
+- PHQ-9: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2009/DataFiles/DPQ_F.xpt
+- Sleep: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2009/DataFiles/SLQ_F.xpt
+
+## Data Format
+- Files are in SAS Transport format (.XPT)
+- Can be read with R (haven::read_xpt) or Python (pandas.read_sas)
+- Merge files on SEQN (respondent sequence number) within each cycle
+- Append cycles after merging, adding a cycle indicator variable
+
+## Analytic Sample
+- Adults aged >= 20 years
+- Complete PHQ-9 data (all 9 items non-missing)
+- Complete sleep duration data (SLD012 non-missing)
+- Pooled analytic sample: approximately 25,962 participants across 4 cycles
+- Weight adjustment for pooled analysis: WTMEC2YR / 4
+
+## Access
+- No registration or approval required
+- Data freely downloadable from CDC/NCHS website

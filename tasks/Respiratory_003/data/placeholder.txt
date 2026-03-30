@@ -1,0 +1,56 @@
+# Data Source: NHANES 2005-2008 and 2015-2018 (4 Cycles)
+
+This task uses publicly available data from the National Health and Nutrition Examination Survey (NHANES) spanning four cycles: 2005-2006, 2007-2008, 2015-2016, and 2017-2018.
+
+## Important Note on Cycle Selection
+
+NHANES cycles 2009-2014 did NOT include sleep apnea questionnaire items in the Sleep Disorder module (SLQ). Therefore, this study pools the 2005-2008 cycles (which included sleep apnea questions) with the 2015-2018 cycles (which re-introduced sleep apnea questions).
+
+## Required Data Files
+
+### Cycle 2005-2006 (suffix _D)
+1. **Demographics (DEMO_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DEMO_D.xpt
+2. **Sleep Disorders (SLQ_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/SLQ_D.xpt
+3. **Fasting Glucose (GLU_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/GLU_D.xpt
+4. **Insulin (INS_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/INS_D.xpt
+5. **Triglycerides (TRIGLY_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/TRIGLY_D.xpt
+6. **HDL Cholesterol (HDL_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/HDL_D.xpt
+7. **Body Measures (BMX_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/BMX_D.xpt
+8. **Blood Pressure (BPX_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/BPX_D.xpt
+9. **Diabetes (DIQ_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DIQ_D.xpt
+10. **BP Questionnaire (BPQ_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/BPQ_D.xpt
+11. **Medical Conditions (MCQ_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/MCQ_D.xpt
+12. **Smoking (SMQ_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/SMQ_D.xpt
+13. **Alcohol (ALQ_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/ALQ_D.xpt
+14. **Physical Activity (PAQ_D.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/PAQ_D.xpt
+
+### Cycle 2007-2008 (suffix _E)
+Replace _D with _E and 2005 with 2007 in URLs above.
+
+### Cycle 2015-2016 (suffix _I)
+Replace _D with _I and 2005 with 2015 in URLs above.
+
+### Cycle 2017-2018 (suffix _J)
+Replace _D with _J and 2005 with 2017 in URLs above.
+
+## Data Format
+- Files are in SAS Transport format (.XPT)
+- Can be read with R (haven::read_xpt) or Python (pandas.read_sas)
+- Merge files on SEQN (respondent sequence number) within each cycle
+- Pool cycles by appending rows and adjusting survey weights
+
+## Analytic Sample
+- Adults aged ≥20 years
+- Complete sleep disorder questionnaire data (SLQ050, SLQ060)
+- Complete fasting subsample laboratory data (glucose, triglycerides, HDL, insulin)
+- Complete body measures (BMI)
+- Exclusion: pregnant women, missing key covariates
+
+## Multi-Cycle Weight Adjustment
+- When pooling 4 NHANES cycles, divide 2-year weights by 4
+- Adjusted fasting weight = WTSAF2YR / 4
+- Adjusted MEC weight = WTMEC2YR / 4
+
+## Access
+- No registration or approval required
+- Data freely downloadable from CDC/NCHS website

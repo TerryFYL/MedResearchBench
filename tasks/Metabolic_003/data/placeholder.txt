@@ -1,0 +1,58 @@
+# Data Source: NHANES 2011-2018 (4 Cycles)
+
+This task uses publicly available data from the National Health and Nutrition Examination Survey (NHANES) spanning four consecutive cycles: 2011-2012, 2013-2014, 2015-2016, and 2017-2018.
+
+## Required Data Files
+
+### Cycle 2011-2012 (suffix _G)
+1. **Demographics (DEMO_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DEMO_G.xpt
+2. **Standard Biochemistry (BIOPRO_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/BIOPRO_G.xpt
+3. **Complete Blood Count (CBC_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/CBC_G.xpt
+4. **Fasting Glucose (GLU_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/GLU_G.xpt
+5. **Insulin (INS_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/INS_G.xpt
+6. **Glycohemoglobin (GHB_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/GHB_G.xpt
+7. **Triglycerides (TRIGLY_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/TRIGLY_G.xpt
+8. **HDL Cholesterol (HDL_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/HDL_G.xpt
+9. **Total Cholesterol (TCHOL_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/TCHOL_G.xpt
+10. **Body Measures (BMX_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/BMX_G.xpt
+11. **Blood Pressure (BPX_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/BPX_G.xpt
+12. **Hepatitis B (HEPBD_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/HEPBD_G.xpt
+13. **Hepatitis C (HEPC_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/HEPC_G.xpt
+14. **Alcohol Use (ALQ_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/ALQ_G.xpt
+15. **Diabetes (DIQ_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DIQ_G.xpt
+16. **BP Questionnaire (BPQ_G.XPT)**: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/BPQ_G.xpt
+
+### Cycle 2013-2014 (suffix _H)
+Replace _G with _H and 2011 with 2013 in URLs above.
+
+### Cycle 2015-2016 (suffix _I)
+Replace _G with _I and 2011 with 2015 in URLs above.
+
+### Cycle 2017-2018 (suffix _J)
+Replace _G with _J and 2011 with 2017 in URLs above.
+
+## Data Format
+- Files are in SAS Transport format (.XPT)
+- Can be read with R (haven::read_xpt) or Python (pandas.read_sas)
+- Merge files on SEQN (respondent sequence number) within each cycle
+- Pool cycles by appending rows and adjusting survey weights
+
+## Analytic Sample
+- Non-pregnant adults aged ≥20 years
+- Complete data for USFLI calculation (age, race/ethnicity, GGT, fasting insulin, fasting glucose)
+- Available hepatitis B and C serology for exclusion
+- Available alcohol consumption data for exclusion
+- Final analytic sample: approximately 7,429 across 4 cycles
+
+## Multi-Cycle Weight Adjustment
+- When pooling 4 cycles: adjusted weight = WTSAF2YR / 4 (fasting subsample)
+- When pooling 4 cycles: adjusted weight = WTMEC2YR / 4 (full MEC sample)
+
+## Access
+- No registration or approval required
+- Data freely downloadable from CDC/NCHS website
+
+## Important Note on Hepatitis Module Names
+- Hepatitis B module names may vary across cycles (HEPBD, HEPB_S)
+- Hepatitis C module names may vary (HEPC, HEPC_S)
+- Check NHANES documentation for each cycle for exact module names

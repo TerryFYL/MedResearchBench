@@ -1,0 +1,18 @@
+# Figure Descriptions: Liang et al. (2020) Clinical and Translational Gastroenterology
+
+## Table 1: Patient Characteristics by Time Period
+- Type: Descriptive table
+- Content: Demographics, tumor characteristics, staging distribution, treatment patterns, and area-level income for CRC patients across the four time periods (1991-1997, 1998-2001, 2001-2005, 2006-2010).
+
+## Table 2: Multinomial Logistic Regression for CRC Stage at Diagnosis
+- Type: Results table
+- Content: Adjusted odds ratios (95% CI) for distant-stage diagnosis by race/ethnicity, area-level income quartile, and rurality across four time periods. Shows Black patients 24-39% more likely to present with distant disease.
+
+## Table 3: Cox Proportional Hazards Regression for CRC-Specific Mortality
+- Type: Results table
+- Content: Adjusted hazard ratios (95% CI) for CRC-specific death by race/ethnicity, income, and rurality across four time periods. Shows Black patients with 16-21% increased mortality vs. White patients.
+
+## Note
+- Actual figure/table images not available (no PDF downloaded per project protocol)
+- Figures and tables can be found in the published paper: DOI 10.14309/ctg.0000000000000155
+- PMC open access: https://pmc.ncbi.nlm.nih.gov/articles/PMC7145046/

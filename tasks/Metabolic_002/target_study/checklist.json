@@ -1,0 +1,72 @@
+[
+  {
+    "type": "text",
+    "dimension": "statistical_methodology",
+    "content": "The analysis employs restricted cubic splines (RCS) with 3 knots placed at the 25th, 50th, and 75th percentiles of TSH distribution to model the continuous nonlinear association between serum TSH within the euthyroid range (0.39-4.60 mIU/L) and mortality risk. This is embedded within a Cox proportional hazards regression framework with three progressively adjusted models: Model 1 adjusts for age and sex; Model 2 adds race/ethnicity, education, BMI, smoking, and alcohol consumption; Model 3 further adjusts for clinical comorbidities (hypertension, CVD history, dyslipidemia, HbA1c). The formal test for nonlinearity (P for nonlinearity) distinguishes a U-shaped dose-response from a monotonic linear association. NHANES III complex survey design is accounted for using appropriate sampling weights throughout.",
+    "path": null,
+    "keywords": [
+      "Restricted cubic splines with 3 knots (25th, 50th, 75th percentiles)",
+      "Cox proportional hazards with progressive adjustment (3 models)",
+      "Formal test for nonlinearity (P < 0.05)",
+      "Euthyroid range defined as TSH 0.39-4.60 mIU/L",
+      "NHANES III complex survey design weights"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "results_accuracy",
+    "content": "Among 1,830 euthyroid adults with diabetes from NHANES III (median follow-up 17.1 years; 1,324 all-cause deaths, 525 cardiovascular deaths), TSH exhibits a statistically significant U-shaped association with both all-cause and cardiovascular mortality (P for nonlinearity < 0.05 for both endpoints). Using the medium-normal TSH tertile (1.30-2.09 mIU/L) as reference, low-normal TSH is associated with all-cause mortality HR 1.39 (95% CI 1.12-1.73) and CVD mortality HR 1.69 (1.17-2.44); high-normal TSH is associated with all-cause mortality HR 1.31 (95% CI 1.07-1.61) and CVD mortality HR 1.52 (1.08-2.12). Both extremes of the euthyroid TSH range confer significantly elevated mortality risk compared to the middle range.",
+    "path": null,
+    "keywords": [
+      "U-shaped TSH-mortality association (P for nonlinearity < 0.05)",
+      "Low-normal TSH all-cause HR 1.39 (1.12-1.73)",
+      "High-normal TSH all-cause HR 1.31 (1.07-1.61)",
+      "Low-normal TSH CVD HR 1.69 (1.17-2.44)",
+      "1,830 euthyroid diabetic adults, median follow-up 17.1 years, 1,324 deaths"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "clinical_interpretation",
+    "content": "The U-shaped TSH-mortality association challenges the clinical assumption that any TSH value within the laboratory reference range is equally benign. For diabetic patients, both the lower and upper ends of the normal TSH range are associated with approximately 30-40% higher all-cause mortality and 50-70% higher cardiovascular mortality. The medium-normal TSH range (approximately 1.30-2.09 mIU/L) represents the 'sweet spot' with lowest mortality risk. This has implications for thyroid hormone replacement dosing in hypothyroid diabetic patients — targeting TSH to the lower end of normal may paradoxically increase mortality risk. The findings also suggest that TSH monitoring in diabetic patients may provide prognostic value beyond thyroid disease management.",
+    "path": null,
+    "keywords": [
+      "U-shaped pattern challenges assumption of uniform euthyroid safety",
+      "Medium-normal TSH (1.30-2.09 mIU/L) is optimal range",
+      "Both low-normal and high-normal TSH increase mortality 30-70%",
+      "Implications for thyroid replacement dosing in diabetic patients",
+      "TSH as prognostic marker beyond thyroid disease"
+    ],
+    "weight": 0.20
+  },
+  {
+    "type": "text",
+    "dimension": "confounding_sensitivity",
+    "content": "The study addresses multiple potential confounders through progressive model adjustment and dedicated sensitivity analyses. Key considerations include: (1) urinary iodine — iodine status directly affects TSH levels and may confound the TSH-mortality association; (2) TPO antibodies — subclinical autoimmune thyroiditis could drive both TSH variation and mortality independent of thyroid function; (3) total T4 adjustment — ensures TSH variation reflects true hypothalamic-pituitary-thyroid axis variation rather than compensated thyroid failure; (4) Healthy Eating Index (HEI) — dietary quality may confound through nutritional iodine intake and general health behavior; (5) frailty index — pre-existing frailty could independently predict mortality while being associated with thyroid function changes; (6) CRP — systemic inflammation affects both thyroid function and cardiovascular mortality. Subgroup analyses by age and sex test for effect modification.",
+    "path": null,
+    "keywords": [
+      "Urinary iodine adjustment (iodine status affects TSH)",
+      "TPO antibody sensitivity analysis (subclinical autoimmunity)",
+      "Total T4 adjustment (compensated thyroid failure exclusion)",
+      "Frailty index and CRP (reverse causation assessment)",
+      "Age and sex subgroup analyses for effect modification"
+    ],
+    "weight": 0.15
+  },
+  {
+    "type": "text",
+    "dimension": "reporting_compliance",
+    "content": "The manuscript adheres to STROBE guidelines for cohort studies: the prospective design with NHANES III baseline and NDI mortality linkage through 2019 is clearly specified; euthyroid definition criteria (TSH 0.39-4.60 mIU/L + normal TT4) and diabetes ascertainment methods are documented; TSH tertile boundaries and reference category are explicitly stated; hazard ratios with 95% CIs are reported for all models and endpoints; RCS dose-response curves with confidence bands are presented graphically; P for nonlinearity is formally reported; the complex multistage survey design is acknowledged and appropriately weighted; limitations including the diabetic-only subpopulation (restricting generalizability to euthyroid general population), the use of TT4 rather than FT4 (FT4 unavailable in NHANES III), and the single baseline TSH measurement are acknowledged.",
+    "path": null,
+    "keywords": [
+      "STROBE adherence for prospective cohort study",
+      "Euthyroid and diabetes case definitions clearly specified",
+      "RCS dose-response curves with confidence bands presented",
+      "P for nonlinearity formally reported",
+      "Limitations: diabetic subpopulation, TT4 instead of FT4, single TSH measurement"
+    ],
+    "weight": 0.15
+  }
+]

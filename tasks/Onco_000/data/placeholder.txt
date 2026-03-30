@@ -1,0 +1,30 @@
+# Data Source: SEER Program (Surveillance, Epidemiology, and End Results)
+
+This task uses data from the NCI SEER Program, 12 registries (1992-2018).
+
+## How to Access
+
+1. **Submit a data use agreement**: https://seer.cancer.gov/data/access.html
+2. **Request SEER Research Data** (requires signed DUA and approved account)
+3. **Download using SEER*Stat software**: https://seer.cancer.gov/seerstat/
+
+## Required Data
+- **Database**: Incidence - SEER Research Data, 12 Registries, Nov 2020 Sub (1992-2018)
+- **Case selection**: Primary site = Colon and Rectum (C18.0-C20.9), Histology = Adenocarcinoma (8140-8389)
+- **Variables needed**: Age, Sex, Race/Ethnicity, Year of Diagnosis, SEER Historic Stage, Survival Months, Vital Status, Cause of Death, SEER Cause-Specific Death Classification
+
+## SEER Registries (12)
+Alaska, Connecticut, Atlanta, Rural Georgia, San Francisco-Oakland, San Jose-Monterey, Hawaii, Iowa, Los Angeles, New Mexico, Seattle-Puget Sound, Utah
+
+## Population Coverage
+- Approximately 14% of the US population
+- Over 399,000 CRC cases in the study period (1992-2018)
+
+## Data Format
+- SEER*Stat can export data as ASCII text or CSV
+- Data dictionary and variable documentation available at: https://seer.cancer.gov/data-software/documentation/
+
+## Access Requirements
+- Free access after signing DUA
+- Individual-level data; protected health information removed
+- Processing time: typically 1-3 business days for account approval

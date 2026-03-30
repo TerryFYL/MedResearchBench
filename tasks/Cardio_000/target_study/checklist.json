@@ -1,0 +1,71 @@
+[
+  {
+    "type": "text",
+    "dimension": "statistical_methodology",
+    "content": "The analysis employs survey-weighted multivariable logistic regression with four progressive adjustment models: Model 1 (unadjusted), Model 2 (age, sex, race/ethnicity), Model 3 (+ education, marital status, income-to-poverty ratio), and Model 4 (+ BMI, smoking, alcohol, physical activity, total energy intake, dietary fiber, cholesterol). All dietary intake variables are standardized as z-scores before regression. Complex survey design is correctly handled using NHANES sampling weights (WTDRD1), masked variance PSU (SDMVPSU), and strata (SDMVSTRA). Restricted cubic spline (RCS) models with 4 knots at the 5th, 35th, 65th, and 95th percentiles are used to test for nonlinear dose-response relationships between sodium/potassium intake and hypertension odds.",
+    "path": null,
+    "keywords": [
+      "Survey-weighted multivariable logistic regression",
+      "Progressive covariate adjustment (4 nested models)",
+      "Complex survey design (PSU, strata, dietary weights WTDRD1)",
+      "Restricted cubic spline with 4 knots (5th, 35th, 65th, 95th percentiles)",
+      "Dietary intake z-score standardization"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "results_accuracy",
+    "content": "After full covariate adjustment (Model 4), no statistically significant associations are found between dietary sodium intake and hypertension (OR approximately 1.00, P > 0.05), between potassium intake and hypertension, or between the sodium-to-potassium ratio and hypertension. RCS dose-response analysis confirms no significant nonlinear trends (P for nonlinearity > 0.05). The sodium RCS curve shows a relatively flat trajectory at lower intake levels followed by a modest upward trend at higher intakes, but with wide 95% confidence interval bands crossing the null throughout the intake distribution.",
+    "path": null,
+    "keywords": [
+      "Adjusted OR approximately 1.00 for sodium-hypertension association",
+      "P > 0.05 for all primary associations after full adjustment",
+      "Non-significant P for nonlinearity in RCS models",
+      "Wide confidence intervals crossing null in dose-response curves",
+      "Consistent null findings across sodium, potassium, and Na/K ratio"
+    ],
+    "weight": 0.25
+  },
+  {
+    "type": "text",
+    "dimension": "confounding_sensitivity",
+    "content": "Sensitivity analyses include: (1) progressive covariate adjustment across four nested models to examine confounding impact — attenuation of crude associations after adjusting for demographic, socioeconomic, and lifestyle factors; (2) subgroup analyses stratified by sex (male/female), age group (20-39, 40-59, 60+), and BMI category (<25, 25-30, 30+) with formal tests for interaction; (3) examination of sodium-to-potassium ratio as an alternative exposure metric; (4) dietary fiber intake analysis as a methodological comparison. All interaction terms are non-significant (P for interaction > 0.05), confirming no meaningful effect modification across subgroups.",
+    "path": null,
+    "keywords": [
+      "Four nested models examining confounding structure",
+      "Subgroup stratification by sex, age group, BMI category",
+      "Formal interaction tests (all P-interaction > 0.05)",
+      "Na/K ratio as alternative exposure assessment",
+      "Attenuation pattern from crude to fully adjusted models"
+    ],
+    "weight": 0.20
+  },
+  {
+    "type": "text",
+    "dimension": "clinical_interpretation",
+    "content": "The authors conclude that within the typical dietary intake ranges observed in the U.S. population, sodium and potassium may lack independent predictive utility for hypertension after adjustment for key lifestyle and demographic confounders. They note that dietary recall-based sodium assessment (single 24-hour recall) may underestimate true sodium intake and introduce measurement error compared to 24-hour urinary sodium excretion. The clinical implication is that individual-level dietary sodium from recall data may not be a reliable risk stratification tool for hypertension, and that population-level sodium reduction strategies may be more effective than individual dietary counseling based on self-reported intake.",
+    "path": null,
+    "keywords": [
+      "Sodium and potassium lack independent predictive utility for hypertension within typical U.S. intake ranges",
+      "Measurement limitation: 24-hour dietary recall vs. urinary sodium biomarker",
+      "Distinction between population-level sodium reduction and individual risk prediction",
+      "Clinical context: null finding does not negate sodium-BP relationship from trials"
+    ],
+    "weight": 0.15
+  },
+  {
+    "type": "text",
+    "dimension": "reporting_compliance",
+    "content": "The manuscript follows STROBE guidelines for cross-sectional studies: participant flow and exclusion criteria are clearly documented (from full NHANES 2017-2018 sample to final n=5,569), the complex survey design and appropriate weighting scheme are specified, effect measures are reported as odds ratios with 95% confidence intervals throughout, missing data handling is described, and limitations including the single dietary recall assessment and cross-sectional design precluding causal inference are acknowledged.",
+    "path": null,
+    "keywords": [
+      "STROBE adherence for cross-sectional study reporting",
+      "Participant flow documented (inclusion/exclusion criteria)",
+      "All estimates reported with 95% confidence intervals",
+      "Survey design and weighting scheme specified",
+      "Limitations acknowledged (dietary recall, cross-sectional design)"
+    ],
+    "weight": 0.15
+  }
+]

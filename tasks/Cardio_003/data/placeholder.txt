@@ -1,0 +1,42 @@
+# Data Source: NHANES 2013-2018 (Pooled 3 Cycles)
+
+This task uses publicly available data from three NHANES cycles: 2013-2014, 2015-2016, and 2017-2018.
+
+## Required Data Files (per cycle)
+
+### NHANES 2013-2014
+- Demographics: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DEMO_H.XPT
+- Blood Pressure Exam: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/BPX_H.XPT
+- BP Questionnaire: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/BPQ_H.XPT
+- Medical Conditions: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/MCQ_H.XPT
+- Diabetes: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DIQ_H.XPT
+- Body Measures: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/BMX_H.XPT
+- Rx Medications: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/RXQ_RX_H.XPT
+
+### NHANES 2015-2016
+- Demographics: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DEMO_I.XPT
+- Blood Pressure Exam: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BPX_I.XPT
+- BP Questionnaire: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BPQ_I.XPT
+- Medical Conditions: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/MCQ_I.XPT
+- Diabetes: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DIQ_I.XPT
+- Body Measures: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BMX_I.XPT
+- Rx Medications: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/RXQ_RX_I.XPT
+
+### NHANES 2017-2018
+- Demographics: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DEMO_J.XPT
+- Blood Pressure Exam: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BPX_J.XPT
+- BP Questionnaire: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BPQ_J.XPT
+- Medical Conditions: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/MCQ_J.XPT
+- Diabetes: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DIQ_J.XPT
+- Body Measures: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BMX_J.XPT
+- Rx Medications: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/RXQ_RX_J.XPT
+
+## Data Format
+- Files are in SAS Transport format (.XPT)
+- Merge within each cycle on SEQN, then append across cycles
+- When pooling 3 cycles: divide 2-year MEC weight (WTMEC2YR) by 3
+
+## Analytic Sample
+- Non-pregnant US adults aged >= 18 years
+- Complete blood pressure measurements
+- Final pooled analytic sample: approximately 16,531 participants
