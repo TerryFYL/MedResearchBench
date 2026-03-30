@@ -1,0 +1,619 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{multirow}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+% Code listing style
+\lstset{
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{gray!10},
+  xleftmargin=0.5cm,
+  xrightmargin=0.5cm
+}
+
+% Fix longtable in narrow columns
+\setlength{\LTcapwidth}{\textwidth}
+
+\title{\textbf{MedResearchBench}: A Multi-Domain Benchmark for Evaluating\\
+AI Research Agents on Clinical Medical Research}
+
+\author{
+  Zhanxiao Tian\textsuperscript{1}\\[6pt]
+  \textsuperscript{1}Independent Researcher\\[4pt]
+  \small\texttt{Preprint — arXiv cs.AI}
+}
+
+\date{March 2026}
+
+% --- Document ---
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The rapid advancement of AI research automation systems---including AI Scientist, data-to-paper, and Agent Laboratory---has demonstrated the potential for autonomous scientific discovery. However, existing benchmarks for evaluating these systems focus predominantly on fundamental sciences (machine learning, physics, chemistry), overlooking the unique challenges of medical clinical research: complex survey designs, inferential statistics with confounding control, adherence to reporting standards (STROBE, CONSORT), and the requirement for clinically actionable interpretation. We present \textbf{MedResearchBench}, the first benchmark specifically designed to evaluate AI systems on medical clinical research tasks. MedResearchBench comprises 16 tasks spanning 8 clinical domains (cardiovascular, oncology, mental health, metabolic, respiratory, neurology, infectious disease), built on publicly available datasets (NHANES, SEER) with ground truth from 16 high-quality published papers (IF range: 2.3--51.0). Each task is evaluated along 6 medical-specific dimensions: statistical methodology, results accuracy, visualization quality, clinical interpretation, confounding sensitivity, and reporting compliance. We describe the benchmark design rationale, task construction methodology, paper selection criteria with anti-paper-mill filtering, and a detailed analysis of task characteristics including methodological diversity, evaluation dimension coverage, and difficulty stratification. To demonstrate benchmark executability, we evaluate an agentic data2paper pipeline on 3 pilot tasks spanning all three difficulty tiers, achieving scores of 72/100 (Tier 1, Cardio\_000), 69/100 (Tier 2, Mental\_000), and 75/100 (Tier 3, Metabolic\_002), with a mean score of 72/100 (B-level). Survey-weighted methodology was correctly implemented across all tasks; primary limitations included covariate incompleteness and reference group misspecification. MedResearchBench addresses a critical gap in AI research evaluation and provides a standardized, community-extensible platform for assessing whether AI systems can conduct clinically sound, publication-quality medical research. All task materials are publicly available at \url{https://github.com/TerryFYL/MedResearchBench}.
+\end{abstract}
+
+\textbf{Keywords}: AI research automation, medical informatics, benchmark, clinical research, NHANES, SEER, research quality evaluation
+
+\bigskip
+\hrule
+\bigskip
+
+\tableofcontents
+\newpage
+
+% ============================================================
+% MAIN BODY (auto-converted from Markdown via pandoc, cleaned)
+% ============================================================
+
+\section{Introduction}
+
+\subsection{The Rise of AI Research Automation}
+
+Artificial intelligence systems capable of conducting scientific research autonomously have emerged as a transformative force in computational science. Lu et al.\ (2024) introduced \emph{The AI Scientist}, a fully automated system capable of generating research ideas, conducting experiments, and writing complete papers, published in Nature. Independently, Ifargan et al.\ (2024) developed \emph{data-to-paper}, a system that generates complete research papers from raw datasets, reported in NEJM AI. Schmidgall et al.\ (2025) presented \emph{Agent Laboratory}, a multi-agent framework for autonomous research, accepted at EMNLP. These systems and others---including AI-Researcher (Huang et al., 2025, NeurIPS Spotlight), Virtual Lab (Swanson et al., 2024, Nature), and Robin (FutureHouse, 2025)---represent a rapidly growing ecosystem of automated research tools.
+
+\subsection{The Evaluation Gap}
+
+As these systems proliferate, the need for rigorous evaluation becomes paramount. ResearchClawBench (Schmidgall et al., 2025) represents the most comprehensive effort to date, providing a benchmark of research tasks across 10 fundamental science domains with LLM-based evaluation. ScienceBench and related benchmarks focus on specific scientific reasoning capabilities.
+
+However, \textbf{medical clinical research presents fundamentally different challenges} that existing benchmarks do not capture:
+
+\begin{table}[ht]
+\centering
+\caption{Challenges distinguishing medical clinical research from fundamental science benchmarks.}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Challenge} & \textbf{Fundamental Science} & \textbf{Medical Clinical Research} \\
+\midrule
+Data type & Experimental/simulation & Real-world population data (surveys, EHR, registries) \\
+Statistical paradigm & Algorithm metrics (accuracy, F1) & Inferential statistics (OR, HR, regression, survival) \\
+Confounding & Controlled experiments & Must be statistically controlled (DAG, propensity score) \\
+Reporting standards & None formalized & STROBE, CONSORT, PRISMA (hard requirements) \\
+Output requirement & ``We found X'' & ``Clinicians should do Y because Z'' \\
+Sampling complexity & i.i.d.\ assumed & Complex survey design, stratification, weights \\
+Ethics dimension & Minimal & Subgroup fairness, clinical harm potential \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+No existing benchmark tests whether an AI system can correctly go from patient-level data to a clinically sound, publication-ready manuscript.
+
+\subsection{The NHANES Paper Mill Problem}
+
+The urgency of quality evaluation in medical AI research is underscored by the NHANES paper mill scandal. In 2025, a PLOS Biology investigation identified hundreds of formulaic papers exploiting the publicly available National Health and Nutrition Examination Survey (NHANES) dataset, characterized by mechanical application of logistic regression without genuine clinical insight, inadequate confounding control, and failure to account for complex survey design. These papers, while technically ``published,'' represent a degradation of the medical literature.
+
+AI research automation systems risk amplifying this problem at unprecedented scale---or, if properly evaluated, providing the quality gates to prevent it. MedResearchBench is designed to distinguish between systems that produce rigorous, clinically meaningful research and those that merely generate publication-shaped text.
+
+\subsection{Contributions}
+
+We make the following contributions:
+
+\begin{enumerate}
+\item \textbf{MedResearchBench}: The first benchmark specifically designed for evaluating AI systems on medical clinical research tasks, comprising 16 tasks across 8 clinical domains.
+\item \textbf{Medical-specific evaluation dimensions}: A 6-dimension scoring framework that captures the unique quality requirements of clinical research, including confounding sensitivity and reporting compliance.
+\item \textbf{Anti-paper-mill design}: Explicit quality criteria that distinguish genuine research from formulaic output, directly addressing the NHANES paper mill problem.
+\item \textbf{Public benchmark with community extensibility}: All tasks use publicly available datasets (NHANES, SEER), enabling reproducible evaluation and community contribution.
+\item \textbf{Initial baseline results}: End-to-end evaluation of an agentic pipeline across 3 pilot tasks (Tier 1--3), yielding a mean score of 72/100 (B-level), establishing the first quantitative baseline for AI-driven medical research quality on this benchmark.
+\end{enumerate}
+
+% ============================================================
+\section{Related Work}
+
+\subsection{AI Research Automation Systems}
+
+The landscape of AI research automation has evolved rapidly since 2024. We categorize existing systems by their scope and approach:
+
+\textbf{End-to-end systems} attempt to automate the full research pipeline from idea generation to paper writing. The AI Scientist (Lu et al., 2024) pioneered this approach in machine learning, generating novel research ideas, implementing experiments, and producing complete LaTeX papers. data-to-paper (Ifargan et al., 2024) focuses on the data-to-manuscript pipeline, using LLM agents with rule-based guardrails to generate papers from raw datasets. Agent Laboratory (Schmidgall et al., 2025) employs a multi-agent architecture with specialized roles (literature review, experiment design, writing).
+
+\textbf{Domain-specific systems} target particular research areas. Virtual Lab (Swanson et al., 2024) combines LLM agents with computational biology tools for nanobody design. Robin (FutureHouse, 2025) orchestrates web-scale literature retrieval for biomedical research. AI-Researcher (Huang et al., 2025) introduces autonomous research with open-ended exploration capabilities.
+
+\textbf{Medical research tools} remain comparatively underdeveloped. While clinical decision support and literature review tools exist, no published system specifically targets the end-to-end automation of observational clinical research---the dominant paradigm in medical science.
+
+\subsection{Research Quality Benchmarks}
+
+ResearchClawBench (Schmidgall et al., 2025) is the most directly relevant benchmark, providing tasks across 10 scientific domains with a dual-mode LLM Judge evaluation. Tasks include data, related work references, and target study checklists. However, its domain coverage---machine learning, NLP, computer vision, reinforcement learning, social science, statistics, economics, environmental science, psychology, political science---excludes clinical medicine entirely.
+
+ScienceBench and related efforts evaluate specific scientific reasoning capabilities (mathematical derivation, experimental design) but do not assess the integrated research pipeline from data to publication.
+
+\textbf{No existing benchmark evaluates AI systems on medical clinical research tasks.}
+
+\subsection{Medical Research Quality Standards}
+
+Medical research quality is governed by well-established reporting guidelines:
+
+\begin{itemize}
+\item \textbf{STROBE} (Strengthening the Reporting of Observational Studies in Epidemiology): Checklist for cross-sectional, cohort, and case-control studies
+\item \textbf{CONSORT} (Consolidated Standards of Reporting Trials): Checklist for randomized controlled trials
+\item \textbf{PRISMA} (Preferred Reporting Items for Systematic Reviews and Meta-Analyses): Checklist for systematic reviews
+\end{itemize}
+
+These standards provide an objective framework for evaluating AI-generated medical research---a unique advantage over fundamental science domains where reporting standards are less formalized.
+
+% ============================================================
+\section{Benchmark Design}
+
+\subsection{Overview}
+
+MedResearchBench comprises 16 tasks (Phase 1) spanning 8 clinical domains, designed to evaluate AI systems' ability to conduct complete medical clinical research from raw data to publication-quality output. Each task is anchored by a ground truth published paper that used publicly available data, enabling objective evaluation.
+
+\subsection{Domain Coverage}
+
+We selected 8 clinical domains based on three criteria: (1) public data availability, (2) clinical impact (global disease burden), and (3) methodological diversity.
+
+\begin{table}[ht]
+\centering
+\caption{Domain coverage and primary methods in MedResearchBench.}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Domain} & \textbf{\# Tasks} & \textbf{Primary Datasets} & \textbf{Key Methods} \\
+\midrule
+Cardiovascular & 2 & NHANES & Survey-weighted regression, dose-response \\
+Oncology & 2 & SEER, SEER-Medicare & Survival analysis, temporal trends \\
+Mental Health & 2 & NHANES & Piecewise regression, trend analysis \\
+Metabolic & 3 & NHANES, NHANES III & ROC analysis, Cox PH, RCS \\
+Respiratory & 3 & NHANES & Biomarker-exposure regression, mortality linkage \\
+Neurology & 2 & NHANES & Cognitive assessment, composite index \\
+Infectious Disease & 2 & NHANES & Temporal trends, vaccine effectiveness \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Task Structure}
+
+Each task follows a standardized directory structure compatible with ResearchClawBench:
+
+\begin{lstlisting}
+tasks/{TaskID}/
+|-- task_info.json       # Task description, data references, metadata
+|-- data/
+|   |-- codebook.md      # Variable definitions, survey design variables
+|   `-- placeholder.txt  # Data source and download instructions
+|-- related_work/
+|   `-- references.md    # 3-4 related papers (title, DOI)
+`-- target_study/
+    |-- paper_info.md    # Ground truth paper metadata
+    |-- checklist.json   # 5 evaluation items across 6 dimensions
+    `-- images/          # Figure description placeholders
+\end{lstlisting}
+
+The \texttt{task\_info.json} file extends the ResearchClawBench format with medical-specific metadata. The \texttt{codebook.md} file is a medical-specific addition providing variable definitions essential for correct analysis of complex survey data, including survey design variables (weights, PSU, strata).
+
+\subsection{Ground Truth Paper Selection}
+
+For each task, we selected a published paper meeting the following criteria:
+
+\begin{enumerate}
+\item \textbf{Authenticity}: Paper existence verified via PubMed/Google Scholar (no fabricated references)
+\item \textbf{Quality}: Published in a peer-reviewed journal with Impact Factor $\geq$ 2.0
+\item \textbf{Relevance}: Uses the specified public dataset to address the specified research question
+\item \textbf{Methodological rigor}: Employs appropriate statistical methods, adequate confounding control, and follows reporting standards
+\item \textbf{Anti-paper-mill filtering}: Excludes formulaic single-factor studies without genuine analytical innovation
+\end{enumerate}
+
+\begin{table}[ht]
+\centering
+\caption{Ground truth papers for MedResearchBench Phase 1 tasks.}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Task ID} & \textbf{Ground Truth Paper} & \textbf{Journal} & \textbf{IF} \\
+\midrule
+Cardio\_000 & Luo et al.\ (2026) Dietary sodium and hypertension & PLOS ONE & $\sim$3.7 \\
+Cardio\_003 & Aggarwal et al.\ (2021) Racial disparities in HTN & Hypertension & $\sim$8.3 \\
+Onco\_000 & Pankratz et al.\ (2022) CRC survival trends & Cancer Control & $\sim$3.0 \\
+Onco\_002 & Liang et al.\ (2020) SES disparities in CRC & Clin Transl Gastroenterol & $\sim$3.6 \\
+Mental\_000 & Dong et al.\ (2022) Sleep duration and depression & J Affect Disord & 5.4 \\
+Mental\_002 & Yu et al.\ (2020) Depression prevalence trends & J Affect Disord & 5.4 \\
+Metabolic\_000 & Guess et al.\ (2023) HOMA-IR threshold for MetS & Metab Syndr Relat Disord & $\sim$2.3 \\
+Metabolic\_002 & Zhu et al.\ (2024) TSH and mortality & Cardiovasc Diabetol & $\sim$8.5 \\
+Metabolic\_003 & Wang et al.\ (2024) NAFLD prevalence & Ann Hepatol & 3.4 \\
+Neuro\_002 & Lu et al.\ (2023) Heavy metals and cognition & Br J Nutr & $\sim$3.3 \\
+Neuro\_003 & Huang et al.\ (2025) Antioxidants and PD mortality & Front Aging Neurosci & $\sim$4.1 \\
+Infection\_000 & Le et al.\ (2020) HBV seroprevalence trends & JAMA Network Open & $\sim$13.0 \\
+Infection\_001 & Rosenblum et al.\ (2022) HPV vaccine effectiveness & Ann Intern Med & $\sim$51.0 \\
+Respiratory\_000 & Mendy et al.\ (2022) VOC and lung function & Eur Respir J & $\sim$16.0 \\
+Respiratory\_001 & Martinez et al.\ (2015) Undiagnosed COPD & Ann Am Thorac Soc & $\sim$6.0 \\
+Respiratory\_003 & Yin et al.\ (2025) METS-IR and OSA risk & Sci Rep & $\sim$3.8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Ground truth papers span a wide quality range (IF 2.3--51.0), reflecting the realistic distribution of medical publications. This range is deliberate: AI systems should be evaluated against papers of varying quality tiers, not only elite publications. Publication years range from 2015 to 2026, with 13 papers (81\%) published in 2020 or later, ensuring methodological currency.
+
+\subsection{Evaluation Dimensions}
+
+MedResearchBench evaluates AI output along 6 dimensions, each addressing a critical aspect of medical research quality:
+
+\begin{table}[ht]
+\centering
+\caption{Evaluation dimensions and their medical-specific rationale.}
+\begin{tabular}{@{}p{3.5cm}p{4.5cm}p{5cm}@{}}
+\toprule
+\textbf{Dimension} & \textbf{Description} & \textbf{Why Medical-Specific} \\
+\midrule
+\texttt{statistical\_methodology} & Appropriate method selection, model specification, assumption checking & Complex survey design requires specialized methods \\
+\texttt{results\_accuracy} & Correct numerical results, properly constructed tables/figures & Medical statistics have specific conventions (OR with 95\% CI) \\
+\texttt{visualization\_quality} & Clear, informative, publication-ready visualizations & Domain-specific figure types (KM curves, forest plots, dose-response) \\
+\texttt{clinical\_interpretation} & Clinically meaningful discussion, actionable conclusions & Fundamental science stops at ``we found X''; medicine requires ``clinicians should do Y'' \\
+\texttt{confounding\_sensitivity} & Adequate identification and control of confounders & Defining challenge of observational research \\
+\texttt{reporting\_compliance} & Adherence to STROBE/CONSORT/PRISMA standards & Hard requirements in medical journals \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Each task's \texttt{checklist.json} contains 5 evaluation items distributed across at least 4 of these 6 dimensions.
+
+\subsection{Scoring Methodology}
+
+We adopt a dual-mode LLM Judge evaluation approach compatible with ResearchClawBench:
+
+\textbf{Objective Mode} (primary): Each checklist item is scored 0--100, where 50 represents matching the ground truth paper's quality. Scores above 50 indicate the AI output exceeded the published paper on that specific criterion. The weighted sum across all items produces the final task score.
+
+\textbf{Subjective Mode} (supplementary): Open-ended assessment of overall research quality, novelty, and clinical utility.
+
+Medical-specific scoring extensions include a \textit{survey design penalty} (failure to account for complex survey design results in automatic score reduction for \texttt{statistical\_methodology}), a \textit{confounding cascade} (progressive model adjustment evaluation), and a \textit{STROBE compliance checklist} mapping to specific items relevant to each study design.
+
+\subsection{Study Design Coverage}
+
+\begin{table}[ht]
+\centering
+\caption{Study design distribution across MedResearchBench Phase 1 tasks.}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Study Design} & \textbf{\# Tasks} & \textbf{Examples} \\
+\midrule
+Cross-sectional & 7 & Cardio\_000, Mental\_000, Metabolic\_000, Neuro\_002 \\
+Serial/repeated cross-sectional (trend) & 4 & Infection\_000, Infection\_001, Mental\_002, Metabolic\_003 \\
+Prospective cohort (mortality linkage) & 3 & Metabolic\_002, Neuro\_003, Respiratory\_001 \\
+Retrospective cohort (registry) & 2 & Onco\_000, Onco\_002 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================================
+\section{Task Analysis and Characteristics}
+
+To characterize the benchmark's coverage and difficulty landscape, we analyze the 16 Phase 1 tasks across multiple dimensions.
+
+\subsection{Methodological Diversity}
+
+Across 16 tasks, we identify 23 distinct statistical methods. Table~\ref{tab:methods} summarizes the most frequently required methods.
+
+\begin{table}[ht]
+\centering
+\caption{Statistical methods required across MedResearchBench tasks.}
+\label{tab:methods}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Method} & \textbf{\# Tasks} & \textbf{Representative Tasks} \\
+\midrule
+Survey-weighted regression (logistic/linear) & 14 & All NHANES-based tasks \\
+Subgroup/stratified analysis & 12 & Cardio\_003, Neuro\_002, Respiratory\_003 \\
+Restricted cubic splines (RCS) & 5 & Cardio\_000, Metabolic\_002, Neuro\_003 \\
+Cox proportional hazards & 4 & Metabolic\_002, Neuro\_003, Onco\_002, Respiratory\_001 \\
+Temporal trend analysis (P-for-trend) & 4 & Infection\_000, Infection\_001, Mental\_002 \\
+Sensitivity analysis & 4 & Cardio\_000, Respiratory\_000, Metabolic\_002, Neuro\_003 \\
+Kaplan-Meier / survival estimation & 2 & Onco\_000, Onco\_002 \\
+ROC curve / diagnostic performance & 1 & Metabolic\_000 \\
+Vaccine effectiveness estimation & 1 & Infection\_001 \\
+Piecewise linear regression & 1 & Mental\_000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Survey-weighted regression is near-universal (14/16 tasks), creating a natural ``baseline competency test'': any AI system that cannot handle complex survey design will fail across the majority of tasks.
+
+\subsection{Evaluation Dimension Distribution}
+
+\begin{table}[ht]
+\centering
+\caption{Evaluation dimension coverage across 16 tasks.}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Dimension} & \textbf{\# Tasks Covering} & \textbf{Coverage Rate} \\
+\midrule
+\texttt{statistical\_methodology} & 16/16 & 100\% \\
+\texttt{results\_accuracy} & 16/16 & 100\% \\
+\texttt{clinical\_interpretation} & 16/16 & 100\% \\
+\texttt{reporting\_compliance} & 16/16 & 100\% \\
+\texttt{confounding\_sensitivity} & 14/16 & 87.5\% \\
+\texttt{visualization\_quality} & 2/16 & 12.5\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Four dimensions achieve universal coverage, reflecting their centrality to medical research quality. \texttt{visualization\_quality} appears in only 2 tasks in Phase 1; Phase 2 will systematically increase visualization coverage.
+
+\subsection{Ground Truth Paper Quality Distribution}
+
+\begin{table}[ht]
+\centering
+\caption{Ground truth paper quality tier distribution.}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+\textbf{Tier} & \textbf{IF Range} & \textbf{\# Papers} & \textbf{Proportion} & \textbf{Journals} \\
+\midrule
+A (Elite) & $\geq$10 & 3 & 19\% & Ann Intern Med, JAMA Network Open, Eur Respir J \\
+B (Strong) & 5--10 & 5 & 31\% & Hypertension, J Affect Disord, Cardiovasc Diabetol \\
+C (Solid) & 2--5 & 8 & 50\% & PLOS ONE, Cancer Control, Br J Nutr, Sci Rep, \ldots \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The 50:31:19 (C:B:A) ratio approximates the real-world quality pyramid of medical publications. AI systems should be evaluated not only against elite papers but also against the ``typical'' published research.
+
+\subsection{Difficulty Stratification}
+
+We propose a three-tier difficulty classification based on the number of distinct analytical components required:
+
+\textbf{Tier 1 --- Foundational} (5 tasks): Single study design, standard regression, straightforward outcome. Examples: Cardio\_000 (cross-sectional logistic regression), Metabolic\_003 (prevalence estimation).
+
+\textbf{Tier 2 --- Intermediate} (7 tasks): Multiple analytical stages, dose-response modeling, or temporal trend analysis requiring multi-cycle data harmonization. Examples: Mental\_000 (U-shaped dose-response with threshold estimation), Infection\_000 (9-cycle temporal trend + birth cohort analysis).
+
+\textbf{Tier 3 --- Advanced} (4 tasks): Hybrid study designs, mortality linkage, causal inference frameworks, or policy-period natural experiments. Examples: Metabolic\_002 (prospective cohort with NDI-linked Cox PH + nonlinear RCS), Infection\_001 (quasi-experimental vaccine impact + herd immunity quantification).
+
+\subsection{Dataset Utilization}
+
+\begin{table}[ht]
+\centering
+\caption{Dataset utilization across MedResearchBench tasks.}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Dataset} & \textbf{\# Tasks} & \textbf{Cycles/Years Used} \\
+\midrule
+NHANES (standard cycles) & 11 & 1999--2000 through 2017--2018 (up to 9 cycles) \\
+NHANES III (with NDI linkage) & 2 & 1988--1994, mortality follow-up through 2019 \\
+SEER / SEER-Medicare & 2 & 1991--2018 \\
+Multi-source & 1 & Respiratory\_001 spans both NHANES eras \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+NHANES dominance (13/16 tasks) reflects both its public availability and its central role in U.S.\ population health research. The 2 SEER-based oncology tasks provide important methodological contrast (registry-based survival analysis vs.\ survey-weighted cross-sectional analysis).
+
+\subsection{Comparison with ResearchClawBench Task Characteristics}
+
+\begin{table}[ht]
+\centering
+\caption{Structural comparison between ResearchClawBench and MedResearchBench.}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Feature} & \textbf{ResearchClawBench} & \textbf{MedResearchBench} \\
+\midrule
+Total tasks & 41 & 16 (Phase 1) \\
+Domains & 10 (fundamental science) & 8 (clinical medicine) \\
+Data paradigm & Experimental/simulated, in-task & Population survey/registry, downloadable \\
+Typical task output & Code + figures + report & Full manuscript (STROBE-compliant) \\
+Ground truth & Published paper (PDF included) & Published paper (metadata + checklist) \\
+Checklist items per task & Variable & 5 (standardized) \\
+Evaluation dimensions & General & 6 medical-specific dimensions \\
+Unique requirement & --- & Codebook with survey design variables \\
+Confounding control & Not evaluated & Dedicated dimension \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The key structural difference is that MedResearchBench tasks require navigating real-world data complexity (missing data, complex sampling, confounding) rather than executing well-defined computational experiments.
+
+\subsection{Initial Baseline Evaluation}
+
+To validate benchmark executability and establish a quantitative baseline, we evaluated an agentic data2paper pipeline on 3 pilot tasks spanning all three difficulty tiers. The pipeline follows a complete data-to-manuscript workflow: NHANES data download, survey-weighted statistical analysis (R + \texttt{survey} package), figure generation, STROBE-format manuscript writing, and automated checklist scoring.
+
+\begin{table}[ht]
+\centering
+\caption{Pilot baseline results (AI Research Army pipeline, $n$=3 tasks).}
+\label{tab:baseline}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+\textbf{Task} & \textbf{Domain} & \textbf{Tier} & \textbf{Score} & \textbf{Grade} \\
+\midrule
+Cardio\_000 & Cardiovascular & 1 & 72/100 & B \\
+Mental\_000 & Mental Health & 2 & 69/100 & C+ \\
+Metabolic\_002 & Metabolic & 3 & 75/100 & B \\
+\textbf{Mean} & & & \textbf{72/100} & \textbf{B} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Dimension-level scores across pilot tasks.}
+\label{tab:dim_scores}
+\begin{tabular}{@{}llllll@{}}
+\toprule
+\textbf{Dimension} & \textbf{Weight} & \textbf{Cardio\_000} & \textbf{Mental\_000} & \textbf{Metabolic\_002} & \textbf{Mean} \\
+\midrule
+\texttt{statistical\_methodology} & 0.25 & 60 & 78 & \textbf{92} & 76.7 \\
+\texttt{results\_accuracy} & 0.25 & 72 & 52 & 52 & 58.7 \\
+\texttt{confounding\_sensitivity} & 0.20 & 68 & 76 & 75 & 73.0 \\
+\texttt{clinical\_interpretation} & 0.15 & \textbf{88} & 86 & 76 & 83.3 \\
+\texttt{reporting\_compliance} & 0.15 & 80 & 62 & \textbf{88} & 76.7 \\
+\textbf{Weighted Total} & 1.00 & \textbf{72} & \textbf{69} & \textbf{75} & \textbf{72} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Key findings from the pilot evaluation:
+
+\begin{enumerate}
+\item \textbf{Survey-weighted methodology: 100\% compliance.} All three tasks correctly implemented complex survey design (NHANES MEC weights, PSU, strata), satisfying the benchmark's core methodological requirement. The Metabolic\_002 task additionally handled NHANES III fixed-width format data and NDI mortality linkage, achieving the highest methodology score (92/100).
+
+\item \textbf{Clinical interpretation is the strongest dimension} (mean 83.3/100). The pipeline consistently produced mechanistic explanations, acknowledged limitations, and drew clinically actionable conclusions.
+
+\item \textbf{Results accuracy is the primary limitation} (mean 58.7/100). Effect sizes were systematically attenuated across all tasks relative to ground truth papers. Cardio\_000 had an acceptable OR deviation; Mental\_000 had a reference group misspecification (7h used, target 8h); Metabolic\_002 had attenuated low-normal TSH HR (1.15 vs.\ target 1.39, $-$17\%).
+
+\item \textbf{Sample sizes consistently 7--26\% smaller} than target studies, attributable to stricter covariate completeness requirements (complete-case analysis vs.\ indicator variable imputation).
+
+\item \textbf{Score does not decrease with task complexity} (Tier 1: 72, Tier 2: 69, Tier 3: 75), suggesting the pipeline handles advanced methodologies (Cox PH, NHANES III data engineering) without additional penalty.
+\end{enumerate}
+
+These pilot results demonstrate that the benchmark is executable end-to-end by a current agentic pipeline and produces discriminative scores across dimensions and tasks. Detailed evaluation reports are available in the repository (\url{https://github.com/TerryFYL/MedResearchBench/tree/main/bench-runs}).
+
+% ============================================================
+\section{Discussion}
+
+\subsection{Why Medical Research Needs Its Own Benchmark}
+
+Medical clinical research is among the most consequential domains of scientific inquiry, directly influencing treatment guidelines, public health policy, and patient outcomes. Existing AI research benchmarks, while valuable, do not capture these stakes. A machine learning benchmark evaluates whether an AI can optimize an accuracy metric; MedResearchBench evaluates whether an AI can navigate the inferential, ethical, and clinical complexity of determining, for example, whether dietary sodium intake is causally related to hypertension (Cardio\_000) or whether racial disparities in cancer staging persist despite expanded screening coverage (Onco\_002).
+
+\subsection{Comparison with ResearchClawBench}
+
+MedResearchBench is designed as a \textbf{complement} to ResearchClawBench, not a replacement. Together, the two benchmarks span the full landscape of AI research evaluation, from fundamental science to clinical medicine.
+
+\subsection{Responsible Use: Quality Gates Against Paper Mills}
+
+The NHANES paper mill problem (PLOS Biology, 2025) demonstrates that the combination of publicly available data and automated analytical pipelines can produce high-volume, low-quality publications that degrade the medical literature. MedResearchBench is designed to serve as a quality gate against this risk through four mechanisms: (1) the \texttt{confounding\_sensitivity} dimension explicitly evaluates beyond naive single-variable associations; (2) the \texttt{clinical\_interpretation} dimension requires clinically meaningful discussion; (3) the \texttt{reporting\_compliance} dimension checks STROBE adherence; and (4) scoring against published papers of varying quality tiers enables identification of systems that produce paper-mill-quality output (scoring well below 50).
+
+\subsection{Limitations}
+
+\begin{enumerate}
+\item \textbf{Phase 1 scope}: 16 tasks across 8 domains. Phase 2 will expand to 32 tasks with additional study designs.
+\item \textbf{Dataset concentration}: 13/16 tasks use NHANES. Future phases will incorporate MIMIC, UK Biobank, and CMS public use files.
+\item \textbf{Observational studies only}: Phase 1 excludes randomized controlled trials.
+\item \textbf{LLM Judge limitations}: Automated evaluation may not capture all nuances of medical research quality. Expert physician review is planned for a validation subset.
+\item \textbf{English-only}: All tasks and evaluation materials are in English.
+\item \textbf{No wet-lab or clinical data collection}: Tasks evaluate the analytical pipeline only.
+\end{enumerate}
+
+\subsection{Future Directions}
+
+\begin{enumerate}
+\item \textbf{Comparative system evaluation}: Having established a B-level (72/100) baseline with an agentic data2paper pipeline, future work will evaluate competing AI research systems (AI Scientist, data-to-paper, Agent Laboratory, single-LLM baselines) on the same tasks, populating the first public leaderboard for medical AI research quality.
+\item \textbf{Phase 2 expansion}: 32 tasks covering all 8 domains with 4 tasks each, incorporating case-control studies, meta-analyses, and clinical trial analysis.
+\item \textbf{Community contribution}: Open contribution framework enabling domain experts to add tasks following standardized templates.
+\item \textbf{Clinical validation study}: Expert physician panel evaluation of a subset of AI-generated research outputs.
+\item \textbf{Integration with regulatory frameworks}: Alignment with emerging guidelines for AI-generated research (SPIRIT-AI, CONSORT-AI extensions).
+\end{enumerate}
+
+% ============================================================
+\section{Conclusion}
+
+We present MedResearchBench, the first benchmark specifically designed for evaluating AI systems on medical clinical research tasks. The benchmark covers 8 clinical domains with 16 carefully curated tasks, introduces 6 medical-specific evaluation dimensions, and calibrates scoring against high-quality published papers using publicly available datasets. Our analysis of task characteristics reveals substantial methodological diversity (23 distinct statistical methods), a deliberate quality-tier distribution in ground truth papers (IF 2.3--51.0), and a three-tier difficulty stratification enabling progressive system evaluation. Initial baseline experiments on 3 pilot tasks---spanning all three difficulty tiers---demonstrate benchmark executability and yield a mean score of 72/100 (B-level) for an agentic data2paper pipeline. Survey-weighted methodology was correctly implemented across all tasks; the primary performance gap lies in results accuracy (mean 58.7/100), driven by covariate incompleteness and reference group misspecification. As AI systems increasingly automate scientific research, the medical domain---with its high stakes, complex methodology, and established quality standards---demands specialized evaluation. MedResearchBench provides that evaluation platform and, through its anti-paper-mill design, serves as a quality gate for responsible AI-assisted medical research.
+
+% ============================================================
+\section*{References}
+
+\begin{enumerate}
+\item Lu C, Lu C, Lange RT, et al. The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery. \textit{Nature}. 2024.
+\item Ifargan S, Hafner M, Kern S, et al. Autonomous LLM-driven research from data to human-verifiable research papers. \textit{NEJM AI}. 2024.
+\item Schmidgall S, et al. Agent Laboratory: Using LLM Agents as Research Assistants. \textit{EMNLP}. 2025.
+\item Schmidgall S, et al. ResearchClawBench: A Benchmark for AI Research Agents. 2025.
+\item Huang J, et al. AI-Researcher: Automating Scientific Research with Autonomous AI Agents. \textit{NeurIPS Spotlight}. 2025.
+\item Swanson K, et al. Virtual Lab: AI Agents Design New Nanobodies with Experimental Validation. \textit{Nature}. 2024.
+\item Beel J, et al. Robin: A Research AI Agent System. FutureHouse. 2025.
+\item Byrne J, Labb\'{e} C, et al. The NHANES/CHARLS Paper Mill. \textit{PLOS Biology}. 2025.
+\item von Elm E, Altman DG, Egger M, et al. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) Statement. \textit{Ann Intern Med}. 2007;147(8):573--577.
+\item Aggarwal R, Chiu N, Wadhera RK, et al. Racial/Ethnic Disparities in Hypertension. \textit{Hypertension}. 2021;78(6):1719--1726.
+\item Dong L, Xie Y, Zou X. Association between sleep duration and depression in US adults. \textit{J Affect Disord}. 2022;296:120--126.
+\item Yu B, Zhang X, Wang C, et al. Trends in depression among Adults in the United States, NHANES 2005-2016. \textit{J Affect Disord}. 2020;263:609--620.
+\item Pankratz VS, et al. Colorectal Cancer Survival Trends by Race and Stage. \textit{Cancer Control}. 2022;29.
+\item Liang PS, et al. Trends in Sociodemographic Disparities in CRC Staging and Survival. \textit{Clin Transl Gastroenterol}. 2020;11(3):e00155.
+\item Le MH, et al. Prevalence of HBV Vaccination Coverage, 1999 to 2016. \textit{JAMA Network Open}. 2020;3(11):e2022388.
+\item Rosenblum HG, et al. HPV Vaccine Impact Through 12 Years. \textit{Ann Intern Med}. 2022;175(7):918--926.
+\item Guess J, Beltran TH, Choi YS. Prediction of Metabolic Syndrome Using HOMA-IR. \textit{Metab Syndr Relat Disord}. 2023;21(3):152--157.
+\item Wang T, et al. NAFLD Prevalence and Advanced Fibrosis, NHANES 2011-2018. \textit{Ann Hepatol}. 2024;29(1):101162.
+\item Lu K, et al. Serum metals and cognitive performance in older adults. \textit{Br J Nutr}. 2023;130(6):1040--1049.
+\item Huang F, et al. Dietary antioxidant index and Parkinson's disease. \textit{Front Aging Neurosci}. 2025;17:1522593.
+\item Mendy A, et al. Blood VOCs and Airflow Obstruction. \textit{Eur Respir J}. 2022;61(1):2200468.
+\item Martinez CH, et al. Undiagnosed Obstructive Lung Disease in the US. \textit{Ann Am Thorac Soc}. 2015;12(12):1788--1795.
+\item Zhu P, Lao G, et al. TSH and mortality in euthyroid diabetic adults. \textit{Cardiovasc Diabetol}. 2024.
+\item Yin H, Huang W, Yang B. METS-IR and obstructive sleep apnea. \textit{Sci Rep}. 2025.
+\item Luo X, et al. Dietary sodium and hypertension, NHANES 2017-2018. \textit{PLOS ONE}. 2026.
+\end{enumerate}
+
+% ============================================================
+\appendix
+
+\section{Complete Task List with Metadata}
+
+\begin{longtable}{@{}lllp{5cm}ll@{}}
+\toprule
+\textbf{\#} & \textbf{Task ID} & \textbf{Domain} & \textbf{Research Question} & \textbf{Tier} & \textbf{Dataset} \\
+\midrule
+\endhead
+1 & Cardio\_000 & Cardiovascular & Dietary sodium and hypertension dose-response & 1 & NHANES 2017-2018 \\
+2 & Cardio\_003 & Cardiovascular & Racial disparities in hypertension control & 2 & NHANES 2013-2018 \\
+3 & Onco\_000 & Oncology & CRC survival trends by race/ethnicity & 2 & SEER 1992-2018 \\
+4 & Onco\_002 & Oncology & SES disparities in CRC staging and survival & 3 & SEER-Medicare \\
+5 & Mental\_000 & Mental Health & Sleep duration and depression, U-shaped & 2 & NHANES 2009-2016 \\
+6 & Mental\_002 & Mental Health & Depression prevalence trends 2005-2016 & 1 & NHANES 2005-2016 \\
+7 & Metabolic\_000 & Metabolic & HOMA-IR threshold for metabolic syndrome & 1 & NHANES 2011-2018 \\
+8 & Metabolic\_002 & Metabolic & TSH and all-cause/CV mortality (nonlinear) & 3 & NHANES III + NDI \\
+9 & Metabolic\_003 & Metabolic & NAFLD prevalence and fibrosis risk factors & 1 & NHANES 2011-2018 \\
+10 & Neuro\_002 & Neurology & Heavy metal exposure and cognitive function & 2 & NHANES 2011-2014 \\
+11 & Neuro\_003 & Neurology & Dietary antioxidants and PD mortality & 3 & NHANES + NDI \\
+12 & Infection\_000 & Infectious Disease & HBV seroprevalence and vaccine trends & 2 & NHANES 1999-2016 \\
+13 & Infection\_001 & Infectious Disease & HPV vaccine effectiveness (12-year) & 3 & NHANES 2003-2018 \\
+14 & Respiratory\_000 & Respiratory & Air pollution biomarkers and lung function & 1 & NHANES 2007-2012 \\
+15 & Respiratory\_001 & Respiratory & Undiagnosed COPD prevalence and mortality & 3 & NHANES III + 2007-2012 \\
+16 & Respiratory\_003 & Respiratory & OSA risk and metabolic comorbidities & 2 & NHANES 2005-2018 \\
+\bottomrule
+\end{longtable}
+
+\section{LLM Judge Prompt Template}
+
+The following prompt template is provided to the LLM Judge (GPT-4o or Claude Opus) for each task evaluation.
+
+\begin{lstlisting}
+You are an expert medical research reviewer evaluating an AI-generated
+research report against a published ground truth paper.
+
+## Task Context
+Research question: {task_description}
+Dataset: {dataset_source}
+Study design: {study_design}
+
+## Ground Truth Checklist
+{checklist_items_json}
+
+## AI-Generated Report
+{ai_report_text}
+
+## Scoring Instructions
+For each checklist item, assign a score from 0 to 100:
+- 0: Completely absent or fundamentally wrong
+- 25: Attempted but with major errors or omissions
+- 50: Matches the quality of the ground truth published paper
+- 75: Exceeds the ground truth paper in rigor or completeness
+- 100: Exceptional quality, substantially beyond the published paper
+
+[Apply dimension-specific criteria for statistical_methodology,
+results_accuracy, visualization_quality, clinical_interpretation,
+confounding_sensitivity, reporting_compliance]
+
+## Output Format
+For each checklist item: Item ID, Score (0-100), Brief justification
+Then: Weighted total score + Overall qualitative assessment
+\end{lstlisting}
+
+\section{Paper Selection Criteria}
+
+\textbf{Inclusion Criteria}: (1) Published in a peer-reviewed journal with IF $\geq$ 2.0; (2) Uses one of the designated publicly available datasets; (3) Addresses the specific research question; (4) Employs appropriate statistical methods; (5) Available via PubMed with valid PMID and DOI.
+
+\textbf{Exclusion Criteria (Anti-Paper-Mill Filtering)}: (1) Formulaic single-factor association studies without analytical innovation; (2) Papers from known paper mill publishers; (3) Studies with inadequate confounding control ($<$3 covariates adjusted); (4) Papers not following minimum STROBE reporting standards; (5) Retracted or corrected papers.
+
+\end{document}

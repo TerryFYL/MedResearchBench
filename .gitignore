@@ -27,3 +27,19 @@ bench-runs/progress.md
 # R artifacts
 *.Rhistory
 *.RData
+
+# LaTeX build artifacts
+paper/arxiv/*.aux
+paper/arxiv/*.log
+paper/arxiv/*.out
+paper/arxiv/*.toc
+paper/arxiv/*.fls
+paper/arxiv/*.fdb_latexmk
+
+# Other local files
+E:/
+bench-runs/E:/
+bench-runs/*/E:/
+paper/arxiv/E:/
+evaluation/
+OSA_NHANES_paper_search_report.md
